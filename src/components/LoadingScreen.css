@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'Stage Wanders';
+  src: url('../assets/fonts/Stage Wanders.woff2') format('woff2'),
+       url('../assets/fonts/Stage Wanders.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  transform-origin: center center;
+}
+
+.loading-screen.zoom-in {
+  animation: netflixZoom 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes netflixZoom {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.loading-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Loading indicator container */
+.loading-indicator {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 0 2.5%;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeInCounter 0.4s ease-out 0.2s forwards;
+}
+
+/* Counter in bottom right above bar */
+.counter-bottom-right {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  font-family: 'Stage Wanders', sans-serif;
+  letter-spacing: 0.15em;
+}
+
+/* Progress bar below counter - 95% width */
+.progress-bar-container {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar {
+  height: 100%;
+  background: #fff;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInCounter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo animation */
+.logo-animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInLogo 0.4s ease-out forwards;
+  transform-origin: center center;
+}
+
+@keyframes fadeInLogo {
+  to {
+    opacity: 1;
+  }
+}
+
+.logo-animation-container.zooming {
+  animation: logoZoom 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes logoZoom {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+.main-logo {
+  width: 300px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+  animation: fadeInLogo 0.6s ease-out forwards;
+  display: block;
+}
+
+.main-logo svg {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .main-logo {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-logo {
+    width: 150px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loading-indicator {
+    bottom: 60px;
+    padding: 0 5%;
+  }
+
+  .counter-bottom-right {
+    font-size: 20px;
+  }
+  
+  .logo-animation-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-indicator {
+    bottom: 40px;
+    padding: 0 7.5%;
+  }
+
+  .counter-bottom-right {
+    font-size: 18px;
+  }
+}

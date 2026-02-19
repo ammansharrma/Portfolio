@@ -1,0 +1,48 @@
+.white-bubble-container {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.white-bubble-container.visible {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .white-bubble-container {
+    display: none;
+  }
+}
+
+.white-bubble {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  top: -400px;
+  left: -400px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  filter: blur(35px);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .white-bubble {
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    left: -250px;
+  }
+}

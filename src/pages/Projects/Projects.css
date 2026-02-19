@@ -1,0 +1,364 @@
+.projects-page {
+  padding: clamp(100px, 9vw, 140px) clamp(30px, 3.97vw, 60px) clamp(50px, 5vw, 80px) !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  position: sticky !important;
+  top: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  background: #000316 !important;
+  border-radius: 0 0 50px 50px !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 10 !important;
+  transition: filter 0.3s ease;
+  isolation: isolate;
+}
+
+/* Texture Layer */
+.projects-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  background-repeat: repeat;
+  background-size: 200px;
+  opacity: 0.15; /* Reduced for readability */
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+}
+
+.projects-page:has(.project-card:hover) {
+  filter: blur(0);
+}
+
+/* Calmer Focus State */
+.projects-page:has(.project-card:hover) > *:not(.projects-grid) {
+  filter: blur(2px); /* Reduced from 4px */
+  opacity: 0.8; /* Increased from 0.6 */
+  transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1); /* Slower ease */
+  transition-delay: 0.05s; /* Micro-delay to prevent flicker */
+}
+
+@media (max-width: 1024px) {
+  .projects-page {
+    position: relative !important;
+  }
+
+  .projects-page:has(.project-card:hover) > *:not(.projects-grid) {
+    filter: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.projects-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(40px, 4vw, 80px);
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+  gap: clamp(8px, 1vw, 12px);
+}
+
+.projects-title {
+  font-size: clamp(24px, 2.12vw, 32px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.projects-subtitle {
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  margin: 0;
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: clamp(20px, 2vw, 30px);
+  padding: clamp(8px, 1vw, 12px) 0;
+}
+
+.projects-link {
+  font-size: clamp(14px, 1.1vw, 16px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-family: inherit;
+}
+
+.projects-link:hover {
+  color: #FFFFFF;
+  transform: translateX(4px);
+}
+
+.archive-button-arrow {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+  transform: rotate(-135deg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-link:hover .archive-button-arrow {
+  opacity: 1;
+  transform: rotate(-90deg);
+}
+
+.view-more {
+  position: absolute;
+  right: 0;
+  font-size: clamp(12px, 0.99vw, 15px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #8B8B8B;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.view-more:hover {
+  color: #FFFFFF;
+  transform: translateX(5px);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 370px));
+  gap: clamp(25px, 3vw, 50px);
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: start;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: filter 0.3s ease;
+}
+
+/* Calmer Grid Sibling State */
+.projects-grid:has(.project-card:hover) .project-card:not(:hover) {
+  filter: blur(1.5px); /* Reduced from 4px to maintain legibility */
+  opacity: 0.7; /* Increased from 0.4 */
+  transform: scale(0.98); /* Slight recession instead of just fade */
+  transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  z-index: 2;
+  filter: blur(0) !important;
+  opacity: 1 !important;
+}
+
+.project-card:hover .project-image {
+  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+}
+
+.project-image {
+  width: 100%;
+  height: clamp(300px, 35vw, 585px);
+  background: #D9D9D9;
+  border-radius: clamp(16px, 1.59vw, 24px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-footer {
+  margin-top: clamp(12px, 1.2vw, 20px);
+  margin-bottom: clamp(12px, 1.2vw, 20px);
+  padding: 0 clamp(5px, 0.66vw, 10px);
+}
+
+.project-name {
+  font-size: clamp(16px, 1.32vw, 20px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: #FFFFFF;
+  margin: 0 0 clamp(6px, 0.8vw, 10px) 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-intent {
+  font-size: clamp(13px, 1.05vw, 15px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-intent {
+  opacity: 1;
+}
+
+.project-name .arrow-icon {
+  width: clamp(14px, 1.2vw, 18px);
+  height: clamp(14px, 1.2vw, 18px);
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .arrow-icon {
+  transform: rotate(45deg);
+}
+
+.scroll-indicators {
+  position: absolute;
+  bottom: clamp(20px, 2.65vw, 40px);
+  right: clamp(20px, 2.65vw, 40px);
+  display: flex;
+  gap: clamp(5px, 0.66vw, 10px);
+  z-index: 10;
+}
+
+.scroll-btn {
+  width: clamp(28.8px, 2.47vw, 37.4px);
+  height: clamp(28.8px, 2.47vw, 37.4px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 1);
+  color: #FFFFFF;
+  font-size: clamp(20px, 1.59vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 1400px) {
+  .projects-page {
+    padding: clamp(80px, 8vw, 120px) clamp(25px, 3vw, 50px) clamp(40px, 4.5vw, 70px);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: clamp(18px, 2.5vw, 35px);
+  }
+
+  .project-image {
+    height: clamp(280px, 32vw, 450px);
+  }
+
+  .projects-header {
+    margin-bottom: clamp(30px, 3.5vw, 60px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .projects-page {
+    padding: clamp(70px, 9vw, 110px) clamp(20px, 3.5vw, 40px) clamp(35px, 4vw, 60px);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: clamp(20px, 3.5vw, 45px);
+  }
+
+  .project-image {
+    height: clamp(320px, 45vw, 480px);
+  }
+
+  .projects-header {
+    margin-bottom: clamp(25px, 3.5vw, 50px);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding: clamp(60px, 10vw, 90px) clamp(15px, 3vw, 25px) clamp(30px, 4vw, 45px);
+  }
+
+  .projects-header {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .view-more {
+    position: static;
+    font-size: 13px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .project-image {
+    height: clamp(280px, 60vw, 420px);
+  }
+
+  .projects-title {
+    font-size: clamp(22px, 5vw, 28px);
+  }
+
+  .project-name {
+    font-size: clamp(15px, 3.5vw, 18px);
+  }
+
+  .scroll-indicators {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .scroll-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-page {
+    padding: 60px 15px 25px;
+  }
+
+  .projects-grid {
+    gap: 20px;
+  }
+
+  .project-image {
+    height: clamp(250px, 70vw, 350px);
+  }
+
+  .projects-title {
+    font-size: 22px;
+  }
+
+  .project-name {
+    font-size: 15px;
+  }
+
+  .project-footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

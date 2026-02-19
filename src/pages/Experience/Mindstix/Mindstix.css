@@ -1,0 +1,488 @@
+:root {
+  --nebula-bg: #000316;
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --glow-color: rgba(66, 133, 244, 0.15);
+  --accent-blue: #4285F4;
+}
+
+.mindstix-page {
+  background-color: var(--nebula-bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.mindstix-container {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Removed fadeIn for immediate interactivity */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Texture Layer */
+.nebula-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 1;
+  transform: translateZ(0); /* Hardware accelerate the texture movement */
+}
+
+/* Header Styles */
+.mindstix-header {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.duration {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}
+
+.company-name {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.role-title {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.brief-summary {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.company-link {
+  display: inline-flex;
+  align-items: center;
+  /* gap: 0.5rem; */
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.company-link:hover {
+  transform: translateX(3px);
+}
+
+.header-underline {
+  margin-top: 2rem;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), transparent);
+  opacity: 0.3;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+.bento-card {
+  background: rgba(255, 255, 255, 0.07); /* Slightly increased opacity to replace blur */
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  padding: 1.75rem 1.75rem 5.5rem 1.75rem;
+  /* Removed backdrop-filter for performance */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  content-visibility: auto; /* Allow browser to skip off-screen rendering */
+  contain-intrinsic-size: auto 200px;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(66, 133, 244, 0.05);
+}
+
+.overview {
+  grid-column: span 2;
+}
+
+.roles {
+  grid-column: span 1;
+}
+
+.card-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Overview Section */
+.overview .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.overview .card-content p {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  max-width: 90%;
+}
+
+.domain-tags {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--card-border);
+}
+
+/* Roles Section */
+.responsibility-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.responsibility-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.responsibility-list li svg {
+  color: var(--accent-blue);
+  opacity: 0.8;
+}
+
+/* Project Card Styles */
+.project-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.project-domain {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.project-summary {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.challenge-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.project-challenge p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+  font-style: italic;
+}
+
+.project-footer {
+  margin-top: auto;
+  min-height: 56px;
+}
+
+/* Scroll Motion Strip Integration */
+.skill-motion-strip {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  height: 56px;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /* Simplify masking for performance */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  pointer-events: auto;
+  z-index: 20;
+  transform: translateY(10px);
+}
+
+.project-card:hover .skill-motion-strip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-motion-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 100%;
+  width: max-content;
+  padding: 0 1.5rem;
+  animation: scrollLeft 25s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.project-card:hover .skill-motion-track {
+  animation-play-state: running;
+}
+
+.skill-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.skill-badge-logo {
+  height: 16px;
+  width: 16px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.skill-badge-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Growth Section */
+.growth {
+  grid-column: span 3;
+}
+
+.growth-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+}
+
+.growth-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+}
+
+.growth-points li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+.external-link-arrow {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
+  transform: rotate(0deg); /* TopRightArrow is already Top-Right */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.company-link:hover .external-link-arrow,
+.growth-points li:hover .external-link-arrow {
+  transform: scale(1.1) rotate(45deg); /* Points Right on hover */
+}
+
+
+/* Decorative Glows */
+.nebula-glow {
+  position: fixed; /* Fixed prevents repaints on scroll */
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.4; /* Slightly reduced for subtlety */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.glow-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--glow-color);
+  top: -100px;
+  right: -100px;
+}
+
+.glow-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(138, 43, 226, 0.05);
+  bottom: 0;
+  left: -100px;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .overview, .roles, .growth {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .mindstix-page {
+    padding: 2rem 1rem;
+    align-items: flex-start;
+  }
+  
+  .bento-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .overview, .roles, .growth {
+    grid-column: span 1;
+  }
+  
+  .responsibility-list, .growth-points {
+    grid-template-columns: 1fr;
+  }
+  
+  .company-name {
+    font-size: 2.5rem;
+  }
+
+  /* Disable expensive effects on mobile */
+  .nebula-glow {
+    display: none;
+  }
+  
+  .bento-card {
+    background: rgba(255, 255, 255, 0.05);
+    transform: none !important;
+  }
+}
+
+/* Desktop Refinement */
+
+@media (min-width: 1025px) {
+  .mindstix-page {
+    padding: 6rem 3rem;
+    height: auto;
+  }
+
+  .mindstix-container {
+    height: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .bento-grid {
+    padding-right: 0;
+  }
+}

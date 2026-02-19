@@ -1,0 +1,72 @@
+.custom-cursor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  position: fixed;
+  top: -6px;
+  left: -6px;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: width 0.2s ease, height 0.2s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+body {
+  cursor: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select,
+.clickable,
+.scroll-btn {
+  cursor: none !important;
+}
+
+/* Hide custom cursor for text content to ensure system text-selection cursor is visible and precise */
+p, h1, h2, h3, h4, h5, h6, span, input, textarea {
+  cursor: text !important;
+}
+
+/* When hovering text, hide the orb so it doesn't obstruct reading/selecting */
+p:hover ~ .custom-cursor,
+h1:hover ~ .custom-cursor,
+h2:hover ~ .custom-cursor,
+h3:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Enlarge cursor on hover over interactive elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+.clickable:hover ~ .custom-cursor {
+  width: 24px;
+  height: 24px;
+  top: -12px;
+  left: -12px;
+}
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  * {
+    cursor: auto !important;
+  }
+}

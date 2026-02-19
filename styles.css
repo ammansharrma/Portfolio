@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #1c1c1c;
+  color: #FFFFFF;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions for all interactive elements */
+a,
+button,
+input,
+textarea,
+select {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimize rendering performance */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Removed scroll snap to allow smooth overlay effect */
+
+.container {
+  max-width: 1512px;
+  width: 100%;
+  min-height: 982px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.hero-description {
+  font-size: 20px;
+  font-weight: 400;
+  color: #C9C9C9;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.5;
+}
+
+.cta-button {
+  background: rgba(217, 217, 217, 0.3);
+  border: 1px solid #FFFFFF;
+  border-radius: 65px;
+  padding: 6px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+}
+
+.cta-button:hover {
+  background: rgba(217, 217, 217, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.cta-button span:first-child {
+  padding: 0 10px;
+}
+
+.button-icon {
+  width: 48px;
+  height: 48px;
+  background: #D9D9D9;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover .button-icon {
+  transform: rotate(90deg);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 19px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.social-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: #FFFFFF;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-width: 245px;
+  backdrop-filter: blur(10px);
+}
+
+.social-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+}
+
+.social-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: -0.03em;
+  line-height: 1.33;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-card:hover .social-icon {
+  transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.copyright {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.time {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .social-text {
+    font-size: 24px;
+  }
+
+  .time {
+    font-size: 32px;
+  }
+}
