@@ -33,7 +33,7 @@
 
 @media (max-width: 1024px) {
   .about-page {
-    margin-top: 0 !important;
+    /* margin-top: 100vh; is now inherited from the main definition */
   }
 }
 

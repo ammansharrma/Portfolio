@@ -47,7 +47,7 @@
 
 @media (max-width: 1024px) {
   .projects-page {
-    position: relative !important;
+    /* position: sticky; is now inherited from the main definition */
   }
 
   .projects-page:has(.project-card:hover) > *:not(.projects-grid) {

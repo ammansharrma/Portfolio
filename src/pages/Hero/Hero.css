@@ -27,9 +27,10 @@
   mix-blend-mode: overlay; /* Better integration */
 }
 
+/* Parallax effect maintained on all screen sizes */
 @media (max-width: 1024px) {
   .hero-page {
-    position: relative !important;
+    /* position: fixed; is now inherited from the main definition */
   }
 }
 
