@@ -2,14 +2,13 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
+  background: #FFFFFF;
   position: fixed;
   top: -6px;
   left: -6px;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  transition: width 0.2s ease, height 0.2s ease;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   will-change: transform;
   backface-visibility: hidden;
 }

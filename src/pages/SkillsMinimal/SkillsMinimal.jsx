@@ -1,4 +1,4 @@
-import { memo, useEffect, useState, useRef } from 'react'
+import { memo } from 'react'
 import './SkillsMinimal.css'
 
 // Import logos
@@ -15,6 +15,12 @@ import figmaLogo from '../../assets/Figma.webp'
 import gitLogo from '../../assets/git.webp'
 import githubLogo from '../../assets/GitHub.webp'
 import firebaseLogo from '../../assets/Firebase.webp'
+import cplusplusLogo from '../../assets/C++.webp'
+import davinciLogo from '../../assets/davinci Resolve.webp'
+import gitlabLogo from '../../assets/gitlab-svgrepo-com.webp'
+import matplotlibLogo from '../../assets/matplotlib.webp'
+import seabornLogo from '../../assets/seaborn.webp'
+import pythonLogo from '../../assets/Python.webp'
 
 const skillsData = [
   {
@@ -121,6 +127,12 @@ const globalTechBadges = [
   { logo: figmaLogo, text: 'Figma' },
   { logo: cssLogo, text: 'CSS' },
   { logo: firebaseLogo, text: 'Firebase' },
+  { logo: cplusplusLogo, text: 'C++' },
+  { logo: davinciLogo, text: 'DaVinci' },
+  { logo: gitlabLogo, text: 'GitLab' },
+  { logo: matplotlibLogo, text: 'Matplotlib' },
+  { logo: seabornLogo, text: 'Seaborn' },
+  { logo: pythonLogo, text: 'Python' },
   { logo: reactLogo, text: 'React' },
   { logo: jsLogo, text: 'JavaScript' },
   { logo: nodeLogo, text: 'Node.js' },
@@ -128,54 +140,20 @@ const globalTechBadges = [
   { logo: gitLogo, text: 'Git' },
   { logo: figmaLogo, text: 'Figma' },
   { logo: cssLogo, text: 'CSS' },
-  { logo: firebaseLogo, text: 'Firebase' }
+  { logo: firebaseLogo, text: 'Firebase' },
+  { logo: cplusplusLogo, text: 'C++' },
+  { logo: davinciLogo, text: 'DaVinci' },
+  { logo: gitlabLogo, text: 'GitLab' },
+  { logo: matplotlibLogo, text: 'Matplotlib' },
+  { logo: seabornLogo, text: 'Seaborn' },
+  { logo: pythonLogo, text: 'Python' }
 ]
 
 function SkillsMinimal() {
-  const [blurAmount, setBlurAmount] = useState(0)
-  const skillsRef = useRef(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!skillsRef.current) return
-
-      const rect = skillsRef.current.getBoundingClientRect()
-      const windowHeight = window.innerHeight
-      
-      // Calculate position relative to viewport
-      // rect.top is the distance from the top of the viewport
-      
-      // "Entering from bottom" (Moving Projects -> Skills)
-      // When rect.top is near windowHeight (just entering), we want Max Blur (10px)
-      // When rect.top is near 0 or 100 (fully visible), we want 0 Blur
-      
-      // Normalize position: 1 = at bottom, 0 = at top
-      const progress = Math.max(0, Math.min(1, rect.top / (windowHeight * 0.8)))
-      
-      // Apply blur based on this progress
-      // Progress 1 (bottom) -> Blur 10
-      // Progress 0 (top) -> Blur 0
-      setBlurAmount(progress * 10)
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    // Initial calculation
-    handleScroll()
-    
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <div 
       className="skills-minimal-page page-container" 
       id="skills-minimal" 
-      ref={skillsRef}
-      style={{ 
-        filter: blurAmount > 0 ? `blur(${blurAmount}px)` : 'none',
-        opacity: Math.max(0, 1 - blurAmount * 0.1), // Optional fade
-        transition: 'filter 0.1s linear, opacity 0.1s linear',
-        willChange: 'filter, opacity'
-      }}
     >
       <div className="skills-minimal-container">
         <div className="skills-minimal-header">
@@ -238,6 +216,8 @@ function SkillsMinimal() {
           </div>
         </div>
       </div>
+      
+      <div className="decorative-gradient"></div>
     </div>
   )
 }

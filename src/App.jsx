@@ -59,7 +59,7 @@ function App() {
                 <MainLogo />
               </div>
               <div className="logo-name">
-                {'amaan Ssanjay Sharrma'.split('').map((letter, index) => (
+                {'mman Sharrma'.split('').map((letter, index) => (
                   <span 
                     key={index} 
                     className="logo-letter"

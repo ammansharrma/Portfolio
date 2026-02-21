@@ -4,7 +4,6 @@ import InteractiveBubble from '../../components/InteractiveBubble'
 import NavArrow from '../../assets/Nav-Arrow.webp'
 import MonitorsTyping from '../../assets/GIFs/monitors-typing.gif'
 import BrainiacBrain from '../../assets/GIFs/brainiac-brain.gif'
-import Emo from '../../assets/GIFs/emo.gif'
 
 const originalText = '"I argue with language models for a living."'
 const newText = '"I\'m Joking. I can code too."'

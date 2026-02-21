@@ -8,7 +8,7 @@ import NavArrow from '../../assets/Nav-Arrow.webp';
 function Projects() {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
-  // Show first 3 projects (SharrmaGPT, Stock Predictor, Ideation)
+  // Show first 3 projects (VidhaanAI, Stock Predictor, Ideation)
   const displayedProjects = projectsData.projects.slice(0, 3);
 
   return (

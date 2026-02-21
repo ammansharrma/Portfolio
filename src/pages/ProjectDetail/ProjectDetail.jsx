@@ -107,15 +107,15 @@ function ProjectDetail() {
             {project.heroVideo && (
               <div className={`media-view video-view ${activeView === 'video' ? 'active' : ''}`}>
                 <video
+                  key={project.heroVideo}
                   className="project-video-full"
+                  src={project.heroVideo}
                   controls
                   loop
                   autoPlay
                   muted
                   playsInline
-                >
-                  <source src={project.heroVideo} type="video/mp4" />
-                </video>
+                />
               </div>
             )}
 
