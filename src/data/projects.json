@@ -6,12 +6,12 @@
       "shortDescription": "Production-grade LLM orchestration system with multi-agent workflows",
       "category": "featured",
       "stack": ["React", "Node.js", "OpenAI API", "Vector DB", "Redis"],
-      "heroVideo": "/src/assets/Mockups/vidhaanai/6466763-hd_1920_1080_30fps.mp4",
-      "thumbnail": "/src/assets/Mockups/vidhaanai/1.png",
+      "heroVideo": "Mockups/vidhaanai/6466763-hd_1920_1080_30fps.mp4",
+      "thumbnail": "Mockups/vidhaanai/1.png",
       "mockups": [
-        "/src/assets/Mockups/vidhaanai/2.png",
-        "/src/assets/Mockups/vidhaanai/3.png",
-        "/src/assets/Mockups/vidhaanai/4.png"
+        "Mockups/vidhaanai/2.png",
+        "Mockups/vidhaanai/3.png",
+        "Mockups/vidhaanai/4.png"
       ],
       "problem": "Traditional chatbots lack context retention and fail to handle complex, multi-step reasoning tasks. Users need intelligent systems that can maintain conversation state, retrieve relevant knowledge, and orchestrate multiple AI agents for specialized tasks.",
       "solution": "Built a production-grade LLM orchestration platform with hybrid retrieval (semantic + keyword), conversation memory management, and multi-agent coordination. Implemented streaming responses, rate limiting, and fallback strategies for reliability.",
@@ -43,10 +43,10 @@
       "shortDescription": "Time-series forecasting engine with LSTM and attention mechanisms",
       "category": "core",
       "stack": ["Python", "TensorFlow", "Google Colab"],
-      "heroVideo": "/videos/stock-predictor-demo.mp4",
-      "thumbnail": "/images/stock-predictor-thumb.webp",
+      "heroVideo": "videos/stock-predictor-demo.mp4",
+      "thumbnail": "images/stock-predictor-thumb.webp",
       "mockups": [
-        "/images/stock-predictor-mockup-1.webp"
+        "images/stock-predictor-mockup-1.webp"
       ],
       "problem": "Stock market prediction is notoriously difficult due to non-stationary data, noise, and complex temporal dependencies. Most models either overfit historical patterns or fail to capture long-term trends.",
       "solution": "Developed a hybrid forecasting system combining LSTM networks with attention mechanisms for temporal feature extraction. Integrated technical indicators, sentiment analysis from news APIs, and ensemble methods for robust predictions.",
@@ -81,11 +81,11 @@
     "Remix Icon",
     "Google Fonts (Montserrat)"
   ],
-  "heroVideo": "/src/assets/Mockups/product_designer/6466763-hd_1920_1080_30fps.mp4",
-  "thumbnail": "/src/assets/Mockups/product_designer/1.png",
+  "heroVideo": "Mockups/product_designer/6466763-hd_1920_1080_30fps.mp4",
+  "thumbnail": "Mockups/product_designer/1.png",
   "mockups": [
-    "/src/assets/Mockups/product_designer/2.png",
-    "/src/assets/Mockups/product_designer/3.png"
+    "Mockups/product_designer/2.png",
+    "Mockups/product_designer/3.png"
   ],
   "problem": "Traditional portfolio websites often feel static and fail to create a memorable first impression. Designers and developers need visually immersive experiences that communicate creativity, technical depth, and attention to detail through interaction and motion.",
   "solution": "Built a visually dynamic single-page portfolio template leveraging GSAP for advanced animation sequencing and Locomotive Scroll for smooth inertial scrolling. Implemented a custom cursor system, interactive hover-based image previews, and timeline-driven landing animations to deliver a premium, modern browsing experience.",
@@ -127,11 +127,11 @@
     "SCSS",
     "JavaScript (ES6+)"
   ],
-  "heroVideo": "/src/assets/Mockups/portfolio_v1/6466763-hd_1920_1080_30fps.mp4",
-  "thumbnail": "/images/portfolio-v2-thumb.webp",
+  "heroVideo": "Mockups/portfolio_v1/6466763-hd_1920_1080_30fps.mp4",
+  "thumbnail": "images/portfolio-v2-thumb.webp",
   "mockups": [
-    "/images/portfolio-v2-mockup-1.webp",
-    "/images/portfolio-v2-mockup-2.webp"
+    "images/portfolio-v2-mockup-1.webp",
+    "images/portfolio-v2-mockup-2.webp"
   ],
   "problem": "Traditional portfolio websites often lack scalability, structured data management, and performance optimization. Static pages limit content expansion and fail to provide deep-dive case studies or immersive user experiences for recruiters and hiring managers.",
   "solution": "Architected a scalable React application using Vite for fast builds and optimized performance. Implemented dynamic routing for project detail pages and dedicated experience deep-dives. Integrated lazy loading to reduce initial bundle size and improve load performance. Designed custom UI components including a custom cursor, loading screen, and animated visual effects to create a refined, interactive experience.",
@@ -167,11 +167,11 @@
   "shortDescription": "Interactive browser-based demo showcasing dynamic DOM rendering and modular JavaScript architecture.",
   "category": "frontend",
   "stack": ["HTML5", "CSS3", "JavaScript (ES6)", "Modular JS"],
-  "heroVideo": "/src/assets/Mockups/ratna/6466763-hd_1920_1080_30fps.mp4",
-  "thumbnail": "/src/assets/Mockups/ratna/1.png",
+  "heroVideo": "Mockups/ratna/6466763-hd_1920_1080_30fps.mp4",
+  "thumbnail": "Mockups/ratna/1.png",
   "mockups": [
-    "/src/assets/Mockups/ratna/2.png",
-    "/src/assets/Mockups/ratna/3.png"
+    "Mockups/ratna/2.png",
+    "Mockups/ratna/3.png"
   ],
   "problem": "Modern web projects often rely heavily on frameworks, which can mask core browser mechanics and DOM fundamentals. There is a need to demonstrate strong front-end foundations using minimal tooling while maintaining clean architecture and responsiveness.",
   "solution": "Developed a lightweight interactive web application using pure HTML, CSS, and JavaScript. Implemented modular logic separation (main.js, counter.js), dynamic state handling, and real-time DOM updates to ensure clean structure, maintainability, and responsive interaction without external frameworks.",
@@ -200,3 +200,4 @@
 }
   ]
 }
+

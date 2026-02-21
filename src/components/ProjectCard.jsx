@@ -43,7 +43,7 @@ function ProjectCard({ project }) {
         <div 
           className="project-thumbnail"
           style={{ 
-            backgroundImage: `url(${project.thumbnail})`,
+            backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`,
             opacity: isHovered && videoLoaded ? 0 : 1
           }}
         />
@@ -59,7 +59,7 @@ function ProjectCard({ project }) {
             preload="none"
             style={{ opacity: isHovered && videoLoaded ? 1 : 0 }}
           >
-            <source src={project.heroVideo} type="video/mp4" />
+            <source src={`${import.meta.env.BASE_URL}${project.heroVideo}`} type="video/mp4" />
           </video>
         )}
       </div>

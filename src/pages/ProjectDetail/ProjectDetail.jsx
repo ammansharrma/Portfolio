@@ -109,7 +109,7 @@ function ProjectDetail() {
                 <video
                   key={project.heroVideo}
                   className="project-video-full"
-                  src={project.heroVideo}
+                  src={`${import.meta.env.BASE_URL}${project.heroVideo}`}
                   controls
                   loop
                   autoPlay
@@ -124,7 +124,7 @@ function ProjectDetail() {
                 <div className="mockup-viewer">
                   <img 
                     key={activeMockupIndex}
-                    src={project.mockups[activeMockupIndex]} 
+                    src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
                     alt={`${project.title} mockup ${activeMockupIndex + 1}`}
                     className="mockup-image"
                   />
