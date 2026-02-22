@@ -106,7 +106,8 @@ function Hero() {
     opacity: 1 - scrollProgress * 1.5, // Fade out faster
     filter: `blur(${scrollProgress * 10}px)`, // Reduced blur for performance
     transform: `translate(-50%, -50%) scale(${1 - scrollProgress * 0.05})`, // Center + scale
-    willChange: 'opacity, filter, transform'
+    willChange: 'opacity, filter, transform',
+    pointerEvents: scrollProgress > 0.6 ? 'none' : 'auto'
   }
 
   return (

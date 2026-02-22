@@ -21,7 +21,7 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-sizing: border-box !important;
-  z-index: 10 !important;
+  z-index: 130 !important; /* Topmost section */
   isolation: isolate;
   contain: content;
 }

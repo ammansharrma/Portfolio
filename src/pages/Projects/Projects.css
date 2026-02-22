@@ -14,7 +14,7 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
   border-left: 2px solid rgba(255, 255, 255, 0.1);
   border-right: 2px solid rgba(255, 255, 255, 0.1);
-  z-index: 11 !important;
+  z-index: 110 !important; /* Above About (100) to maintain stacking order */
   transition: filter 0.3s ease;
   isolation: isolate;
 }
@@ -44,12 +44,7 @@
   transition: all 0.6s cubic-bezier(0.2, 0, 0.2, 1); /* Slower ease */
   transition-delay: 0.05s; /* Micro-delay to prevent flicker */
 }
-
 @media (max-width: 1024px) {
-  .projects-page {
-    /* position: sticky; is now inherited from the main definition */
-  }
-
   .projects-page:has(.project-card:hover) > *:not(.projects-grid) {
     filter: none !important;
     opacity: 1 !important;
