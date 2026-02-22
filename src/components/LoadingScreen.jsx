@@ -62,7 +62,7 @@ const LoadingScreen = ({ onLoadComplete }) => {
       
       {showLogo && (
         <div className={`logo-animation-container ${startZoom ? 'zooming' : ''}`}>
-          <img src={LoaderGif} alt="Loading" className="main-logo" loading="eager" decoding="async" />
+                    <img src={LoaderGif} alt="Loading" className="main-logo" loading="eager" decoding="async" width="300" height="300" />
         </div>
       )}
     </div>

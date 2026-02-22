@@ -15,7 +15,15 @@ function About() {
 
         <div className="about-right">
           <div className="about-greeting">
-            Hello <img src={HelloGif} alt="hello" className="hello-gif" loading="lazy" decoding="async" />
+                        Hello <img 
+              src={HelloGif} 
+              alt="hello" 
+              className="hello-gif" 
+              loading="lazy" 
+              decoding="async" 
+              width="48"
+              height="48"
+            />
           </div>
 
           <div className="about-content">
@@ -31,15 +39,39 @@ function About() {
               <h3 className="about-section-title">How I Build</h3>
               <ul className="about-principles">
                 <li>
-                  <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+                                    <img 
+                    src={TopRightArrow} 
+                    alt="" 
+                    className="arrow-icon" 
+                    loading="lazy" 
+                    decoding="async" 
+                    width="18"
+                    height="18"
+                  />
                   I think in systems, not isolated features.
                 </li>
                 <li>
-                  <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+                                    <img 
+                    src={TopRightArrow} 
+                    alt="" 
+                    className="arrow-icon" 
+                    loading="lazy" 
+                    decoding="async" 
+                    width="18"
+                    height="18"
+                  />
                   I care about performance as much as polish.
                 </li>
                 <li>
-                  <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+                                    <img 
+                    src={TopRightArrow} 
+                    alt="" 
+                    className="arrow-icon" 
+                    loading="lazy" 
+                    decoding="async" 
+                    width="18"
+                    height="18"
+                  />
                   I design AI integrations with safety, structure, and cost-awareness in mind.
                 </li>
               </ul>
@@ -66,14 +98,30 @@ function About() {
           onClick={() => navigate("/experience/omnevu")}
         >
           PREVIOUSLY WORKED AT OMNEVU{" "}
-          <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+                    <img 
+            src={TopRightArrow} 
+            alt="" 
+            className="arrow-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="18"
+            height="18"
+          />
         </div>
         <div
           className="experience-item"
           onClick={() => navigate("/experience/mindstix")}
         >
           CURRENTLY AT MINDSTIX{" "}
-          <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+                    <img 
+            src={TopRightArrow} 
+            alt="" 
+            className="arrow-icon" 
+            loading="lazy" 
+            decoding="async" 
+            width="18"
+            height="18"
+          />
         </div>
       </div>
     </div>

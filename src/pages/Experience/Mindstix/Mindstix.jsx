@@ -46,8 +46,8 @@ const Icons = {
       <line x1="12" y1="22.08" x2="12" y2="12" />
     </svg>
   ),
-  External: () => (
-    <img src={TopRightArrow} alt="" className="external-link-arrow" />
+  External: (props) => (
+    <img src={TopRightArrow} alt="" className="external-link-arrow" width="18" height="18" {...props} />
   )
 };
 
@@ -170,12 +170,14 @@ function Mindstix() {
                   <div className="skill-motion-track">
                     {project.badges.map((badge, idx) => (
                       <div key={idx} className="skill-badge">
-                        <img 
+                                                <img 
                           src={badge.logo} 
                           alt={badge.text}
                           className="skill-badge-logo"
                           loading="lazy"
                           decoding="async"
+                          width="24"
+                          height="24"
                         />
                         <span className="skill-badge-text">{badge.text}</span>
                       </div>

@@ -31,7 +31,7 @@ function Projects() {
             className="projects-link"
           >
             View Full Project Archive
-            <img src={NavArrow} alt="" className="archive-button-arrow" loading="lazy" decoding="async" />
+                        <img src={NavArrow} alt="" className="archive-button-arrow" loading="lazy" decoding="async" width="14" height="22" />
           </button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useState, useEffect, useRef } from 'react'
 import './SkillsMinimal.css'
 
 // Import logos
@@ -150,9 +150,25 @@ const globalTechBadges = [
 ]
 
 function SkillsMinimal() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div 
-      className="skills-minimal-page page-container" 
+      ref={sectionRef}
+      className={`skills-minimal-page page-container ${isVisible ? 'is-visible' : ''}`} 
       id="skills-minimal" 
     >
       <div className="skills-minimal-container">
@@ -183,12 +199,14 @@ function SkillsMinimal() {
                 <div className="skill-motion-track">
                   {category.badges.map((badge, idx) => (
                     <div key={idx} className="skill-badge">
-                      <img 
+                                            <img 
                         src={badge.logo} 
                         alt={badge.text}
                         className="skill-badge-logo"
                         loading="lazy"
                         decoding="async"
+                        width="24"
+                        height="24"
                       />
                       <span className="skill-badge-text">{badge.text}</span>
                     </div>
@@ -203,12 +221,14 @@ function SkillsMinimal() {
           <div className="global-tech-track">
             {globalTechBadges.map((badge, idx) => (
               <div key={idx} className="global-tech-badge">
-                <img 
+                                <img 
                   src={badge.logo} 
                   alt={badge.text}
                   className="global-tech-badge-logo"
                   loading="lazy"
                   decoding="async"
+                  width="24"
+                  height="24"
                 />
                 <span className="global-tech-badge-text">{badge.text}</span>
               </div>

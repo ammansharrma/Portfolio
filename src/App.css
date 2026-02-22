@@ -39,8 +39,17 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  text-decoration: none !important;
 }
 
+.logo-container, 
+.logo-container span, 
+.logo-container div {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
 
 .logo {
   font-size: 32px;
@@ -79,9 +88,7 @@
   transition-delay: calc(var(--letter-index) * 0.03s);
 }
 
-.logo-container:hover{
-  text-decoration: none;
-}
+
 
 .logo img,
 .logo svg {
@@ -94,7 +101,7 @@
   width: 100%;
   scroll-behavior: smooth;
   position: relative;
-  z-index: 2;
+  /* z-index: 2 removed to allow inter-component interleaving */
 }
 
 .page-container {

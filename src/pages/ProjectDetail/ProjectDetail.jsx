@@ -127,6 +127,10 @@ function ProjectDetail() {
                     src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
                     alt={`${project.title} mockup ${activeMockupIndex + 1}`}
                     className="mockup-image"
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="675"
                   />
                   {project.mockups.length > 1 && (
                     <div className="mockup-nav">

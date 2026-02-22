@@ -85,7 +85,7 @@ function ArchiveOverlay({ isOpen, onClose }) {
                     >
                       <div className="archive-card-header">
                         <h4 className="archive-card-title">{project.title}</h4>
-                        <img src={NavArrow} alt="" className="archive-card-arrow" loading="lazy" decoding="async" />
+                                                <img src={NavArrow} alt="" className="archive-card-arrow" loading="lazy" decoding="async" width="14" height="22" />
                       </div>
                       <p className="archive-card-description">{project.shortDescription}</p>
                       <div className="archive-card-stack">

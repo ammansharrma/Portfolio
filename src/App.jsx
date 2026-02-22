@@ -51,7 +51,6 @@ function App() {
       {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
       <div className="app">
         <CustomCursor />
-        <WhiteBubble />
         <nav className="navbar">
           <div className="navbar-content">
             <Link to="/" className="logo-container">
@@ -74,6 +73,7 @@ function App() {
         </nav>
         
         <div className="pages-container">
+          <WhiteBubble />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route 

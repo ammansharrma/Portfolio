@@ -7,7 +7,7 @@
   top: -6px;
   left: -6px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 20000;
   transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   will-change: transform;
   backface-visibility: hidden;

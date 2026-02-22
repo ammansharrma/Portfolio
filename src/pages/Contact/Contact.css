@@ -18,11 +18,19 @@
   position: relative !important;
   overflow: hidden !important;
   background: transparent !important; /* No color */
-  backdrop-filter: blur(15px); /* Base blur matching Skills */
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-sizing: border-box !important;
   z-index: 10 !important;
   isolation: isolate;
+  contain: content;
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 /* Gradient Blur Overlay - Increases blur moving down */
@@ -30,8 +38,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(20px); /* Additional blur */
-  -webkit-backdrop-filter: blur(20px);
+  /* Redundant backdrop-filter removed */
   mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   z-index: -1;

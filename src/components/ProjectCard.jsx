@@ -73,6 +73,8 @@ function ProjectCard({ project }) {
             className="arrow-icon" 
             loading="lazy" 
             decoding="async" 
+            width="18"
+            height="18"
           />
         </p>
         <p className="project-description">{project.shortDescription}</p>

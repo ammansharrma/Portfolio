@@ -23,8 +23,8 @@ const Icons = {
       <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
     </svg>
   ),
-  External: () => (
-    <img src={TopRightArrow} alt="" className="external-link-arrow" />
+  External: (props) => (
+    <img src={TopRightArrow} alt="" className="external-link-arrow" width="18" height="18" {...props} />
   )
 };
 
@@ -90,7 +90,7 @@ function OmneVu() {
                   <ul className="project-bullet-list">
                     {project.contributions.map((item, i) => (
                       <li key={i}>
-                        <Icons.External />
+                                                  <Icons.External width="18" height="18" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -102,7 +102,7 @@ function OmneVu() {
                     <ul className="project-bullet-list impact-list">
                       {project.impact.map((item, i) => (
                         <li key={i}>
-                          <Icons.External />
+                                                    <Icons.External width="18" height="18" />
                           <span>{item}</span>
                         </li>
                       ))}

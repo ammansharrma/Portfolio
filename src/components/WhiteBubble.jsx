@@ -7,7 +7,7 @@ function WhiteBubble() {
   const rafRef = useRef(null);
   const tg = useRef({ x: 0, y: 0 });
   const cur = useRef({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const bubble = bubbleRef.current;
@@ -16,7 +16,7 @@ function WhiteBubble() {
     function move() {
       cur.current.x += (tg.current.x - cur.current.x) / 20;
       cur.current.y += (tg.current.y - cur.current.y) / 20;
-      bubble.style.transform = `translate(${Math.round(cur.current.x)}px, ${Math.round(cur.current.y)}px)`;
+      bubble.style.transform = `translate3d(${Math.round(cur.current.x)}px, ${Math.round(cur.current.y)}px, 0)`;
       rafRef.current = requestAnimationFrame(move);
     }
 
@@ -24,21 +24,6 @@ function WhiteBubble() {
       tg.current.x = e.clientX;
       tg.current.y = e.clientY;
     }
-
-    // Use IntersectionObserver to hide on About and Projects
-    const aboutSection = document.getElementById('about');
-    const projectsSection = document.getElementById('projects');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const isOnAboutOrProjects = entries.some(e => e.isIntersecting);
-        setIsVisible(!isOnAboutOrProjects);
-      },
-      { threshold: 0.3 }
-    );
-
-    if (aboutSection) observer.observe(aboutSection);
-    if (projectsSection) observer.observe(projectsSection);
 
     function onTouchMove(e) {
       if (e.touches.length > 0) {
@@ -61,7 +46,6 @@ function WhiteBubble() {
     rafRef.current = requestAnimationFrame(move);
 
     return () => {
-      observer.disconnect();
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('touchstart', onTouchMove);
       window.removeEventListener('touchmove', onTouchMove);

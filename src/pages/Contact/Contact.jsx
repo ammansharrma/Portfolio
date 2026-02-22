@@ -1,6 +1,5 @@
-import { useState, useEffect, memo, useMemo } from 'react'
+import { useState, useEffect, memo } from 'react'
 import './Contact.css'
-import InteractiveWhiteBubbles from '../../components/InteractiveWhiteBubbles'
 import MainLogo from '../../components/MainLogo'
 import TopRightArrow from '../../assets/Arrow-top-right.webp'
 
@@ -23,7 +22,6 @@ function Contact() {
 
   return (
     <div className="contact-page page-container" id="contact">
-      {/* <InteractiveWhiteBubbles /> */}
       
       <div className="contact-content">
         <div className="logo-center">
@@ -35,7 +33,7 @@ function Contact() {
         <button className="cta-button">
           <span>Let's work together</span>
           <span className="button-icon">
-            <img src={TopRightArrow} alt="" loading="lazy" decoding="async" />
+                        <img src={TopRightArrow} alt="" loading="lazy" decoding="async" width="20" height="20" />
           </span>
         </button>
 
@@ -47,13 +45,13 @@ function Contact() {
 
       <div className="social-links">
         <a href="#" className="social-link">
-          LinkedIn <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+          LinkedIn <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" width="18" height="18" />
         </a>
         <a href="#" className="social-link">
-          Resume <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+          Resume <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" width="18" height="18" />
         </a>
         <a href="#" className="social-link">
-          Github <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" />
+          Github <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" width="18" height="18" />
         </a>
       </div>
 

@@ -26,9 +26,9 @@ function InteractiveWhiteBubbles() {
 
       draw() {
         const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
-        gradient.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
-        gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.35)');
-        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        gradient.addColorStop(0, 'rgba(140, 100, 255, 0.6)');
+        gradient.addColorStop(0.5, 'rgba(140, 100, 255, 0.35)');
+        gradient.addColorStop(1, 'rgba(140, 100, 255, 0)');
         
         ctx.fillStyle = gradient;
         ctx.beginPath();

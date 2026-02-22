@@ -20,15 +20,7 @@ function InteractiveBubble() {
     function move() {
       cur1.current.x += (tg.current.x - cur1.current.x) / 20;
       cur1.current.y += (tg.current.y - cur1.current.y) / 20;
-      inter1.style.transform = `translate(${Math.round(cur1.current.x)}px, ${Math.round(cur1.current.y)}px)`;
-
-      cur2.current.x += (tg.current.x - cur2.current.x) / 15;
-      cur2.current.y += (tg.current.y - cur2.current.y) / 15;
-      inter2.style.transform = `translate(${Math.round(cur2.current.x)}px, ${Math.round(cur2.current.y)}px)`;
-
-      cur3.current.x += (tg.current.x - cur3.current.x) / 25;
-      cur3.current.y += (tg.current.y - cur3.current.y) / 25;
-      inter3.style.transform = `translate(${Math.round(cur3.current.x)}px, ${Math.round(cur3.current.y)}px)`;
+      inter1.style.transform = `translate3d(${Math.round(cur1.current.x)}px, ${Math.round(cur1.current.y)}px, 0)`;
 
       rafRef.current = requestAnimationFrame(move);
     }
@@ -76,12 +68,7 @@ function InteractiveBubble() {
         <div className="g2" />
         <div className="g3" />
         <div className="g4" />
-        <div className="g5" />
-        <div className="g6" />
-        <div className="g7" />
         <div ref={interRef1} className="interactive" />
-        <div ref={interRef2} className="interactive" />
-        <div ref={interRef3} className="interactive" />
       </div>
     </div>
   );

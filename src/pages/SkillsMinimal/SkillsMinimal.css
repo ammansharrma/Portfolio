@@ -8,11 +8,16 @@
   align-items: center !important;
   justify-content: center !important;
   background: transparent !important; /* No color */
-  backdrop-filter: blur(15px); /* Base blur matching Contact */
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px); /* Reduced from multiple layers to one */
+  -webkit-backdrop-filter: blur(20px);
+  @media (max-width: 768px) {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
   box-sizing: border-box !important;
   z-index: 10 !important;
-  overflow: hidden !important; /* Changed from visible to match Contact */
+  overflow: hidden !important;
+  contain: content; /* Layout optimization */
   opacity: 1;
   transform: translateY(0);
   margin-top: -80px !important;
@@ -37,8 +42,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(20px); /* Additional blur */
-  -webkit-backdrop-filter: blur(20px);
+  /* background-blur removed - redundant with parent backdrop-filter */
   mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
   z-index: -1;
@@ -132,6 +136,12 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.01em;
+}
+
+/* Optimize: Stop animations when not visible */
+.skills-minimal-page:not(.is-visible) .skill-motion-track,
+.skills-minimal-page:not(.is-visible) .global-tech-track {
+  animation-play-state: paused !important;
 }
 
 /* Grid Layout */

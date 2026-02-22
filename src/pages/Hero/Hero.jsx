@@ -105,21 +105,41 @@ function Hero() {
   const heroStyle = {
     opacity: 1 - scrollProgress * 1.5, // Fade out faster
     filter: `blur(${scrollProgress * 10}px)`, // Reduced blur for performance
-    transform: `scale(${1 - scrollProgress * 0.05})`, // Subtle shrink
+    transform: `translate(-50%, -50%) scale(${1 - scrollProgress * 0.05})`, // Center + scale
     willChange: 'opacity, filter, transform'
   }
 
   return (
-    <div className="hero-page page-container" id="hero">
+    <div className="hero-page" id="hero">
+      <div className="hero-bg-layer" />
+      <div className="hero-page-texture" />
       <InteractiveBubble />
       <div className="hero-content" style={heroStyle}>
         <h1 className="hero-subtitle">
           A full-stack software engineer{" "}
-          <img src={MonitorsTyping} alt="coding" className="hero-gif" loading="eager" decoding="async" />{" "}
+                    <img 
+            src={MonitorsTyping} 
+            alt="coding" 
+            className="hero-gif" 
+            loading="eager" 
+            fetchPriority="high"
+            decoding="async" 
+            width="80"
+            height="80"
+          />{" "}
           specializing
           <br />
           in building intelligent{" "}
-          <img src={BrainiacBrain} alt="brain" className="hero-gif" loading="eager" decoding="async" />{" "}
+                    <img 
+            src={BrainiacBrain} 
+            alt="brain" 
+            className="hero-gif" 
+            loading="eager" 
+            fetchPriority="high"
+            decoding="async" 
+            width="60"
+            height="60"
+          />{" "}
           user-centric applications
         </h1>
         <p
@@ -135,10 +155,25 @@ function Hero() {
 
       <div className="scroll-indicators" style={{ opacity: 1 - scrollProgress * 2 }}> 
         <button className="scroll-btn scroll-btn-pulse" onClick={scrollToNext} aria-label="Scroll down">
-          <img src={NavArrow} alt="" loading="eager" decoding="async" />
+                    <img 
+            src={NavArrow} 
+            alt="" 
+            loading="eager" 
+            fetchPriority="high"
+            decoding="async" 
+            width="14"
+            height="22"
+          />
         </button>
         <button className="scroll-btn scroll-btn-pulse" onClick={scrollToNext} aria-label="Scroll down" style={{ animationDelay: '0.1s' }}>
-          <img src={NavArrow} alt="" loading="eager" decoding="async" />
+                    <img 
+            src={NavArrow} 
+            alt="" 
+            loading="eager" 
+            decoding="async" 
+            width="14"
+            height="22"
+          />
         </button>
       </div>
     </div>
