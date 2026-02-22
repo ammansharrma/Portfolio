@@ -20,6 +20,8 @@
   z-index: 9999;
   overflow: hidden;
   transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .loading-screen.zoom-in {
@@ -28,11 +30,11 @@
 
 @keyframes netflixZoom {
   0% {
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
   100% {
-    transform: scale(3);
+    transform: translate3d(0, 0, 0) scale(3);
     opacity: 0;
   }
 }
@@ -101,6 +103,8 @@
   opacity: 0;
   animation: fadeInLogo 0.4s ease-out forwards;
   transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 @keyframes fadeInLogo {
@@ -115,11 +119,11 @@
 
 @keyframes logoZoom {
   0% {
-    transform: scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
   }
   100% {
-    transform: scale(5);
+    transform: translate3d(0, 0, 0) scale(5);
     opacity: 0;
   }
 }
@@ -127,9 +131,13 @@
 .main-logo {
   width: 300px;
   height: auto;
-  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Reduced for performance */
   animation: fadeInLogo 0.6s ease-out forwards;
   display: block;
+}
+
+.logo-animation-container.zooming .main-logo {
+  filter: none !important; /* Disable expensive filters during motion */
 }
 
 .main-logo svg {

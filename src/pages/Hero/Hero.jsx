@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, memo } from 'react'
 import './Hero.css'
 import InteractiveBubble from '../../components/InteractiveBubble'
 import NavArrow from '../../assets/Nav-Arrow.webp'
-import MonitorsTyping from '../../assets/GIFs/monitors-typing.gif'
-import BrainiacBrain from '../../assets/GIFs/brainiac-brain.gif'
+import MonitorsTyping from '../../assets/GIFs/monitors-typing.webm'
+import BrainiacBrain from '../../assets/GIFs/brain.webm'
 
 const originalText = '"I argue with language models for a living."'
 const newText = '"I\'m Joking. I can code too."'
@@ -118,26 +118,26 @@ function Hero() {
       <div className="hero-content" style={heroStyle}>
         <h1 className="hero-subtitle">
           A full-stack software engineer{" "}
-                    <img 
+                    <video 
             src={MonitorsTyping} 
-            alt="coding" 
             className="hero-gif" 
-            loading="eager" 
-            fetchPriority="high"
-            decoding="async" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
             width="80"
             height="80"
           />{" "}
           specializing
           <br />
           in building intelligent{" "}
-                    <img 
+                    <video 
             src={BrainiacBrain} 
-            alt="brain" 
             className="hero-gif" 
-            loading="eager" 
-            fetchPriority="high"
-            decoding="async" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
             width="60"
             height="60"
           />{" "}

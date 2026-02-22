@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './About.css'
 import TopRightArrow from '../../assets/Arrow-top-right.webp'
-import HelloGif from '../../assets/GIFs/Hello.gif'
+import HelloGif from '../../assets/GIFs/Hello.webm'
 
 function About() {
   const navigate = useNavigate();
@@ -15,12 +15,13 @@ function About() {
 
         <div className="about-right">
           <div className="about-greeting">
-                        Hello <img 
+                        Hello <video 
               src={HelloGif} 
-              alt="hello" 
               className="hello-gif" 
-              loading="lazy" 
-              decoding="async" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
               width="48"
               height="48"
             />

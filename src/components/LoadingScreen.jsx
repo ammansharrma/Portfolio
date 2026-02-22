@@ -1,5 +1,5 @@
 import { useState, useEffect, memo } from 'react';
-import LoaderGif from '../assets/GIFs/Loader.gif';
+import LoaderGif from '../assets/GIFs/Loader.webm';
 import './LoadingScreen.css';
 
 const LoadingScreen = ({ onLoadComplete }) => {
@@ -62,7 +62,7 @@ const LoadingScreen = ({ onLoadComplete }) => {
       
       {showLogo && (
         <div className={`logo-animation-container ${startZoom ? 'zooming' : ''}`}>
-                    <img src={LoaderGif} alt="Loading" className="main-logo" loading="eager" decoding="async" width="300" height="300" />
+                    <video src={LoaderGif} className="main-logo" autoPlay muted playsInline width="300" height="300" />
         </div>
       )}
     </div>
