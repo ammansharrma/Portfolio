@@ -10,6 +10,7 @@ import './App.css';
 // Lazy load below-the-fold components
 const About = lazy(() => import('./pages/About/About'));
 const Projects = lazy(() => import('./pages/Projects/Projects'));
+const ExperienceSection = lazy(() => import('./pages/ExperienceSection/ExperienceSection'));
 const SkillsMinimal = lazy(() => import('./pages/SkillsMinimal/SkillsMinimal'));
 const Contact = lazy(() => import('./pages/Contact/Contact'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail/ProjectDetail'));
@@ -22,6 +23,7 @@ function HomePage() {
       <Hero />
       <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
         <About />
+        <ExperienceSection />
         <Projects />
         <SkillsMinimal />
         <Contact />
@@ -58,7 +60,7 @@ function App() {
                 <MainLogo />
               </div>
               <div className="logo-name">
-                {'mman Sharrma'.split('').map((letter, index) => (
+                {' Sharrma'.split('').map((letter, index) => (
                   <span 
                     key={index} 
                     className="logo-letter"

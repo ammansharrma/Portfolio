@@ -92,39 +92,6 @@ function About() {
           </div>
         </div>
       </div>
-
-      <div className="experience-footer">
-        <div
-          className="experience-item"
-          onClick={() => navigate("/experience/omnevu")}
-        >
-          PREVIOUSLY WORKED AT OMNEVU{" "}
-                    <img 
-            src={TopRightArrow} 
-            alt="" 
-            className="arrow-icon" 
-            loading="lazy" 
-            decoding="async" 
-            width="18"
-            height="18"
-          />
-        </div>
-        <div
-          className="experience-item"
-          onClick={() => navigate("/experience/mindstix")}
-        >
-          CURRENTLY AT MINDSTIX{" "}
-                    <img 
-            src={TopRightArrow} 
-            alt="" 
-            className="arrow-icon" 
-            loading="lazy" 
-            decoding="async" 
-            width="18"
-            height="18"
-          />
-        </div>
-      </div>
     </div>
   );
 }

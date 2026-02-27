@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Stage Wanders';
-  src: url('../assets/fonts/Stage Wanders.woff2') format('woff2'),
-       url('../assets/fonts/Stage Wanders.ttf') format('truetype');
+  src: url('/fonts/Stage%20Wanders.otf') format('opentype'),
+       url('/fonts/Stage%20Wanders.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -160,7 +160,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .loading-indicator {
-    bottom: 60px;
+    bottom: 100px;
     padding: 0 5%;
   }
 
@@ -176,7 +176,7 @@
 
 @media (max-width: 480px) {
   .loading-indicator {
-    bottom: 40px;
+    bottom: 100px; /* Increased from 40px to place it a little above */
     padding: 0 7.5%;
   }
 

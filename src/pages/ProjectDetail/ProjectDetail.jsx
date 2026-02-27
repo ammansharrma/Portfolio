@@ -2,12 +2,13 @@ import { memo, useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import './ProjectDetail.css';
 import projectsData from '../../data/projects.json';
+import MonitorsTyping from '../../assets/GIFs/monitors-typing.webm';
 
 function ProjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectsData.projects.find(p => p.id === id);
-  const [activeView, setActiveView] = useState(project?.heroVideo ? 'video' : 'mockup'); // 'video' or 'mockup'
+  const [activeView, setActiveView] = useState((project?.detailsVideo || project?.heroVideo || project?.isBuilding) ? 'video' : 'mockup'); // 'video' or 'mockup'
   const [activeMockupIndex, setActiveMockupIndex] = useState(0);
   const rightPanelRef = useRef(null);
 
@@ -84,12 +85,12 @@ function ProjectDetail() {
         <div className="project-detail-left">
           {/* Toggle Buttons */}
           <div className="media-toggle">
-            {project.heroVideo && (
+            {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
               <button
                 className={`toggle-btn ${activeView === 'video' ? 'active' : ''}`}
                 onClick={() => setActiveView('video')}
               >
-                Video
+                {project.isBuilding ? 'Status' : 'Video'}
               </button>
             )}
             {project.mockups && project.mockups.length > 0 && (
@@ -104,43 +105,103 @@ function ProjectDetail() {
 
           {/* Media Display */}
           <div className="media-container">
-            {project.heroVideo && (
+            {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
               <div className={`media-view video-view ${activeView === 'video' ? 'active' : ''}`}>
-                <video
-                  key={project.heroVideo}
-                  className="project-video-full"
-                  src={`${import.meta.env.BASE_URL}${project.heroVideo}`}
-                  controls
-                  loop
-                  autoPlay
-                  muted
-                  playsInline
-                />
+                {project.isBuilding ? (
+                  <div className="building-animation-container" style={{ position: 'relative', width: '100%', height: '100%', borderRadius: 'inherit' }}>
+                    <div className="building-icon-wrapper" style={{ padding: '24px' }}>
+                      <video 
+                        src={MonitorsTyping} 
+                        className="building-icon-video"
+                        autoPlay 
+                        loop 
+                        muted 
+                        playsInline
+                        width="80"
+                        height="80"
+                        style={{ opacity: 0.8 }}
+                      />
+                    </div>
+                    <div className="building-content" style={{ gap: '12px' }}>
+                      <div className="building-text" style={{ fontSize: '20px' }}>
+                        System in Development<span className="pulsing-cursor"></span>
+                      </div>
+                      <div className="building-subtext" style={{ fontSize: '15px' }}>Currently arguing with the compiler...</div>
+                    </div>
+                  </div>
+                ) : (
+                  <video
+                    key={project.detailsVideo || project.heroVideo}
+                    className="project-video-full"
+                    src={`${import.meta.env.BASE_URL}${project.detailsVideo || project.heroVideo}`}
+                    controls
+                    loop
+                    autoPlay
+                    muted
+                    playsInline
+                  />
+                )}
               </div>
             )}
 
             {project.mockups && project.mockups.length > 0 && (
               <div className={`media-view mockup-view ${activeView === 'mockup' ? 'active' : ''}`}>
                 <div className="mockup-viewer">
-                  <img 
-                    key={activeMockupIndex}
-                    src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
-                    alt={`${project.title} mockup ${activeMockupIndex + 1}`}
-                    className="mockup-image"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="675"
-                  />
+                  <div className="mockup-main">
+                    {project.mockups.length > 1 && (
+                      <button 
+                        className="mockup-nav-btn prev"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveMockupIndex((prev) => (prev === 0 ? project.mockups.length - 1 : prev - 1));
+                        }}
+                        aria-label="Previous mockup"
+                      >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                      </button>
+                    )}
+                    
+                    <img 
+                      key={activeMockupIndex}
+                      src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
+                      alt={`${project.title} mockup ${activeMockupIndex + 1}`}
+                      className="mockup-image main-image"
+                      loading="lazy"
+                      decoding="async"
+                    />
+
+                    {project.mockups.length > 1 && (
+                      <button 
+                        className="mockup-nav-btn next"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveMockupIndex((prev) => (prev === project.mockups.length - 1 ? 0 : prev + 1));
+                        }}
+                        aria-label="Next mockup"
+                      >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+                  
                   {project.mockups.length > 1 && (
-                    <div className="mockup-nav">
-                      {project.mockups.map((_, idx) => (
-                        <button
+                    <div className="mockup-thumbnails">
+                      {project.mockups.map((mockup, idx) => (
+                        <div 
                           key={idx}
-                          className={`mockup-dot ${idx === activeMockupIndex ? 'active' : ''}`}
+                          className={`mockup-thumbnail ${idx === activeMockupIndex ? 'active' : ''}`}
                           onClick={() => setActiveMockupIndex(idx)}
-                          aria-label={`View mockup ${idx + 1}`}
-                        />
+                        >
+                          <img 
+                            src={`${import.meta.env.BASE_URL}${mockup}`} 
+                            alt={`Thumbnail ${idx + 1}`} 
+                            loading="lazy"
+                          />
+                        </div>
                       ))}
                     </div>
                   )}

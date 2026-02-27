@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Stage Wanders';
-  src: url('../assets/fonts/Stage Wanders.woff2') format('woff2'),
-       url('../assets/fonts/Stage Wanders.ttf') format('truetype');
+  src: url('/fonts/Stage%20Wanders.otf') format('opentype'),
+       url('/fonts/Stage%20Wanders.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -117,6 +117,8 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   backdrop-filter: blur(10px);
+  text-decoration: none !important;
+  cursor: pointer;
 }
 
 .cta-button:hover {
@@ -127,6 +129,17 @@
 
 .cta-button:active {
   transform: translateY(-1px) scale(1.02);
+}
+
+.cta-button.copied {
+  background: rgba(140, 100, 255, 0.3); /* Purple success theme */
+  border-color: rgba(140, 100, 255, 0.6);
+  box-shadow: 0 0 20px rgba(140, 100, 255, 0.4);
+}
+
+.cta-button.copied .button-icon {
+  background: rgba(140, 100, 255, 0.5);
+  transform: rotate(360deg);
 }
 
 .button-icon {

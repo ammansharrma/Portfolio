@@ -1,66 +1,63 @@
-import { memo, useRef, useState } from 'react';
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 import TopRightArrow from '../assets/Arrow-top-right.webp';
+import MonitorsTyping from '../assets/GIFs/monitors-typing.webm';
 
 function ProjectCard({ project }) {
-  const videoRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-    if (videoRef.current && !videoLoaded) {
-      // Lazy load video on first hover
-      videoRef.current.load();
-      setVideoLoaded(true);
-    }
-    if (videoRef.current && videoLoaded) {
-      videoRef.current.play().catch(err => {
-        console.warn('Video autoplay failed:', err);
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
 
   return (
     <Link 
       to={`/projects/${project.id}`}
       className="project-card"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       aria-label={`View ${project.title} project details`}
     >
       <div className="project-image-container">
-        {/* Thumbnail (always visible) */}
-        <div 
-          className="project-thumbnail"
-          style={{ 
-            backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`,
-            opacity: isHovered && videoLoaded ? 0 : 1
-          }}
-        />
-        
-        {/* Video (visible on hover, desktop only) */}
-        {project.heroVideo && (
-          <video
-            ref={videoRef}
-            className="project-video"
-            muted
-            loop
-            playsInline
-            preload="none"
-            style={{ opacity: isHovered && videoLoaded ? 1 : 0 }}
-          >
-            <source src={`${import.meta.env.BASE_URL}${project.heroVideo}`} type="video/mp4" />
-          </video>
+        {project.isBuilding ? (
+          <div className="building-animation-container">
+            <div className="building-icon-wrapper">
+              <video 
+                src={MonitorsTyping} 
+                className="building-icon-video"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                width="48"
+                height="48"
+                style={{ opacity: 0.8 }}
+              />
+            </div>
+            <div className="building-content">
+              <div className="building-text">
+                System in Development<span className="pulsing-cursor"></span>
+              </div>
+              <div className="building-subtext">Currently arguing with the compiler...</div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Thumbnail (fallback or while loading) */}
+            <div 
+              className="project-thumbnail"
+              style={{ 
+                backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`
+              }}
+            />
+            
+            {/* Video (plays automatically and continuously loops) */}
+            {project.heroVideo && (
+              <video
+                className="project-video"
+                muted
+                loop
+                autoPlay
+                playsInline
+              >
+                <source src={`${import.meta.env.BASE_URL}${project.heroVideo}`} type="video/mp4" />
+              </video>
+            )}
+          </>
         )}
       </div>
 
