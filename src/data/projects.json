@@ -36,6 +36,7 @@
         "Rate limiting and retries are non-negotiable for production"
       ],
       "github": "https://github.com/ammansharrma/vidhaan-ai",
+      "githubDisabled": true,
       "demo": ""
     },
     {
@@ -159,8 +160,8 @@
     "Routing structure should anticipate future expansion",
     "Performance optimization matters even in personal projects"
   ],
-  "github": "https://github.com/yourusername/portfolio-v2",
-  "demo": ""
+  "github": "https://github.com/ammansharrma/Portfolio",
+  "demo": "https://ammansharrma.github.io/Portfolio/"
 }
 ,
     {
