@@ -1,10 +1,9 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import Hero from './pages/Hero/Hero';
-import CustomCursor from './components/CustomCursor';
-import WhiteBubble from './components/WhiteBubble';
-import LoadingScreen from './components/LoadingScreen';
-import MainLogo from './components/MainLogo';
+import Loader from './components/Loader';
+import NavRail from './components/NavRail';
 import './App.css';
 
 // Lazy load below-the-fold components
@@ -32,79 +31,73 @@ function HomePage() {
   );
 }
 
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
+function PageTransition({ children }) {
+  const reduceMotion = useReducedMotion();
+  return (
+    <motion.div
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
+      transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
-  const handleLoadComplete = () => {
-    setIsLoading(false);
-    // Scroll to top after loading completes
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 100);
-  };
-
-  useEffect(() => {
-    // Ensure page starts at top on mount
-    window.scrollTo(0, 0);
-  }, []);
+function AppShell() {
+  const location = useLocation();
 
   return (
-    <Router basename={import.meta.env.BASE_URL}>
-      {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
-      <div className="app">
-        <CustomCursor />
-        <nav className="navbar">
-          <div className="navbar-content">
-            <Link to="/" className="logo-container">
-              <div className="logo">
-                <MainLogo />
-              </div>
-              <div className="logo-name">
-                {' Sharrma'.split('').map((letter, index) => (
-                  <span 
-                    key={index} 
-                    className="logo-letter"
-                    style={{ '--letter-index': index }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          </div>
-        </nav>
-        
-        <div className="pages-container">
-          <WhiteBubble />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route 
-              path="/projects/:id" 
+    <div className="app">
+      <Loader />
+      <NavRail />
+
+      <div className="pages-container">
+        <AnimatePresence mode="wait" initial={false}>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
+            <Route
+              path="/projects/:id"
               element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <ProjectDetail />
-                </Suspense>
-              } 
+                <PageTransition>
+                  <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+                    <ProjectDetail />
+                  </Suspense>
+                </PageTransition>
+              }
             />
-            <Route 
-              path="/experience/mindstix" 
+            <Route
+              path="/experience/mindstix"
               element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <Mindstix />
-                </Suspense>
-              } 
+                <PageTransition>
+                  <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+                    <Mindstix />
+                  </Suspense>
+                </PageTransition>
+              }
             />
-            <Route 
-              path="/experience/omnevu" 
+            <Route
+              path="/experience/omnevu"
               element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <OmneVu />
-                </Suspense>
-              } 
+                <PageTransition>
+                  <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+                    <OmneVu />
+                  </Suspense>
+                </PageTransition>
+              }
             />
           </Routes>
-        </div>
+        </AnimatePresence>
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router basename={import.meta.env.BASE_URL}>
+      <AppShell />
     </Router>
   );
 }
