@@ -1,46 +1,43 @@
-import { memo, useState } from 'react';
+import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
-import ProjectCard from '../../components/ProjectCard';
-import ArchiveOverlay from '../../components/ArchiveOverlay';
+import IdentityGlyph from '../../components/IdentityGlyph';
 import projectsData from '../../data/projects.json';
-import NavArrow from '../../assets/Nav-Arrow.webp';
 
 function Projects() {
-  const [isArchiveOpen, setIsArchiveOpen] = useState(false);
-
   // Show first 3 projects (VidhaanAI, Stock Predictor, Ideation)
   const displayedProjects = projectsData.projects.slice(0, 3);
 
   return (
-    <>
-      <div className="projects-page page-container" id="projects">
-        <div className="projects-header">
-          <h1 className="projects-title">PROJECTS</h1>
-          <p className="projects-subtitle">Things I build to learn, experiment, and ship</p>
-        </div>
+    <section className="projects-page section-shell" id="projects">
+        <div className="section-shell-inner">
+          <h2 className="section-label">Case Studies</h2>
 
-        <div className="projects-grid">
-          {displayedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+          <div className="index-list">
+            {displayedProjects.map((project) => (
+              <Link key={project.id} to={`/projects/${project.id}`} className="index-row">
+                <IdentityGlyph
+                  projectId={project.id}
+                  layoutId={`glyph-${project.id}`}
+                  size={28}
+                  className="index-row-glyph"
+                />
+                <span className="index-row-title">{project.title}</span>
+                <span className="index-row-desc">{project.shortDescription}</span>
+                {project.isBuilding && (
+                  <span className="index-row-status">
+                    active development<span className="status-cursor">▮</span>
+                  </span>
+                )}
+              </Link>
+            ))}
+          </div>
 
-        <div className="projects-cta">
-          <button 
-            onClick={() => setIsArchiveOpen(true)} 
-            className="projects-link"
-          >
-            View Full Project Archive
-                        <img src={NavArrow} alt="" className="archive-button-arrow" loading="lazy" decoding="async" width="14" height="22" />
-          </button>
+          <Link to="/archive" className="link-row-item projects-archive-link">
+            View full project archive
+          </Link>
         </div>
-      </div>
-
-      <ArchiveOverlay 
-        isOpen={isArchiveOpen} 
-        onClose={() => setIsArchiveOpen(false)} 
-      />
-    </>
+      </section>
   );
 }
 

@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion, useMotionValue, useSpring } from 'motion/react';
 import './NavRail.css';
 
 const SECTIONS = [
@@ -14,14 +14,45 @@ const SECTIONS = [
 
 const springHover = { type: 'spring', stiffness: 420, damping: 24 };
 
+function useMagnetic(strength, reduceMotion) {
+  const ref = useRef(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 300, damping: 20 });
+  const springY = useSpring(y, { stiffness: 300, damping: 20 });
+
+  if (reduceMotion) {
+    return { ref, style: {}, onMouseMove: undefined, onMouseLeave: undefined };
+  }
+
+  const onMouseMove = (e) => {
+    const rect = ref.current.getBoundingClientRect();
+    x.set((e.clientX - (rect.left + rect.width / 2)) * strength);
+    y.set((e.clientY - (rect.top + rect.height / 2)) * strength);
+  };
+
+  const onMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return { ref, style: { x: springX, y: springY }, onMouseMove, onMouseLeave };
+}
+
 function RailDot({ section, isActive, onNavigate, reduceMotion }) {
+  const magnetic = useMagnetic(0.3, reduceMotion);
+
   return (
-    <button
+    <motion.button
+      ref={magnetic.ref}
       type="button"
       className={`rail-dot-btn ${isActive ? 'is-active' : ''}`}
       aria-label={`${section.code}, ${section.label}`}
       aria-current={isActive ? 'true' : undefined}
       onClick={() => onNavigate(section.id)}
+      onMouseMove={magnetic.onMouseMove}
+      onMouseLeave={magnetic.onMouseLeave}
+      style={magnetic.style}
     >
       <motion.span
         className={`rail-mark ${isActive ? 'is-filled' : 'is-hollow'}`}
@@ -31,7 +62,7 @@ function RailDot({ section, isActive, onNavigate, reduceMotion }) {
       />
       <span className="rail-label font-mono">{section.code}</span>
       <span className="rail-tooltip font-mono">{section.label}</span>
-    </button>
+    </motion.button>
   );
 }
 
@@ -103,8 +134,8 @@ function NavRail() {
   return (
     <>
       <nav className="nav-rail" aria-label="Section navigation">
-        <Link to="/" className="rail-mark-brand font-display" aria-label="Amman Sharrma, home">
-          AS
+        <Link to="/" className="rail-mark-brand font-display" aria-label="Aamaan Ssanjay Sharrma, home">
+          A
         </Link>
         <div className="rail-list">
           {SECTIONS.map((section) => (

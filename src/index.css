@@ -96,7 +96,7 @@
   --ink: #0a0a0b;
   --paper: #f7f7f2;
   --meta: #8a8a85;
-  --signal: #e8b400;
+  --signal: var(--paper);
 
   --bg: var(--ink);
   --fg: var(--paper);

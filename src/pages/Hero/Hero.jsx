@@ -2,7 +2,8 @@ import { memo, useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 import './Hero.css';
 
-const NAME = 'AMMAN SHARRMA';
+const NAME = 'AAMAAN SSANJAY SHARRMA';
+const DISPLAY_NAME = 'AAMAAN SHARRMA';
 
 const FACTS = [
   'role: Member of Technical Staff · company: Mindstix · since: Aug 2024',
@@ -61,31 +62,75 @@ function useTypewriter(facts, reduceMotion) {
   return text;
 }
 
+function renderNameSegment(chars, startIndex, reduceMotion) {
+  const segments = [];
+  let currentWord = [];
+
+  chars.forEach((char, i) => {
+    const fullIndex = startIndex + i;
+    if (char === ' ') {
+      if (currentWord.length) {
+        segments.push({ type: 'word', chars: currentWord });
+        currentWord = [];
+      }
+      segments.push({ type: 'space', fullIndex });
+    } else {
+      currentWord.push({ char, fullIndex });
+    }
+  });
+  if (currentWord.length) segments.push({ type: 'word', chars: currentWord });
+
+  const charSpan = ({ char, fullIndex }) => (
+    <motion.span
+      key={fullIndex}
+      className="hero-name-char"
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.6 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4, delay: reduceMotion ? 0 : fullIndex * 0.035, ease: [0.4, 0, 0.2, 1] }}
+    >
+      {char === ' ' ? ' ' : char}
+    </motion.span>
+  );
+
+  return segments.map((segment, segIndex) =>
+    segment.type === 'space' ? (
+      charSpan({ char: ' ', fullIndex: segment.fullIndex })
+    ) : (
+      <span key={`word-${segIndex}`} className="hero-name-word">
+        {segment.chars.map(charSpan)}
+      </span>
+    )
+  );
+}
+
 function Hero() {
   const reduceMotion = useReducedMotion();
   const liveText = useTypewriter(FACTS, reduceMotion);
-  const nameChars = NAME.split('');
+  const nameChars = DISPLAY_NAME.split('');
+  const bgRef = useRef(null);
+
+  const handleBgMouseMove = reduceMotion
+    ? undefined
+    : (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        bgRef.current.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+        bgRef.current.style.setProperty('--my', `${e.clientY - rect.top}px`);
+      };
 
   return (
-    <div className="hero-page" id="hero">
-      <div className="hero-bg-layer" />
+    <div className="hero-page" id="hero" onMouseMove={handleBgMouseMove}>
+      <div className="hero-bg-layer" ref={bgRef} />
 
       <div className="hero-content">
         <p className="hero-kicker font-mono">Pune, India</p>
 
         <h1 className="hero-name" aria-label={NAME}>
-          {nameChars.map((char, i) => (
-            <motion.span
-              key={i}
-              className="hero-name-char"
-              aria-hidden="true"
-              initial={reduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.6 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: reduceMotion ? 0 : i * 0.035, ease: [0.4, 0, 0.2, 1] }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </motion.span>
-          ))}
+          <span className="hero-name-line hero-name-line-1" aria-hidden="true">
+            {renderNameSegment(nameChars.slice(0, 6), 0, reduceMotion)}
+          </span>
+          <span className="hero-name-line hero-name-line-2" aria-hidden="true">
+            {renderNameSegment(nameChars.slice(6), 6, reduceMotion)}
+          </span>
         </h1>
 
         <p className="hero-line">

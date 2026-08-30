@@ -35,6 +35,31 @@
   }
 }
 
+.app-grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  opacity: 0.035;
+  background: var(--paper);
+  filter: url(#app-grain);
+  mix-blend-mode: overlay;
+}
+
+.transition-flicker {
+  position: fixed;
+  inset: 0;
+  z-index: 9001;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.transition-flicker span {
+  background: var(--paper);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

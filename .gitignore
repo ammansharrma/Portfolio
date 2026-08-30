@@ -45,3 +45,4 @@ Thumbs.db
 # Agent specific (if applicable)
 .agent/logs/
 .agent/temp/
+.superpowers/

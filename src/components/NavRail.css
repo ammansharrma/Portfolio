@@ -19,7 +19,7 @@
   top: clamp(20px, 3vh, 32px);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 15px;
+  font-size: 26px;
   letter-spacing: 0.04em;
   color: var(--paper);
   text-decoration: none;

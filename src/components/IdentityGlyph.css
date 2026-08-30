@@ -1,0 +1,15 @@
+.identity-glyph {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1px;
+  flex-shrink: 0;
+}
+
+.identity-glyph .is-filled {
+  background: var(--paper);
+}
+
+.identity-glyph .is-empty {
+  background: transparent;
+}
