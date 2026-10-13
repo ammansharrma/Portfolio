@@ -66,7 +66,7 @@ function Contact() {
           LinkedIn <img src={TopRightArrow} alt="" className="arrow-icon" loading="lazy" decoding="async" width="18" height="18" />
         </a>
         <a 
-          href={`${import.meta.env.BASE_URL}Mockups/Resume/Amman_Sharrma.pdf`} 
+          href={`${import.meta.env.BASE_URL}Mockups/Resume/Aamaan_Ssanjay_Sharrma-Agent-Engineer.pdf`}
           className="social-link"
           target="_blank"
           rel="noopener noreferrer"
@@ -86,7 +86,7 @@ function Contact() {
       <div className="divider"></div>
 
       <footer className="footer">
-        <p className="copyright">© 2026 A SHARRMA, ALL RIGHTS RESERVED.</p>
+        <p className="copyright">© 2026 AAMAAN SSANJAY SHARRMA, ALL RIGHTS RESERVED.</p>
         <div className="time-display">
           <p className="time">{currentTime}</p>
         </div>

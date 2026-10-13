@@ -8,8 +8,8 @@ import NavArrow from '../../assets/Nav-Arrow.webp';
 function Projects() {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
-  // Show first 3 projects (VidhaanAI, Stock Predictor, Ideation)
-  const displayedProjects = projectsData.projects.slice(0, 3);
+  // Show the four current projects; Personal Portfolio remains in the archive.
+  const displayedProjects = projectsData.projects.filter((project) => project.category !== 'archived');
 
   return (
     <>

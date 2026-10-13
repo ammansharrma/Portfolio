@@ -79,11 +79,11 @@ function About() {
             </div>
 
             <p className="about-text">
-              Currently, I contribute to end-to-end product systems from API design to production-ready UI engineering while independently building AI-driven projects that explore retrieval pipelines, structured prompting, and controlled execution flows.
+              Currently, I build and operate production AI agents at Mindstix using AWS Bedrock AgentCore, with a focus on agent evaluation, observability, and reliable full-stack delivery across backend APIs and interfaces.
             </p>
 
             <p className="about-text">
-              Previously, I worked on applied AI tooling and automation systems, where I learned that <span className="highlight">clarity often matters more than complexity.</span>
+              Previously, I worked as a full-stack developer intern at OmneVu on inventory, warranty, and RetailSoft products, where I learned that <span className="highlight">clarity often matters more than complexity.</span>
             </p>
 
             <p className="about-text">

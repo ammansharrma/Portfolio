@@ -23,9 +23,10 @@ function ExperienceSection() {
                   <text x="0" y="22" fontFamily="sans-serif" fontWeight="500" fontSize="24" letterSpacing="0.5">MINDSTIX</text>
                 </svg>
               </div>
+              <span className="experience-proof">Production AI agents on AWS Bedrock AgentCore</span>
             </div>
             <div className="experience-row-right">
-              <span className="experience-year">2025 - PRESENT</span>
+              <span className="experience-year">Software Developer · Jun 2025 – Present</span>
               <img 
                 src={TopRightArrow} 
                 alt="View Details" 
@@ -49,7 +50,7 @@ function ExperienceSection() {
               </div>
             </div>
             <div className="experience-row-right">
-              <span className="experience-year">2024 - 2025</span>
+              <span className="experience-year">Full Stack Developer Intern · Dec 2024 – Jun 2025</span>
               <img 
                 src={TopRightArrow} 
                 alt="View Details" 

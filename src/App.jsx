@@ -56,7 +56,7 @@ function App() {
         <nav className="navbar">
           <div className="navbar-content">
             <Link to="/" className="logo-container">
-              <div className="logo">
+              <div className="logo" aria-label="Aamaan Ssanjay Sharrma">
                 <MainLogo />
               </div>
               <div className="logo-name">

@@ -101,6 +101,18 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+.experience-proof {
+  max-width: 320px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.experience-row:hover .experience-proof {
+  color: #000316;
+}
+
 .mindstix-logo svg text, .omnevu-logo svg text {
   fill: currentColor;
 }
@@ -146,6 +158,9 @@
 
 /* Responsive constraints */
 @media (max-width: 768px) {
+  .experience-proof {
+    display: none;
+  }
   .experience-row {
     flex-direction: column;
     align-items: flex-start;

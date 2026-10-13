@@ -5,8 +5,8 @@
       "title": "VidhaanAI",
       "shortDescription": "Production-grade LLM orchestration system with multi-agent workflows",
       "category": "featured",
-      "isBuilding": true,
-      "stack": ["React", "Node.js", "OpenAI API", "Vector DB", "Redis"],
+      "isBuilding": false,
+      "stack": ["React", "Node.js", "LangChain", "OpenAI API", "Pinecone", "Redis"],
       "thumbnail": "Mockups/vidhaanai/1.png",
       "mockups": [
         "Mockups/vidhaanai/1.png",
@@ -21,16 +21,15 @@
         "Backend: Node.js Express with WebSocket support",
         "Vector Store: Pinecone for semantic search",
         "Cache Layer: Redis for conversation state",
-        "LLM: OpenAI GPT-4 with custom prompt engineering"
+        "LLM: OpenAI API with custom prompt engineering"
       ],
       "highlights": [
-        "95% reduction in hallucination via RAG pipeline",
-        "Sub-200ms response latency with streaming",
-        "Handles 1000+ concurrent conversations",
-        "Custom eval framework for quality monitoring"
+        "Multi-agent coordination across 4+ agent roles",
+        "Supports 20+ concurrent sessions",
+        "Reduced hallucination rate from ~40% to ~26% on a custom 50-query benchmark"
       ],
       "learnings": [
-        "Prompt engineering is 80% of LLM app quality",
+        "Prompt engineering strongly influences LLM app quality",
         "Vector search alone isn't enough—hybrid retrieval wins",
         "Streaming UX dramatically improves perceived performance",
         "Rate limiting and retries are non-negotiable for production"
@@ -51,12 +50,12 @@
       "solution": "Developed a hybrid forecasting system combining LSTM networks with attention mechanisms for temporal feature extraction. Integrated technical indicators, sentiment analysis from news APIs, and ensemble methods for robust predictions.",
       "architecture": [
         "Data Pipeline: Real-time ingestion from Yahoo Finance API",
-        "Feature Engineering: 50+ technical indicators + sentiment scores",
+        "Feature Engineering: technical indicators and sentiment scores",
         "Model: Bidirectional LSTM with multi-head attention"
       ],
       "highlights": [
-        "Achieved 68% directional accuracy on GOOGLE stock",
-        "Predictions with <500ms latency"
+        "Evaluated directional accuracy on GOOGLE stock",
+        "Generated predictions from a time-series forecasting pipeline"
       ],
       "learnings": [
         "Feature engineering > model complexity for time-series",
@@ -120,7 +119,7 @@
   "id": "portfolio-v1",
   "title": "Personal Portfolio",
   "shortDescription": "Modern React-based portfolio application with dynamic routing, lazy loading, and immersive UI interactions.",
-  "category": "featured",
+      "category": "archived",
   "stack": [
     "React 18",
     "Vite",

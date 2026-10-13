@@ -117,7 +117,7 @@ function Hero() {
       <InteractiveBubble />
       <div className="hero-content" style={heroStyle}>
         <h1 className="hero-subtitle">
-          A full-stack software engineer{" "}
+          An agent engineer and full-stack developer{" "}
                     <video 
             src={MonitorsTyping} 
             className="hero-gif" 
@@ -128,9 +128,9 @@ function Hero() {
             width="80"
             height="80"
           />{" "}
-          specializing
+          building production AI agents and{" "}
           <br />
-          in building intelligent{" "}
+          backend systems for reliable{" "}
                     <video 
             src={BrainiacBrain} 
             className="hero-gif" 

@@ -37,13 +37,15 @@ function ProjectCard({ project }) {
           </div>
         ) : (
           <>
-            {/* Thumbnail (fallback or while loading) */}
-            <div 
-              className="project-thumbnail"
-              style={{ 
-                backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`
-              }}
-            />
+            {/* Thumbnail (when the project provides one) */}
+            {project.thumbnail && (
+              <div
+                className="project-thumbnail"
+                style={{
+                  backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`
+                }}
+              />
+            )}
             
             {/* Video (plays automatically and continuously loops) */}
             {project.heroVideo && (
