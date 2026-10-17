@@ -12,51 +12,33 @@
   flex-direction: column !important;
   align-items: center !important;
   justify-content: space-between !important;
-  min-height: 100vh !important;
+  min-height: 100svh !important;
   width: 100% !important;
   padding: clamp(60px, 6vw, 80px) clamp(30px, 3.97vw, 60px) clamp(60px, 6vw, 100px) !important;
   position: relative !important;
   overflow: hidden !important;
   background: transparent !important; /* No color */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   box-sizing: border-box !important;
-  z-index: 130 !important; /* Topmost section */
+  z-index: 10 !important; /* Revealed beneath the About surface. */
   isolation: isolate;
   contain: content;
 }
 
-@media (max-width: 768px) {
-  .contact-page {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+.contact-page.contact-reveal {
+  position: sticky !important;
+  bottom: 0;
+  /* Keep hidden links out of the pointer area, but soften the visible edge. */
+  clip-path: inset(var(--contact-reveal-cover, 100%) 0 0);
+  mask-image: linear-gradient(to bottom, transparent var(--contact-reveal-cover, 100%), black calc(var(--contact-reveal-cover, 100%) + var(--contact-reveal-feather, 96px)));
+  -webkit-mask-image: linear-gradient(to bottom, transparent var(--contact-reveal-cover, 100%), black calc(var(--contact-reveal-cover, 100%) + var(--contact-reveal-feather, 96px)));
+}
+.contact-reveal :is(.contact-content, .social-links, .divider, .footer) { filter: blur(var(--contact-reveal-blur, 0px)); }
+@media (prefers-reduced-motion: reduce) {
+  .contact-page.contact-reveal { position: relative !important; clip-path: none; mask-image: none; -webkit-mask-image: none; }
+  .contact-reveal :is(.contact-content, .social-links, .divider, .footer) { filter: none; }
 }
 
-/* Gradient Blur Overlay - Increases blur moving down */
-.contact-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* Redundant backdrop-filter removed */
-  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: -1;
-  pointer-events: none;
-}
 
-/* Texture Layer */
-.contact-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
-  background-repeat: repeat;
-  background-size: 200px;
-  opacity: 0.15; /* Reduced for readability */
-  pointer-events: none;
-  mix-blend-mode: overlay;
-}
 
 @media (max-width: 1024px) {
   .contact-page {
@@ -77,10 +59,12 @@
   justify-content: center;
 }
 
+.time-label { font-size: 12px; color: var(--theme-ink); }
+
 .logo-center {
   font-size: clamp(36px, 3.17vw, 48px);
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin-bottom: clamp(5px, 0.66vw, 10px);
 }
 
@@ -95,7 +79,7 @@
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.2;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   letter-spacing: 0.05em;
 }
 
@@ -104,8 +88,8 @@
 }
 
 .cta-button {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(244, 235, 220, 0.15);
+  border: 1px solid rgba(244, 235, 220, 0.28);
   border-radius: clamp(40px, 3.31vw, 50px);
   padding: clamp(10px, 0.79vw, 12px) clamp(10px, 0.79vw, 12px) clamp(10px, 0.79vw, 12px) clamp(18px, 1.59vw, 24px);
   display: inline-flex;
@@ -113,18 +97,17 @@
   gap: clamp(25px, 2.5vw, 35px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: clamp(16px, 1.19vw, 18px);
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  backdrop-filter: blur(10px);
   text-decoration: none !important;
   cursor: pointer;
 }
 
 .cta-button:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(244, 235, 220, 0.25);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(244, 235, 220, 0.2);
 }
 
 .cta-button:active {
@@ -132,20 +115,20 @@
 }
 
 .cta-button.copied {
-  background: rgba(140, 100, 255, 0.3); /* Purple success theme */
-  border-color: rgba(140, 100, 255, 0.6);
-  box-shadow: 0 0 20px rgba(140, 100, 255, 0.4);
+  background: rgba(244, 235, 220, 0.3); /* Purple success theme */
+  border-color: rgba(244, 235, 220, 0.28);
+  box-shadow: 0 0 20px rgba(244, 235, 220, 0.28);
 }
 
 .cta-button.copied .button-icon {
-  background: rgba(140, 100, 255, 0.5);
+  background: rgba(244, 235, 220, 0.5);
   transform: rotate(360deg);
 }
 
 .button-icon {
   width: 40px;
   height: 40px;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(244, 235, 220, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -167,10 +150,10 @@
 .contact-description {
   font-size: clamp(16px, 1.19vw, 18px);
   font-weight: 400;
-  color: #8B8B8B;
+  color: var(--theme-ink);
   max-width: 700px;
   line-height: 1.6;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .social-links {
@@ -185,7 +168,7 @@
 }
 
 .social-links:has(.social-link:hover) .social-link:not(:hover) {
-  color: #4A4A4A;
+  color: var(--theme-ink);
   opacity: 0.4;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -193,7 +176,7 @@
 .social-link {
   font-size: clamp(16px, 1.32vw, 20px);
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -207,12 +190,12 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: #FFFFFF;
+  background: var(--theme-accent);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   transform: translateY(-2px);
 }
 
@@ -237,7 +220,7 @@
   width: 100%;
   max-width: 1400px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(244, 235, 220, 0.1);
   margin: 40px 0 20px;
 }
 
@@ -260,7 +243,7 @@
 .time-label {
   font-size: 10px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 246, 231, 0.72);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -268,22 +251,10 @@
 .time {
   font-size: 56px;
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   letter-spacing: 0.05em;
   font-family: 'Stage Wanders', sans-serif;
   margin: 0;
-}
-
-.decorative-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 40%, rgba(40, 60, 100, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(60, 40, 80, 0.15) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 @media (max-width: 1024px) {

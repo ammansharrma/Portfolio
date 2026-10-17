@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background-color: #000;
+  background-color: var(--theme-surface);
   position: relative;
   width: 100%;
   scroll-behavior: smooth;
@@ -13,7 +13,7 @@
   left: 0;
   right: 0;
   z-index: 10000;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 71, 171, 0.8) 0%, rgba(0, 71, 171, 0.4) 50%, rgba(0, 71, 171, 0) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: none;
@@ -21,8 +21,8 @@
 }
 
 .navbar.scrolled {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(to bottom, rgba(0, 71, 171, 0.9) 0%, rgba(0, 71, 171, 0.5) 50%, rgba(0, 71, 171, 0.1) 100%);
+  box-shadow: 0 4px 20px rgba(244, 235, 220, 0.28);
 }
 
 .navbar-content {
@@ -33,6 +33,7 @@
 }
 
 .logo-container {
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -41,6 +42,12 @@
   overflow: hidden;
   text-decoration: none !important;
 }
+
+.home-sections { padding-top: 100vh; }
+.route-message { position: relative; z-index: 200; min-height: 100vh; padding: 160px 24px; text-align: center; background: var(--theme-surface); }
+.route-message a { display: inline-block; color: var(--theme-accent); padding: 20px; }
+:is(a, button, summary):focus-visible { outline: 2px solid rgba(244, 235, 220, 0.28) !important; outline-offset: 5px; }
+[id] { scroll-margin-top: 88px; }
 
 .logo-container, 
 .logo-container span, 
@@ -54,7 +61,7 @@
 .logo {
   font-size: 32px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-family: 'Poppins', sans-serif;
   transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
@@ -64,7 +71,7 @@
 .logo-name {
   font-size: 18px;
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-family: 'Poppins', sans-serif;
   white-space: nowrap;
   display: flex;

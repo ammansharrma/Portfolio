@@ -2,7 +2,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: var(--theme-accent);
   position: fixed;
   top: -6px;
   left: -6px;

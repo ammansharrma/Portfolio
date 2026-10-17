@@ -1,0 +1,45 @@
+/* One fixed sky, with staggered clouds entering and leaving fully offscreen. */
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--theme-surface);
+}
+.cloud {
+  --cloud-width: clamp(300px, 42vw, 720px);
+  position: absolute;
+  left: 0;
+  top: var(--altitude);
+  width: var(--cloud-width);
+  aspect-ratio: var(--shape, 2.5);
+  opacity: var(--density, .12);
+  filter: blur(12px);
+  background:
+    radial-gradient(ellipse 24% 32% at 25% 61%, #f4ebdc 78%, transparent 100%),
+    radial-gradient(ellipse 22% 46% at 43% 45%, #f4ebdc 78%, transparent 100%),
+    radial-gradient(ellipse 19% 36% at 64% 53%, #f4ebdc 78%, transparent 100%),
+    radial-gradient(ellipse 18% 25% at 80% 66%, #f4ebdc 78%, transparent 100%),
+    radial-gradient(ellipse 36% 23% at 50% 75%, #f4ebdc 78%, transparent 100%);
+  animation: sky-crossing var(--speed) linear var(--phase) infinite;
+  will-change: transform;
+}
+.cloud-1 { --altitude: 2%; --speed: 83s; --phase: -12s; }
+.cloud-2 { --altitude: 18%; --speed: 107s; --phase: -64s; --shape: 3.2; --density: .09; }
+.cloud-3 { --altitude: 39%; --speed: 94s; --phase: -38s; --density: .065; }
+.cloud-4 { --altitude: 64%; --speed: 118s; --phase: -84s; --shape: 2.8; }
+.cloud-5 { --altitude: 81%; --speed: 89s; --phase: -30s; --density: .1; }
+.cloud-6 { --altitude: 7%; --speed: 132s; --phase: -106s; --shape: 3.8; --density: .07; }
+.cloud-7 { --altitude: 57%; --speed: 101s; --phase: -5s; --shape: 3.5; --density: .08; }
+@keyframes sky-crossing {
+  from { transform: translate3d(calc(-100% - 60px), 0, 0); }
+  to { transform: translate3d(calc(100vw + 60px), -3vh, 0); }
+}
+@media (max-width: 768px) {
+  .cloud { --cloud-width: 75vw; filter: blur(9px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cloud { animation: none; transform: translateX(8vw); will-change: auto; }
+  .cloud:nth-child(even) { transform: translateX(55vw); }
+}

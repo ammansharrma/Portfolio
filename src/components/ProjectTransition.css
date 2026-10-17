@@ -1,0 +1,16 @@
+.project-stripe-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  pointer-events: none;
+  overflow: hidden;
+}
+.project-moving-stripe {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+.project-stripe-overlay * {
+  animation-play-state: paused !important;
+  pointer-events: none !important;
+}

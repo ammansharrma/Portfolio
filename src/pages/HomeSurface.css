@@ -1,0 +1,50 @@
+/* One continuous sheet: the bubble field remains behind the existing section order. */
+/* Avoid a body scroll container that would prevent the footer from sticking. */
+body:has(.home-reveal) { overflow-x: clip; }
+.experience-project-flow { position: relative; isolation: isolate; }
+.home-content-surface .experience-project-flow .experience-section-page {
+  position: sticky !important;
+  top: 0;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  justify-content: center !important;
+  background: transparent !important;
+  z-index: 1 !important;
+}
+.home-content-surface .experience-project-flow .projects-page { position: relative !important; z-index: 2 !important; }
+@media (max-height: 700px), (max-width: 600px) {
+  .home-content-surface .experience-project-flow .experience-section-page { position: relative !important; }
+}
+.home-reveal { position: relative; z-index: 100; clip-path: inset(0); }
+.home-content-surface {
+  position: relative;
+  z-index: 100;
+  isolation: isolate;
+  border: 0;
+  border-radius: 50px;
+  background: transparent;
+  overflow: clip;
+}
+.home-content-surface :is(.experience-section-page, .projects-page, .skills-minimal-page, .about-page) {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  z-index: auto !important;
+  isolation: auto;
+}
+.home-content-surface :is(.experience-section-page, .projects-page, .about-page)::before { display: none; }
+.home-content-surface .experience-section-page { padding: clamp(64px, 7vw, 100px) clamp(24px, 4vw, 60px) 56px !important; }
+.home-content-surface .experience-layout { position: relative; }
+.home-content-surface .experience-main-title { margin-bottom: 36px; }
+.home-content-surface .projects-page { min-height: auto !important; padding-top: 70px !important; padding-bottom: 80px !important; }
+.home-content-surface .skills-minimal-page { backdrop-filter: none; -webkit-backdrop-filter: none; }
+.home-content-surface .about-page { padding: 80px clamp(24px, 4vw, 60px) 100px !important; }
+.home-content-surface .about-left { justify-content: flex-start; padding-top: 6px; }
+.home-content-surface .about-layout { grid-template-columns: minmax(180px, .7fr) minmax(0, 1.5fr); max-width: 1400px; gap: clamp(40px, 7vw, 100px); }
+.home-content-surface .about-greeting { margin-bottom: 0; }
+@media (max-width: 768px) {
+  .home-content-surface { border-radius: 32px; }
+  .home-content-surface .about-layout { grid-template-columns: 1fr; gap: 30px; }
+  .home-content-surface .about-page { padding-top: 60px !important; padding-bottom: 72px !important; }
+}

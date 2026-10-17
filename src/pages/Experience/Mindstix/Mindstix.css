@@ -1,10 +1,10 @@
-:root {
+.mindstix-page {
   --nebula-bg: #000316;
   --card-bg: rgba(255, 255, 255, 0.04);
   --card-border: rgba(255, 255, 255, 0.08);
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.75);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-muted: rgba(255, 255, 255, 0.65);
   --glow-color: rgba(66, 133, 244, 0.15);
   --accent-blue: #4285F4;
 }
@@ -24,7 +24,7 @@
   overflow-x: hidden;
 }
 
-.mindstix-container {
+.mindstix-page .mindstix-container {
   max-width: 1200px;
   width: 100%;
   z-index: 10;
@@ -40,7 +40,7 @@
 }
 
 /* Texture Layer */
-.nebula-texture {
+.mindstix-page .nebula-texture {
   position: absolute;
   inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
@@ -51,51 +51,51 @@
 }
 
 /* Header Styles */
-.mindstix-header {
+.mindstix-page .mindstix-header {
   position: relative;
   padding-bottom: 2rem;
 }
 
-.header-meta {
+.mindstix-page .header-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
 }
 
-.duration {
+.mindstix-page .duration {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
 }
 
-.back-link {
+.mindstix-page .back-link {
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.85rem;
   transition: color 0.3s ease;
 }
 
-.back-link:hover {
+.mindstix-page .back-link:hover {
   color: var(--text-primary);
 }
 
-.company-name {
+.mindstix-page .company-name {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.02em;
 }
 
-.role-title {
+.mindstix-page .role-title {
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 400;
   color: var(--text-secondary);
   margin: 0.5rem 0 1.5rem 0;
 }
 
-.brief-summary {
+.mindstix-page .brief-summary {
   font-size: 1.1rem;
   color: var(--text-secondary);
   max-width: 600px;
@@ -103,7 +103,7 @@
   margin-bottom: 1.5rem;
 }
 
-.company-link {
+.mindstix-page .company-link {
   display: inline-flex;
   align-items: center;
   /* gap: 0.5rem; */
@@ -114,11 +114,11 @@
   transition: transform 0.3s ease;
 }
 
-.company-link:hover {
+.mindstix-page .company-link:hover {
   transform: translateX(3px);
 }
 
-.header-underline {
+.mindstix-page .header-underline {
   margin-top: 2rem;
   height: 1px;
   width: 100%;
@@ -127,19 +127,19 @@
 }
 
 /* Bento Grid Layout */
-.bento-grid {
+.mindstix-page .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: auto;
   gap: 1.5rem;
   padding-bottom: 2rem;
 }
 
-.bento-card {
-  background: rgba(255, 255, 255, 0.07); /* Slightly increased opacity to replace blur */
+.mindstix-page .bento-card {
+  background: rgba(244, 235, 220, 0.07); /* Slightly increased opacity to replace blur */
   border: 1px solid var(--card-border);
   border-radius: 1.5rem;
-  padding: 1.75rem 1.75rem 5.5rem 1.75rem;
+  padding: 1.75rem;
   /* Removed backdrop-filter for performance */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -153,22 +153,28 @@
   will-change: transform;
 }
 
-.bento-card:hover {
+.mindstix-page { padding-top: 110px !important; }
+.mindstix-page .back-link { display: inline-block; padding: 10px 0; margin-bottom: 20px; color: var(--theme-ink); }
+.mindstix-page .work-result { font-size: 14px; line-height: 1.7; color: var(--theme-ink); }
+.mindstix-page .domain-tags { margin-top: auto; padding-top: 12px; }
+.mindstix-page .project-challenge p { font-style: normal; }
+
+.mindstix-page .bento-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(66, 133, 244, 0.05);
+  border-color: rgba(244, 235, 220, 0.15);
+  background: rgba(244, 235, 220, 0.06);
+  box-shadow: 0 10px 30px rgba(244, 235, 220, 0.28), 0 0 20px rgba(244, 235, 220, 0.05);
 }
 
-.overview {
+.mindstix-page .overview {
   grid-column: span 2;
 }
 
-.roles {
+.mindstix-page .roles {
   grid-column: span 1;
 }
 
-.card-label {
+.mindstix-page .card-label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -177,14 +183,14 @@
 }
 
 /* Overview Section */
-.overview .card-content {
+.mindstix-page .overview .card-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
 
-.overview .card-content p {
+.mindstix-page .overview .card-content p {
   font-size: clamp(0.95rem, 1.2vw, 1.1rem);
   line-height: 1.6;
   color: var(--text-secondary);
@@ -192,14 +198,14 @@
   max-width: 90%;
 }
 
-.domain-tags {
+.mindstix-page .domain-tags {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.tag {
-  background: rgba(255, 255, 255, 0.05);
+.mindstix-page .tag {
+  background: rgba(244, 235, 220, 0.05);
   padding: 0.4rem 0.8rem;
   border-radius: 100px;
   font-size: 0.75rem;
@@ -208,7 +214,7 @@
 }
 
 /* Roles Section */
-.responsibility-list {
+.mindstix-page .responsibility-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -217,7 +223,7 @@
   gap: 1rem;
 }
 
-.responsibility-list li {
+.mindstix-page .responsibility-list li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -225,37 +231,37 @@
   color: var(--text-secondary);
 }
 
-.responsibility-list li svg {
+.mindstix-page .responsibility-list li svg {
   color: var(--accent-blue);
   opacity: 0.8;
 }
 
 /* Project Card Styles */
-.project-header {
+.mindstix-page .project-header {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.project-title {
+.mindstix-page .project-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
 }
 
-.project-domain {
+.mindstix-page .project-domain {
   font-size: 0.8rem;
   color: var(--text-muted);
 }
 
-.project-summary {
+.mindstix-page .project-summary {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
-.challenge-label {
+.mindstix-page .challenge-label {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -263,21 +269,21 @@
   margin-bottom: 0.25rem;
 }
 
-.project-challenge p {
+.mindstix-page .project-challenge p {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--text-secondary);
   margin: 0;
-  font-style: italic;
+  font-style: normal;
 }
 
-.project-footer {
+.mindstix-page .project-footer {
   margin-top: auto;
   min-height: 56px;
 }
 
 /* Scroll Motion Strip Integration */
-.skill-motion-strip {
+.mindstix-page .skill-motion-strip {
   position: absolute;
   bottom: 1.5rem;
   left: 0;
@@ -286,7 +292,7 @@
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(244, 235, 220, 0.1);
   /* Simplify masking for performance */
   mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
@@ -295,12 +301,12 @@
   transform: translateY(10px);
 }
 
-.project-card:hover .skill-motion-strip {
+.mindstix-page .project-card:hover .skill-motion-strip {
   opacity: 1;
   transform: translateY(0);
 }
 
-.skill-motion-track {
+.mindstix-page .skill-motion-track {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -312,32 +318,32 @@
   will-change: transform;
 }
 
-.project-card:hover .skill-motion-track {
+.mindstix-page .project-card:hover .skill-motion-track {
   animation-play-state: running;
 }
 
-.skill-badge {
+.mindstix-page .skill-badge {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(244, 235, 220, 0.05);
+  border: 1px solid rgba(244, 235, 220, 0.1);
   border-radius: 100px;
   flex-shrink: 0;
 }
 
-.skill-badge-logo {
+.mindstix-page .skill-badge-logo {
   height: 16px;
   width: 16px;
   object-fit: contain;
   opacity: 0.9;
 }
 
-.skill-badge-text {
+.mindstix-page .skill-badge-text {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 246, 231, 0.82);
   white-space: nowrap;
   letter-spacing: 0.02em;
 }
@@ -348,18 +354,18 @@
 }
 
 /* Growth Section */
-.growth {
+.mindstix-page .growth {
   grid-column: span 3;
 }
 
-.growth-title {
+.mindstix-page .growth-title {
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0 0 1rem 0;
   color: var(--text-primary);
 }
 
-.growth-points {
+.mindstix-page .growth-points {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -368,7 +374,7 @@
   gap: 0.75rem 2rem;
 }
 
-.growth-points li {
+.mindstix-page .growth-points li {
   font-size: 0.9rem;
   color: var(--text-secondary);
   position: relative;
@@ -378,7 +384,7 @@
 }
 
 
-.external-link-arrow {
+.mindstix-page .external-link-arrow {
   width: 14px;
   height: 14px;
   margin-left: 4px;
@@ -387,14 +393,14 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.company-link:hover .external-link-arrow,
-.growth-points li:hover .external-link-arrow {
+.mindstix-page .company-link:hover .external-link-arrow,
+.mindstix-page .growth-points li:hover .external-link-arrow {
   transform: scale(1.1) rotate(45deg); /* Points Right on hover */
 }
 
 
 /* Decorative Glows */
-.nebula-glow {
+.mindstix-page .nebula-glow {
   position: fixed; /* Fixed prevents repaints on scroll */
   border-radius: 50%;
   filter: blur(100px);
@@ -405,7 +411,7 @@
   transform: translateZ(0);
 }
 
-.glow-1 {
+.mindstix-page .glow-1 {
   width: 400px;
   height: 400px;
   background: var(--glow-color);
@@ -413,21 +419,21 @@
   right: -100px;
 }
 
-.glow-2 {
+.mindstix-page .glow-2 {
   width: 300px;
   height: 300px;
-  background: rgba(138, 43, 226, 0.05);
+  background: rgba(244, 235, 220, 0.05);
   bottom: 0;
   left: -100px;
 }
 
 /* Responsiveness */
 @media (max-width: 1024px) {
-  .bento-grid {
+  .mindstix-page .bento-grid {
     grid-template-columns: 1fr;
   }
   
-  .overview, .roles, .growth {
+  .mindstix-page .overview, .mindstix-page .roles, .mindstix-page .growth {
     grid-column: span 1;
   }
 }
@@ -438,30 +444,30 @@
     align-items: flex-start;
   }
   
-  .bento-grid {
+  .mindstix-page .bento-grid {
     grid-template-columns: 1fr;
     height: auto;
   }
   
-  .overview, .roles, .growth {
+  .mindstix-page .overview, .mindstix-page .roles, .mindstix-page .growth {
     grid-column: span 1;
   }
   
-  .responsibility-list, .growth-points {
+  .mindstix-page .responsibility-list, .mindstix-page .growth-points {
     grid-template-columns: 1fr;
   }
   
-  .company-name {
+  .mindstix-page .company-name {
     font-size: 2.5rem;
   }
 
   /* Disable expensive effects on mobile */
-  .nebula-glow {
+  .mindstix-page .nebula-glow {
     display: none;
   }
   
-  .bento-card {
-    background: rgba(255, 255, 255, 0.05);
+  .mindstix-page .bento-card {
+    background: rgba(244, 235, 220, 0.05);
     transform: none !important;
   }
 }
@@ -474,7 +480,7 @@
     height: auto;
   }
 
-  .mindstix-container {
+  .mindstix-page .mindstix-container {
     height: auto;
     max-height: none;
     display: flex;
@@ -482,7 +488,7 @@
     margin: 0 auto;
   }
 
-  .bento-grid {
+  .mindstix-page .bento-grid {
     padding-right: 0;
   }
 }

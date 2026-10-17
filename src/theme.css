@@ -1,0 +1,38 @@
+/* Shared warm beige / cobalt palette. Keep media and brand artwork unchanged. */
+:root {
+  color-scheme: dark;
+  --theme-surface: #0047ab;
+  --theme-sand: #164f9c;
+  --theme-accent: #f4ebdc;
+  --theme-ink: #fff6e7;
+}
+
+::selection { background: #f4ebdc; color: #0047ab; }
+:root :is(a, button, summary):focus-visible { outline-color: var(--theme-accent) !important; }
+.hero-bg-layer, .app, body { background-color: var(--theme-surface); }
+.hero-action { background: rgba(0, 71, 171,.7); }
+:root .hero-action:first-child, :root .cta-button, :root .detail-link-btn.primary,
+:root .toggle-btn.active { background: var(--theme-accent); color: #0047ab; }
+:root .hero-action:first-child:hover, :root .cta-button:hover, :root .detail-link-btn.primary:hover {
+  background: #e5d6bd; color: #0047ab;
+}
+.direction-arrow, .arrow-icon, .experience-arrow, .scroll-btn img,
+.section-list li::before, .logo img, .logo-center img, .logo svg, .logo-center svg {
+  filter: brightness(0) saturate(100%) invert(93%) sepia(13%) saturate(314%) hue-rotate(345deg) brightness(102%) contrast(91%);
+}
+.hero-action:first-child .direction-arrow, .cta-button img,
+:root .experience-row:hover .experience-arrow { filter: brightness(0) saturate(100%) invert(19%) sepia(98%) saturate(2040%) hue-rotate(206deg) brightness(89%) contrast(105%); }
+:root .experience-row:hover :is(.experience-role, .experience-summary, .experience-logo, .experience-year) { color: #0047ab; }
+:root .time-label, :root .contact-description { color: var(--theme-ink); }
+:root .architecture-viewport, :root .architecture-dialog { background: #064092; }
+.architecture-node-title { fill: var(--theme-accent); }
+.architecture-node-role, .architecture-node-subtitle, .architecture-map-label,
+.architecture-edge-label { fill: var(--theme-ink); }
+:root .architecture-edge-label { stroke: #064092; }
+:root .architecture-node.is-selected .architecture-node-surface,
+:root .architecture-node:hover .architecture-node-surface,
+:root .architecture-node:focus-visible .architecture-node-surface,
+:root .architecture-edge.is-active path { stroke: var(--theme-accent); }
+:root .architecture-dialog::backdrop { background: rgba(0, 22, 64,.6); }
+:root .project-detail-page, :root .company-experience { background: transparent; }
+.mockup-nav-btn { background: var(--theme-surface); }

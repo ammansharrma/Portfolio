@@ -1,0 +1,11 @@
+.workflow-illustration { margin: 16px 0 0; width: 100%; color: var(--theme-accent); }
+.workflow-illustration figcaption { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.workflow-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.workflow-step { position: relative; color: var(--theme-ink); border: 0; border-radius: 12px; background: transparent; padding: 10px 3px; font: inherit; font-size: 12px; line-height: 1.5; cursor: pointer; transition: color .2s, background .2s; }
+.workflow-step:not(:last-child)::after { content: '→'; position: absolute; right: -12px; top: 37%; color: var(--theme-ink); }
+.workflow-step svg { display: block; width: 100%; max-width: 100px; margin: 0 auto 6px; }
+.workflow-step.is-active { color: var(--theme-accent); background: radial-gradient(ellipse at center, rgba(244, 235, 220, 0.18), transparent 75%); }
+.workflow-step.is-active svg { filter: drop-shadow(0 0 7px rgba(228,149,13,.35)); }
+.workflow-step:hover { color: var(--theme-accent); background-color: rgba(244, 235, 220, 0.04); }
+.workflow-description { min-height: 5.5em; font-size: 13px; line-height: 1.7; color: var(--theme-ink); margin: 16px 0 8px; }
+.workflow-illustration small { display: block; font-size: 11px; line-height: 1.5; color: var(--theme-ink); }

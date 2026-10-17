@@ -1,0 +1,104 @@
+{
+  "mindstix": {
+    "name": "Mindstix Software Labs",
+    "role": "Software Developer",
+    "duration": "Jun 2025 — Present · Pune, India",
+    "website": "https://mindstix.com",
+    "summary": "Building AI agents, backend systems, and product interfaces, from business requirements through implementation and production support.",
+    "projects": [
+      {
+        "id": "ai-order-notes-summarization-agent",
+        "title": "AI Order Notes Summarization",
+        "shortDescription": "A production agent that turns order notes into concise summaries across two regions.",
+        "status": "Production · 2 regions",
+        "stack": ["AWS Bedrock AgentCore", "SSE", "Keycloak", "OAuth / JWT"],
+        "problem": "Manual review of order notes slowed access to useful context. The agent's request lifecycle also encountered a cascading timeout across three tiers.",
+        "solution": "Architected and operated the summarization agent on AWS Bedrock AgentCore, integrated shared Keycloak/OAuth authentication, and re-engineered the request lifecycle with SSE streaming.",
+        "architecture": ["Order notes enter an authenticated summarization request.", "Keycloak/OAuth protects access to the agent workflow.", "Bedrock AgentCore runs the summarization agent.", "SSE streams the response through the reworked request lifecycle."],
+        "highlights": ["Reduced average generation time from 35 seconds to approximately 20 seconds (approximately 43%).", "Operated the agent across two production regions.", "Resolved 15+ production and QA defects spanning asynchronous races, CORS, OAuth/JWT, and legacy integrations."],
+        "diagram": "order-notes"
+      },
+      {
+        "id": "multi-agent-root-cause-analysis",
+        "title": "Multi-Agent Root Cause Analysis",
+        "shortDescription": "A coordinated investigation workflow connecting production logs, code evidence, and RCA reports.",
+        "status": "Production investigation",
+        "stack": ["AWS Bedrock AgentCore", "CloudWatch", "GitHub MCP", "Web Search", "Amazon S3"],
+        "problem": "Investigating production failures requires bringing together logs, code context, and supporting evidence before documenting a useful root cause analysis.",
+        "solution": "Developed an RCA system with CloudWatch Observer, Analyzer, GitHub MCP, Web Search, and Finalizer agents. Connected the investigation workflow to RCA document delivery through Amazon S3.",
+        "architecture": ["A CloudWatch Observer gathers production log signals.", "An Analyzer coordinates the investigation using code and web evidence.", "GitHub MCP and Web Search provide supporting context.", "The Finalizer assembles an RCA document and delivers it through S3."],
+        "highlights": ["Connected specialized agents across observation, investigation, and report generation.", "Brought logs and code evidence into one investigation workflow.", "Delivered generated RCA documents through Amazon S3."],
+        "diagram": "rca"
+      },
+      {
+        "id": "csr-rep-copilot-claims-analysis",
+        "title": "CSR Copilot & Claims Analysis",
+        "shortDescription": "Contextual on-call suggestions and evidence-backed claim verdicts for human review.",
+        "status": "Proof of concept",
+        "stack": ["Amazon Connect", "WebSockets", "RAG", "Amazon Bedrock"],
+        "problem": "Customer service representatives need relevant context during calls, while claim auditors need supporting evidence alongside a proposed verdict.",
+        "solution": "Built a proof of concept combining AWS Connect, WebSockets, retrieval-augmented generation, and Amazon Bedrock. Generated contextual suggestions and claim verdicts with cited evidence for auditor review.",
+        "architecture": ["Amazon Connect provides the customer-service interaction context.", "WebSockets support real-time exchange in the copilot workflow.", "Retrieval supplies relevant evidence to the Bedrock workflow.", "Suggestions and cited claim verdicts are presented for human review."],
+        "highlights": ["Built contextual suggestions for customer-service interactions.", "Included cited evidence with generated claim verdicts.", "Kept auditor review as part of the workflow."],
+        "diagram": "copilot"
+      },
+      {
+        "id": "full-stack-enterprise-delivery",
+        "title": "Full-Stack Enterprise Delivery",
+        "shortDescription": "Production features and operational support across frontend, backend, and data layers.",
+        "status": "Enterprise delivery",
+        "stack": ["React 18", "Node.js", "NestJS", "Databases", "SonarQube", "Splunk"],
+        "problem": "Enterprise features need to connect business requirements to reliable interfaces and services, with ongoing investigation of recurring production errors.",
+        "solution": "Delivered features across React 18, Node.js, NestJS, and databases. Collaborated across teams on requirements, implementation, sprint planning, backlog refinement, and estimation, alongside production support using SonarQube and Splunk.",
+        "architecture": ["React interfaces connect users to product workflows.", "Node.js and NestJS services implement backend behavior.", "Database integrations support the feature's data needs.", "SonarQube and Splunk support code quality and production investigation."],
+        "highlights": ["Triaged production issues within a 24-hour window.", "Contributed to a 50% reduction in recurring system errors.", "Worked across the delivery cycle, from requirements to production support."],
+        "diagram": "enterprise"
+      }
+    ]
+  },
+  "omnevu": {
+    "name": "OmneVu",
+    "role": "Full Stack Developer Intern",
+    "duration": "Dec 2024 — Jun 2025 · Remote",
+    "website": "https://omnevu.com",
+    "summary": "Improved inventory, warranty, and retail workflows with React and Firebase, connecting everyday business needs to full-stack implementation.",
+    "projects": [
+      {
+        "id": "inventory-management-system",
+        "title": "Inventory Management System",
+        "shortDescription": "More accurate inventory workflows with less manual reconciliation.",
+        "status": "Inventory operations",
+        "stack": ["React", "Express.js", "Firebase"],
+        "problem": "Inventory workflows needed more accurate data and less time spent on manual reconciliation.",
+        "solution": "Enhanced inventory workflows using React, Express.js, and Firebase, connecting product interfaces with backend data operations.",
+        "architecture": ["React provides the inventory interface.", "Express.js handles the backend integration layer.", "Firebase supports the inventory data workflows."],
+        "highlights": ["Improved data accuracy by approximately 20%.", "Reduced manual reconciliation by approximately 5 hours per week."],
+        "diagram": "inventory"
+      },
+      {
+        "id": "warranty-management",
+        "title": "Warranty Management",
+        "shortDescription": "A clearer warranty-claim workflow, from interface to data integration.",
+        "status": "Warranty operations",
+        "stack": ["React", "Material-UI", "Firebase"],
+        "problem": "Warranty workflows needed a clearer interface to help users work through claims more efficiently.",
+        "solution": "Redesigned warranty workflows using React, Material-UI, and Firebase, aligning the interface with the claim-resolution process.",
+        "architecture": ["React manages the warranty workflow interface.", "Material-UI supplies the interface components.", "Firebase supports the workflow's backend data integration."],
+        "highlights": ["Reduced claim resolution time by approximately 30%."],
+        "diagram": "warranty"
+      },
+      {
+        "id": "retailsoft",
+        "title": "RetailSoft",
+        "shortDescription": "Improved retail product-page flows and frontend interactions.",
+        "status": "Retail product experience",
+        "stack": ["React", "Material-UI", "Vite", "Firebase"],
+        "problem": "Retail product pages needed smoother UI flows to help visitors engage with the product experience.",
+        "solution": "Improved React and Material-UI interfaces in a Vite application, with Firebase integrations supporting the product workflows.",
+        "architecture": ["Vite builds and serves the frontend during development.", "React and Material-UI compose the retail interfaces.", "Firebase connects the product experience to backend data."],
+        "highlights": ["Contributed to an approximately 15% increase in product-page engagement."],
+        "diagram": "retailsoft"
+      }
+    ]
+  }
+}

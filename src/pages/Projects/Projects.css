@@ -2,21 +2,27 @@
   padding: clamp(100px, 9vw, 140px) clamp(30px, 3.97vw, 60px) clamp(50px, 5vw, 80px) !important;
   min-height: 100vh !important;
   width: 100% !important;
-  position: sticky !important;
+  position: relative !important;
   top: 0 !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
   box-sizing: border-box !important;
   overflow: visible !important;
-  background: #000316 !important;
+  background: var(--theme-surface) !important;
   border-radius: 0 0 50px 50px !important;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  border-right: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+  border-top: none !important;
+  border-bottom: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-left: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-right: 2px solid rgba(244, 235, 220, 0.1) !important;
   z-index: 110 !important; /* Above About (100) to maintain stacking order */
   transition: filter 0.3s ease;
-  isolation: isolate;
+  margin: 0 !important;
+  margin-top: -1px !important;
 }
 
 /* Texture Layer */
@@ -67,14 +73,14 @@
   font-size: clamp(24px, 2.12vw, 32px);
   font-weight: 700;
   line-height: 1.5;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   text-align: center;
 }
 
 .projects-subtitle {
   font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 246, 231, 0.72);
   text-align: center;
   margin: 0;
 }
@@ -88,7 +94,7 @@
 .projects-link {
   font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 246, 231, 0.72);
   background: none;
   border: none;
   cursor: pointer;
@@ -101,7 +107,7 @@
 }
 
 .projects-link:hover {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   transform: translateX(4px);
 }
 
@@ -124,7 +130,7 @@
   font-size: clamp(12px, 0.99vw, 15px);
   font-weight: 400;
   line-height: 1.5;
-  color: #8B8B8B;
+  color: var(--theme-ink);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-transform: uppercase;
@@ -132,7 +138,7 @@
 }
 
 .view-more:hover {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   transform: translateX(5px);
 }
 
@@ -173,13 +179,13 @@
 }
 
 .project-card:hover .project-image {
-  box-shadow: 0 20px 40px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(244, 235, 220, 0.15);
 }
 
 .project-image {
   width: 100%;
   height: clamp(300px, 35vw, 585px);
-  background: #D9D9D9;
+  background: var(--theme-sand);
   border-radius: clamp(16px, 1.59vw, 24px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -194,7 +200,7 @@
   font-size: clamp(16px, 1.32vw, 20px);
   font-weight: 500;
   line-height: 1.4;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin: 0 0 clamp(6px, 0.8vw, 10px) 0;
   display: flex;
   align-items: center;
@@ -204,7 +210,7 @@
 .project-intent {
   font-size: clamp(13px, 1.05vw, 15px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 246, 231, 0.72);
   margin: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -225,7 +231,7 @@
   transform: rotate(45deg);
 }
 
-.scroll-indicators {
+.projects-page .scroll-indicators {
   position: absolute;
   bottom: clamp(20px, 2.65vw, 40px);
   right: clamp(20px, 2.65vw, 40px);
@@ -234,13 +240,13 @@
   z-index: 10;
 }
 
-.scroll-btn {
+.projects-page .scroll-btn {
   width: clamp(28.8px, 2.47vw, 37.4px);
   height: clamp(28.8px, 2.47vw, 37.4px);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 1);
-  color: #FFFFFF;
+  background: rgba(244, 235, 220, 0.1);
+  border: 1px solid rgba(244, 235, 220, 0.28);
+  color: var(--theme-accent);
   font-size: clamp(20px, 1.59vw, 24px);
   display: flex;
   align-items: center;
@@ -319,12 +325,12 @@
     font-size: clamp(15px, 3.5vw, 18px);
   }
 
-  .scroll-indicators {
+  .projects-page .scroll-indicators {
     bottom: 15px;
     right: 15px;
   }
 
-  .scroll-btn {
+  .projects-page .scroll-btn {
     width: 38px;
     height: 38px;
     font-size: 18px;

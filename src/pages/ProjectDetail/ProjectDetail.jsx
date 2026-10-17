@@ -1,93 +1,59 @@
+import DirectionArrow from '../../components/DirectionArrow';
+import MotionVideo from '../../components/MotionVideo';
 import { memo, useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './ProjectDetail.css';
+import companies from '../../data/experience/projects.json';
+import { getProjectCollection } from '../../data/projectNavigation';
+import ArchitectureDiagram from '../../components/ArchitectureDiagram';
+import ProjectNavPanel from '../../components/ProjectNavPanel';
 import projectsData from '../../data/projects.json';
 import MonitorsTyping from '../../assets/GIFs/monitors-typing.webm';
 
 function ProjectDetail() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const project = projectsData.projects.find(p => p.id === id);
-  const [activeView, setActiveView] = useState((project?.detailsVideo || project?.heroVideo || project?.isBuilding) ? 'video' : 'mockup'); // 'video' or 'mockup'
+  const { id, company } = useParams();
+  const collection = getProjectCollection(projectsData.projects, companies, company);
+  const project = collection.find(p => p.id === id);
+  const backPath = company && companies[company] ? `/experience/${company}` : "/#projects";
+  const defaultView = project?.mockups?.length ? 'mockup' : 'architecture';
+  const [activeView, setActiveView] = useState(defaultView);
   const [activeMockupIndex, setActiveMockupIndex] = useState(0);
   const rightPanelRef = useRef(null);
 
   useEffect(() => {
-    // Scroll to top on mount
-    window.scrollTo(0, 0);
-    
-    // Lock scroll on both html and body
-    const originalHtmlOverflow = document.documentElement.style.overflow;
-    const originalBodyOverflow = document.body.style.overflow;
-    
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-    
-    // Redirect wheel events to right panel
-    const handleWheel = (e) => {
-      if (rightPanelRef.current) {
-        // Prevent default page scroll
-        e.preventDefault();
-        
-        // Scroll the right panel instead
-        rightPanelRef.current.scrollTop += e.deltaY;
-      }
-    };
-    
-    // Add wheel event listener to the entire page
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    
-    // Cleanup function to restore scroll and remove event listener
-    return () => {
-      document.documentElement.style.overflow = originalHtmlOverflow;
-      document.body.style.overflow = originalBodyOverflow;
-      window.removeEventListener('wheel', handleWheel);
-    };
-  }, [id]);
+    document.title = `${project?.title || 'Project not found'} — Aamaan Sharrma`;
+    setActiveView(defaultView);
+    setActiveMockupIndex(0);
+    if (rightPanelRef.current) rightPanelRef.current.scrollTop = 0;
+  }, [id, company, project, defaultView]);
 
   if (!project) {
     return (
       <div className="project-detail-error">
         <h1>Project Not Found</h1>
         <p>The project you're looking for doesn't exist.</p>
-        <Link to="/" className="back-link">← Back to Home</Link>
+        <Link to="/" className="back-link"><DirectionArrow direction="left" /> Back to Home</Link>
       </div>
     );
   }
 
-  const handleClose = () => {
-    navigate('/', { replace: false });
-    // Scroll to projects section after navigation
-    setTimeout(() => {
-      const projectsSection = document.getElementById('projects');
-      if (projectsSection) {
-        projectsSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-  };
-
   return (
     <div className="project-detail-page">
-      {/* Close Button */}
-      <button 
-        className="project-detail-close" 
-        onClick={handleClose}
-        aria-label="Close project details"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <line x1="18" y1="6" x2="6" y2="18" />
-          <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-      </button>
-
       <div className="project-detail-container">
         {/* Left Panel: Media */}
-        <div className="project-detail-left">
-          {/* Toggle Buttons */}
-          <div className="media-toggle">
+        <div className={`project-detail-left ${activeView === 'architecture' ? 'showing-architecture' : 'showing-media'}`}>
+          {/* Back navigation and view controls */}
+          <div className="project-media-toolbar">
+            <Link className="project-back" to={backPath}
+        aria-label={company && companies[company] ? `Back to ${companies[company].name}` : 'Back to projects'}>
+        <DirectionArrow direction="left" />
+      </Link>
+          <div className="media-toggle" role="group" aria-label="Project views">
+            <button type="button" className={`toggle-btn ${activeView === 'architecture' ? 'active' : ''}`} aria-pressed={activeView === 'architecture'} onClick={() => setActiveView('architecture')}>Architecture</button>
             {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
               <button
                 className={`toggle-btn ${activeView === 'video' ? 'active' : ''}`}
+                aria-pressed={activeView === 'video'}
                 onClick={() => setActiveView('video')}
               >
                 {project.isBuilding ? 'Status' : 'Video'}
@@ -96,6 +62,7 @@ function ProjectDetail() {
             {project.mockups && project.mockups.length > 0 && (
               <button
                 className={`toggle-btn ${activeView === 'mockup' ? 'active' : ''}`}
+                aria-pressed={activeView === 'mockup'}
                 onClick={() => setActiveView('mockup')}
               >
                 Mockups
@@ -103,14 +70,17 @@ function ProjectDetail() {
             )}
           </div>
 
+          </div>
+
           {/* Media Display */}
-          <div className="media-container">
+          <div className={activeView === 'architecture' ? 'architecture-media' : 'media-container'}>
+            {activeView === 'architecture' ? <ArchitectureDiagram key={`${company || 'projects'}-${id}`} projectId={project.diagram || project.id} /> : <>
             {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
               <div className={`media-view video-view ${activeView === 'video' ? 'active' : ''}`}>
                 {project.isBuilding ? (
                   <div className="building-animation-container" style={{ position: 'relative', width: '100%', height: '100%', borderRadius: 'inherit' }}>
                     <div className="building-icon-wrapper" style={{ padding: '24px' }}>
-                      <video 
+                      <MotionVideo
                         src={MonitorsTyping} 
                         className="building-icon-video"
                         autoPlay 
@@ -130,7 +100,7 @@ function ProjectDetail() {
                     </div>
                   </div>
                 ) : (
-                  <video
+                  <MotionVideo
                     key={project.detailsVideo || project.heroVideo}
                     className="project-video-full"
                     src={`${import.meta.env.BASE_URL}${project.detailsVideo || project.heroVideo}`}
@@ -168,7 +138,7 @@ function ProjectDetail() {
                       src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
                       alt={`${project.title} mockup ${activeMockupIndex + 1}`}
                       className="mockup-image main-image"
-                      loading="lazy"
+                      loading="eager"
                       decoding="async"
                     />
 
@@ -191,23 +161,26 @@ function ProjectDetail() {
                   {project.mockups.length > 1 && (
                     <div className="mockup-thumbnails">
                       {project.mockups.map((mockup, idx) => (
-                        <div 
+                        <button type="button"
                           key={idx}
+                          aria-label={`View screenshot ${idx + 1}`}
+                          aria-pressed={idx === activeMockupIndex}
                           className={`mockup-thumbnail ${idx === activeMockupIndex ? 'active' : ''}`}
                           onClick={() => setActiveMockupIndex(idx)}
                         >
                           <img 
                             src={`${import.meta.env.BASE_URL}${mockup}`} 
-                            alt={`Thumbnail ${idx + 1}`} 
+                            alt=""
                             loading="lazy"
                           />
-                        </div>
+                        </button>
                       ))}
                     </div>
                   )}
                 </div>
               </div>
             )}
+            </>}
           </div>
         </div>
 
@@ -216,10 +189,10 @@ function ProjectDetail() {
           <div className="project-detail-content">
             {/* Header */}
             <div className="detail-header">
+              {project.status && <p className="detail-project-status">{project.status}</p>}
               <h1 className="detail-title">{project.title}</h1>
               <p className="detail-subtitle">{project.shortDescription}</p>
             </div>
-
             {/* Stack Tags */}
             <div className="detail-section">
               <h3 className="section-label">Tech Stack</h3>
@@ -283,7 +256,8 @@ function ProjectDetail() {
               <div className="detail-section detail-links">
                 {project.github && (
                   <a 
-                    href={project.githubDisabled ? "#" : project.github} 
+                    href={project.githubDisabled ? undefined : project.github}
+                    aria-disabled={project.githubDisabled || undefined}
                     target={project.githubDisabled ? "_self" : "_blank"} 
                     rel="noopener noreferrer"
                     className={`detail-link-btn ${project.githubDisabled ? 'disabled' : ''}`}
@@ -304,7 +278,7 @@ function ProjectDetail() {
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
                     )}
-                    {project.githubDisabled ? "Locked" : "View Code"}
+                    {project.githubDisabled ? "Source not public" : "View Code"}
                   </a>
                 )}
                 {project.demo && (
@@ -327,6 +301,7 @@ function ProjectDetail() {
           </div>
         </div>
       </div>
+      <ProjectNavPanel currentId={id} company={company} projects={collection} />
     </div>
   );
 }

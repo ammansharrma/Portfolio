@@ -8,57 +8,15 @@
   align-items: center !important;
   justify-content: center !important;
   background: transparent !important; /* No color */
-  backdrop-filter: blur(20px); /* Reduced from multiple layers to one */
-  -webkit-backdrop-filter: blur(20px);
-  @media (max-width: 768px) {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+
   box-sizing: border-box !important;
   z-index: 120 !important; /* Above Projects (110) */
   overflow: hidden !important;
   contain: content; /* Layout optimization */
   opacity: 1;
   transform: translateY(0);
-  margin-top: -80px !important;
+  margin-top: 0 !important;
   isolation: isolate;
-}
-
-.skills-minimal-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
-  background-repeat: repeat;
-  background-size: 200px;
-  opacity: 0.15; /* Reduced for readability */
-  pointer-events: none;
-  mix-blend-mode: overlay;
-  z-index: -1;
-}
-
-/* Gradient Blur Overlay - Matching Contact */
-.skills-minimal-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  /* background-blur removed - redundant with parent backdrop-filter */
-  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.decorative-gradient {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 40%, rgba(40, 60, 100, 0.15) 0%, transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(60, 40, 80, 0.15) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
 }
 
 @media (max-width: 1024px) {
@@ -125,7 +83,7 @@
 .skills-minimal-title {
   font-size: clamp(24px, 2.12vw, 32px);
   font-weight: 700;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   letter-spacing: 0.02em;
   margin-bottom: clamp(12px, 1.5vw, 20px);
   text-transform: uppercase;
@@ -134,7 +92,7 @@
 .skills-minimal-subtitle {
   font-size: clamp(16px, 1.8vw, 20px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 246, 231, 0.72);
   letter-spacing: 0.01em;
 }
 
@@ -160,17 +118,17 @@
 
 /* Card Design - Minimal & Text-First */
 .skill-card-minimal {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: 1px solid rgba(244, 235, 220, 0.1);
   border-radius: 12px;
   padding: clamp(24px, 3vw, 32px);
-  padding-bottom: 90px;
+  padding-bottom: 80px;
   min-height: 240px;
   transition: transform 0.15s var(--ease-fast, ease), 
               border-color 0.15s var(--ease-fast, ease), 
               background 0.15s var(--ease-fast, ease),
               opacity 0.15s var(--ease-fast, ease);
-  cursor: pointer;
+  cursor: default;
   outline: none;
   will-change: transform;
   backface-visibility: hidden;
@@ -179,6 +137,7 @@
   position: relative;
   overflow: hidden;
 }
+
 
 /* Remove staggered card entry animation */
 /* .skills-minimal-page.visible .skill-card-minimal {
@@ -197,8 +156,8 @@
 .skill-card-minimal:hover,
 .skill-card-minimal:focus {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(244, 235, 220, 0.25);
+  background: transparent;
 }
 
 .skills-minimal-grid:has(.skill-card-minimal:hover) .skill-card-minimal:not(:hover) {
@@ -208,7 +167,7 @@
 }
 
 .skill-card-minimal:focus {
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(244, 235, 220, 0.28);
 }
 
 .skill-card-minimal:active {
@@ -219,7 +178,7 @@
 .skill-category-title {
   font-size: clamp(17px, 1.8vw, 20px);
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin-bottom: clamp(14px, 1.8vw, 20px);
   letter-spacing: 0.02em;
 }
@@ -238,7 +197,7 @@
 .skill-item {
   font-size: clamp(13px, 1.4vw, 15px);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 246, 231, 0.72);
   position: relative;
   padding-left: 16px;
   transition: color 0.12s ease;
@@ -248,13 +207,13 @@
 
 /* First capability - stronger */
 .skill-item:first-child {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 246, 231, 0.9);
   font-weight: 450;
 }
 
 /* Remaining capabilities - softer */
 .skill-item:not(:first-child) {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 246, 231, 0.72);
 }
 
 /* Circular micro-indicator */
@@ -265,7 +224,7 @@
   top: 0.6em;
   width: 4px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(244, 235, 220, 0.25);
   border-radius: 50%;
   opacity: 1;
   transition: all 0.15s ease;
@@ -273,19 +232,19 @@
 
 /* Glow on card hover */
 .skill-card-minimal:hover .skill-item::before {
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+  background: rgba(244, 235, 220, 0.5);
+  box-shadow: 0 0 6px rgba(244, 235, 220, 0.28);
   transform: scale(1.3);
 }
 
 /* Individual item hover */
 .skill-card-minimal:hover .skill-item:hover {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 246, 231, 0.95);
 }
 
 .skill-card-minimal:hover .skill-item:hover::before {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  background: rgba(244, 235, 220, 0.9);
+  box-shadow: 0 0 8px rgba(244, 235, 220, 0.28);
   transform: scale(1.4);
 }
 
@@ -300,9 +259,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   background: transparent; /* No color */
-  backdrop-filter: blur(8px); /* Blur effect inside the strip */
-  -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(244, 235, 220, 0.1);
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -326,6 +283,7 @@
 }
 
 .skill-motion-track {
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -347,8 +305,8 @@
   align-items: center;
   gap: 8px;
   padding: 6px 14px 6px 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  border: 1px solid rgba(244, 235, 220, 0.12);
   border-radius: 20px;
   flex-shrink: 0;
   transition: all 0.2s ease;
@@ -356,8 +314,8 @@
 }
 
 .skill-badge:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border-color: rgba(244, 235, 220, 0.2);
 }
 
 .skill-badge-logo {
@@ -371,7 +329,7 @@
 .skill-badge-text {
   font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 246, 231, 0.75);
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
@@ -382,7 +340,7 @@
 }
 
 .skill-badge:hover .skill-badge-text {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 246, 231, 0.95);
 }
 
 @keyframes scrollLeft {
@@ -390,7 +348,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 6px));
   }
 }
 
@@ -418,6 +376,7 @@
 }
 
 .global-tech-track {
+  width: max-content;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -433,16 +392,16 @@
   align-items: center;
   gap: 10px;
   padding: 8px 16px 8px 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: 1px solid rgba(244, 235, 220, 0.1);
   border-radius: 24px;
   flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
 .global-tech-badge:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: transparent;
+  border-color: rgba(244, 235, 220, 0.18);
 }
 
 .global-tech-badge-logo {
@@ -456,7 +415,7 @@
 .global-tech-badge-text {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 246, 231, 0.72);
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
@@ -467,12 +426,12 @@
 }
 
 .global-tech-badge:hover .global-tech-badge-text {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 246, 231, 0.85);
 }
 
 @keyframes scrollRight {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 7px));
   }
   100% {
     transform: translateX(0);
@@ -486,14 +445,14 @@
   }
 
   .skill-card-minimal {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(244, 235, 220, 0.2);
+    background: transparent;
   }
 
   /* Show indicators glow */
   .skill-item::before {
-    background: rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 0 6px rgba(255, 255, 255, 0.4) !important;
+    background: rgba(244, 235, 220, 0.5) !important;
+    box-shadow: 0 0 6px rgba(244, 235, 220, 0.28) !important;
     transform: scale(1.3) !important;
   }
 
@@ -509,7 +468,7 @@
 
   /* Highlight first items */
   .skill-item:first-child {
-    color: rgba(255, 255, 255, 0.95) !important;
+    color: rgba(255, 246, 231, 0.95) !important;
   }
 }
 

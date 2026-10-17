@@ -1,16 +1,24 @@
 .experience-section-page {
+  border-radius: 50px 50px 0 0 !important;
+  border-top-left-radius: 50px !important;
+  border-top-right-radius: 50px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-left: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-right: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-bottom: none !important;
   padding: 80px 4% 120px 4% !important;
   min-height: auto !important;
-  background: #000316 !important;
+  background: var(--theme-surface) !important;
   width: 100% !important;
   box-sizing: border-box !important;
   display: flex !important;
   flex-direction: column !important;
   position: relative !important;
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  border-right: 2px solid rgba(255, 255, 255, 0.1);
   z-index: 105 !important;
-  isolation: isolate;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Texture Layer */
@@ -23,6 +31,7 @@
   background-size: 200px;
   opacity: 0.15;
   pointer-events: none;
+  border-radius: inherit;
   mix-blend-mode: overlay;
 }
 
@@ -34,7 +43,7 @@
 
 .experience-main-title {
   font-size: clamp(24px, 4vw, 40px);
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-weight: 700;
   margin-bottom: 60px;
   letter-spacing: -0.02em;
@@ -45,15 +54,17 @@
   flex-direction: column;
   width: 100%;
   /* Using borders as in the screenshot */
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-top: 1px solid rgba(244, 235, 220, 0.28);
 }
 
 .experience-row {
+  text-decoration: none;
+  color: inherit;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 40px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(244, 235, 220, 0.28);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
@@ -70,7 +81,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #FFFFFF;
+  background: var(--theme-accent);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -92,11 +103,20 @@
 
 .experience-row-left {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
+.experience-logo { font-size: 24px; }
+.experience-role { color: var(--theme-ink); font-size: 15px; }
+.experience-summary { color: var(--theme-ink); font-size: 14px; line-height: 1.6; max-width: 540px; }
+.experience-row:hover :is(.experience-role, .experience-summary) { color: var(--theme-ink); }
+.experience-row-right { flex-shrink: 0; margin-left: 24px; }
+@media (max-width: 768px) { .experience-row-right { margin-left: 0; } }
+
 .experience-logo {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin-right: 20px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -107,7 +127,7 @@
 
 /* The hover interaction changes logo color to the background color (#000316) */
 .experience-row:hover .experience-logo {
-  color: #000316;
+  color: var(--theme-ink);
   transform: translateX(10px);
 }
 
@@ -115,7 +135,7 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 246, 231, 0.8);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -127,7 +147,7 @@
 }
 
 .experience-row:hover .experience-year {
-  color: #000316;
+  color: var(--theme-ink);
 }
 
 /* Arrow effect */

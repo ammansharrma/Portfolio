@@ -1,3 +1,4 @@
+import MotionVideo from './MotionVideo';
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
@@ -16,7 +17,7 @@ function ProjectCard({ project }) {
         {project.isBuilding ? (
           <div className="building-animation-container">
             <div className="building-icon-wrapper">
-              <video 
+              <MotionVideo
                 src={MonitorsTyping} 
                 className="building-icon-video"
                 autoPlay 
@@ -41,13 +42,13 @@ function ProjectCard({ project }) {
             <div 
               className="project-thumbnail"
               style={{ 
-                backgroundImage: `url(${import.meta.env.BASE_URL}${project.thumbnail})`
+                backgroundImage: project.thumbnail ? `url(${import.meta.env.BASE_URL}${project.thumbnail})` : undefined
               }}
             />
             
             {/* Video (plays automatically and continuously loops) */}
             {project.heroVideo && (
-              <video
+              <MotionVideo
                 className="project-video"
                 muted
                 loop
@@ -55,7 +56,7 @@ function ProjectCard({ project }) {
                 playsInline
               >
                 <source src={`${import.meta.env.BASE_URL}${project.heroVideo}`} type="video/mp4" />
-              </video>
+              </MotionVideo>
             )}
           </>
         )}
@@ -66,7 +67,7 @@ function ProjectCard({ project }) {
           {project.title}
           <img 
             src={TopRightArrow} 
-            alt="" 
+            alt=""
             className="arrow-icon" 
             loading="lazy" 
             decoding="async" 

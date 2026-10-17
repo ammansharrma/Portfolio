@@ -1,68 +1,20 @@
 import { memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ExperienceSection.css';
 import TopRightArrow from '../../assets/Arrow-top-right.webp';
 
+const experiences = [
+  { id: 'mindstix', name: 'MINDSTIX', role: 'Software Developer', dates: 'Jun 2025 — Present', summary: 'Production AI agents, real-time workflows, and full-stack delivery.' },
+  { id: 'omnevu', name: 'OMNEVU', role: 'Full Stack Developer Intern', dates: 'Dec 2024 — Jun 2025', summary: 'Inventory, warranty, and retail workflows built for everyday use.' },
+];
 function ExperienceSection() {
-  const navigate = useNavigate();
-
-  return (
-    <div className="experience-section-page page-container" id="experience">
-      <div className="experience-layout">
-        <h1 className="experience-main-title">EXPERIENCE</h1>
-        
-        <div className="experience-list">
-          {/* Mindstix Experience Row */}
-          <div 
-            className="experience-row" 
-            onClick={() => navigate('/experience/mindstix')}
-          >
-            <div className="experience-row-left">
-              <div className="experience-logo mindstix-logo">
-                <svg viewBox="0 0 160 30" width="160" height="30" fill="currentColor">
-                  <text x="0" y="22" fontFamily="sans-serif" fontWeight="500" fontSize="24" letterSpacing="0.5">MINDSTIX</text>
-                </svg>
-              </div>
-            </div>
-            <div className="experience-row-right">
-              <span className="experience-year">2025 - PRESENT</span>
-              <img 
-                src={TopRightArrow} 
-                alt="View Details" 
-                className="experience-arrow" 
-                width="20"
-                height="20"
-              />
-            </div>
-          </div>
-
-          {/* OmneVu Experience Row */}
-          <div 
-            className="experience-row" 
-            onClick={() => navigate('/experience/omnevu')}
-          >
-            <div className="experience-row-left">
-              <div className="experience-logo omnevu-logo">
-                <svg viewBox="0 0 160 30" width="160" height="30" fill="currentColor">
-                  <text x="0" y="22" fontFamily="sans-serif" fontWeight="500" fontSize="24" letterSpacing="1">OMNEVU</text>
-                </svg>
-              </div>
-            </div>
-            <div className="experience-row-right">
-              <span className="experience-year">2024 - 2025</span>
-              <img 
-                src={TopRightArrow} 
-                alt="View Details" 
-                className="experience-arrow" 
-                width="20"
-                height="20"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+  return <section className="experience-section-page page-container" id="experience" aria-labelledby="experience-heading">
+    <div className="experience-layout"><h2 className="experience-main-title" id="experience-heading">EXPERIENCE</h2>
+      <div className="experience-list">{experiences.map(item => <Link key={item.id} to={`/experience/${item.id}`} className="experience-row">
+        <div className="experience-row-left"><div className="experience-logo">{item.name}</div><p className="experience-role">{item.role}</p><p className="experience-summary">{item.summary}</p></div>
+        <div className="experience-row-right"><span className="experience-year">{item.dates}</span><img src={TopRightArrow} alt="" className="experience-arrow" width="20" height="20" /></div>
+      </Link>)}</div>
     </div>
-  );
+  </section>;
 }
-
 export default memo(ExperienceSection);

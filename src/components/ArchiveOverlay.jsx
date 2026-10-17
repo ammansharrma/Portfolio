@@ -1,12 +1,19 @@
-import { memo, useEffect } from 'react';
+import { memo, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 import './ArchiveOverlay.css';
 import projectsData from '../data/projects.json';
 import NavArrow from '../assets/Nav-Arrow.webp';
 
 function ArchiveOverlay({ isOpen, onClose }) {
+  const dialogRef = useRef(null);
   useEffect(() => {
     if (isOpen) {
+      const previousFocus = document.activeElement;
+      const app = document.querySelector('.app');
+      const wasInert = app?.inert;
+      if (app) app.inert = true;
+      dialogRef.current?.querySelector('button')?.focus();
       const originalHtmlOverflow = document.documentElement.style.overflow;
       const originalBodyOverflow = document.body.style.overflow;
 
@@ -15,13 +22,22 @@ function ArchiveOverlay({ isOpen, onClose }) {
       
       const handleEscape = (e) => {
         if (e.key === 'Escape') {
+          e.preventDefault();
           onClose();
+        }
+        if (e.key === 'Tab') {
+          const items = [...dialogRef.current.querySelectorAll('a[href], button:not([disabled])')];
+          const first = items[0], last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
       };
       
       window.addEventListener('keydown', handleEscape);
       
       return () => {
+        if (app) app.inert = wasInert;
+        if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
         document.documentElement.style.overflow = originalHtmlOverflow;
         document.body.style.overflow = originalBodyOverflow;
         window.removeEventListener('keydown', handleEscape);
@@ -39,9 +55,9 @@ function ArchiveOverlay({ isOpen, onClose }) {
     { id: 'frontend', label: 'Frontend Engineering' }
   ];
 
-  return (
+  return createPortal(
     <div className="archive-overlay" onClick={onClose}>
-      <div className="archive-content" onClick={(e) => e.stopPropagation()}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="archive-title" className="archive-content" onClick={(e) => e.stopPropagation()}>
         {/* Animated Background Elements */}
         <div className="archive-nebula-bg">
           <div className="nebula-glow n1"></div>
@@ -51,7 +67,7 @@ function ArchiveOverlay({ isOpen, onClose }) {
         {/* Header */}
         <div className="archive-header">
           <div className="archive-header-left">
-            <h2 className="archive-title">Full Project Archive</h2>
+            <h2 id="archive-title" className="archive-title">Full Project Archive</h2>
             <p className="archive-subtitle">A deep dive into everything I've built and engineered.</p>
           </div>
           <button 
@@ -104,7 +120,7 @@ function ArchiveOverlay({ isOpen, onClose }) {
           })}
         </div>
       </div>
-    </div>
+    </div>, document.body
   );
 }
 

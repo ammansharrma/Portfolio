@@ -28,9 +28,9 @@
   left: -400px;
   background: radial-gradient(
     circle at center,
-    rgba(140, 100, 255, 0.4) 0%,
-    rgba(140, 100, 255, 0.25) 30%,
-    rgba(140, 100, 255, 0) 70%
+    rgba(244, 235, 220, 0.4) 0%,
+    rgba(244, 235, 220, 0.25) 30%,
+    rgba(244, 235, 220, 0) 70%
   );
   border-radius: 50%;
   filter: blur(35px);

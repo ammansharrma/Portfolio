@@ -1,0 +1,9 @@
+.project-nav-panel { width: min(1440px, 100%); margin: 0 auto; padding: 48px clamp(20px, 5vw, 80px) 72px; border-top: 1px solid rgba(244, 235, 220, 0.10196078431372549); }
+.project-nav-heading { display: flex; justify-content: space-between; gap: 20px; color: var(--theme-ink); font-size: 12px; letter-spacing: .08em; margin-bottom: 24px; }
+.project-nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.project-nav-link { display: flex; flex-direction: column; gap: 14px; padding: 28px; border: 1px solid rgba(244, 235, 220, 0.10196078431372549); border-radius: 14px; background: rgba(244, 235, 220, 0.011764705882352941); color: var(--theme-accent); text-decoration: none; transition: background .2s, border-color .2s; }
+.project-nav-link span { font-size: 12px; color: var(--theme-ink); }
+.project-nav-link strong { font-weight: 500; font-size: clamp(16px, 2vw, 23px); line-height: 1.5; }
+.project-nav-next { text-align: right; }
+.project-nav-link:hover { background: rgba(244, 235, 220, 0.050980392156862744); border-color: rgba(244, 235, 220, 0.28); }
+@media (max-width: 600px) { .project-nav-grid { grid-template-columns: 1fr; gap: 12px; }.project-nav-link { padding: 22px; }.project-nav-next { text-align: left; } }

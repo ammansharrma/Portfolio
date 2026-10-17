@@ -24,8 +24,8 @@
   backface-visibility: hidden;
   background: radial-gradient(
       circle at center,
-      rgba(255, 255, 255, 0.4) 0,
-      rgba(255, 255, 255, 0) 50%
+      rgba(244, 235, 220, 0.4) 0,
+      rgba(244, 235, 220, 0) 50%
     )
     no-repeat;
   width: 100%;

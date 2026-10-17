@@ -1,20 +1,25 @@
 .about-page {
   padding: clamp(100px, 9vw, 140px) clamp(30px, 3.97vw, 60px) clamp(80px, 8vw, 120px) !important;
-  min-height: 100vh !important;
+  min-height: auto !important;
   width: 100% !important;
   position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
   box-sizing: border-box !important;
-  background: #000316 !important;
+  background: var(--theme-surface) !important;
   border-radius: 50px 50px 0 0 !important;
-  border-top: 2px solid rgba(255, 255, 255, 0.1);
-  border-left: 2px solid rgba(255, 255, 255, 0.1);
-  border-right: 2px solid rgba(255, 255, 255, 0.1);
-  z-index: 100 !important; /* Above hero content (40) to prevent blocking hovers */
-  margin-top: 100vh !important;
-  isolation: isolate;
+  border-top-left-radius: 50px !important;
+  border-top-right-radius: 50px !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-left: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-right: 2px solid rgba(244, 235, 220, 0.1) !important;
+  border-bottom: none !important;
+  z-index: 125 !important; /* Above hero content (40) to prevent blocking hovers */
+  margin: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Texture Layer */
@@ -57,7 +62,7 @@
   font-size: clamp(32px, 3vw, 45px);
   font-weight: 700;
   line-height: 1;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   writing-mode: horizontal-tb;
   white-space: nowrap;
 }
@@ -71,7 +76,7 @@
 .about-greeting {
   font-size: clamp(22px, 2.12vw, 32px);
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin-bottom: clamp(10px, 1.32vw, 20px);
   display: flex;
   align-items: center;
@@ -95,7 +100,7 @@
   font-size: clamp(16px, 1.32vw, 20px);
   font-weight: 400;
   line-height: 1.6;
-  color: #8B8B8B;
+  color: var(--theme-ink);
   text-align: left;
 }
 
@@ -104,7 +109,7 @@
 }
 
 .about-text .highlight {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-weight: 500;
 }
 
@@ -115,7 +120,7 @@
 .about-section-title {
   font-size: clamp(18px, 1.5vw, 22px);
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin: 0 0 clamp(10px, 1.2vw, 16px) 0;
   letter-spacing: -0.02em;
 }
@@ -133,7 +138,7 @@
   font-size: clamp(16px, 1.32vw, 20px);
   font-weight: 400;
   line-height: 1.6;
-  color: #8B8B8B;
+  color: var(--theme-ink);
   display: flex;
   align-items: flex-start;
   gap: clamp(8px, 1vw, 12px);
@@ -142,7 +147,7 @@
 }
 
 .about-principles li:hover {
-  color: #FFFFFF;
+  color: var(--theme-accent);
 }
 
 .arrow-icon {
@@ -179,7 +184,7 @@
 .experience-item {
   font-size: clamp(17px, 1.39vw, 21px);
   font-weight: 500;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -197,18 +202,18 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #FFFFFF;
+  background: var(--theme-accent);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .experience-footer:has(.experience-item:hover) .experience-item:not(:hover) {
-  color: #4A4A4A;
+  color: var(--theme-ink);
   opacity: 0.3;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .experience-item:hover {
-  color: #FFFFFF;
+  color: var(--theme-accent);
   opacity: 1;
   transform: translateY(-2px);
 }
@@ -219,7 +224,7 @@
 
 /* Standardized arrows now handled by .arrow-icon above */
 
-.scroll-indicators {
+.about-page .scroll-indicators {
   position: absolute;
   bottom: clamp(20px, 2.65vw, 40px);
   right: clamp(20px, 2.65vw, 40px);
@@ -228,13 +233,13 @@
   z-index: 10;
 }
 
-.scroll-btn {
+.about-page .scroll-btn {
   width: clamp(28.8px, 2.47vw, 37.4px);
   height: clamp(28.8px, 2.47vw, 37.4px);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 1);
-  color: #FFFFFF;
+  background: rgba(244, 235, 220, 0.1);
+  border: 1px solid rgba(244, 235, 220, 0.28);
+  color: var(--theme-accent);
   font-size: clamp(20px, 1.59vw, 24px);
   display: flex;
   align-items: center;
@@ -293,12 +298,12 @@
     font-size: 13px;
   }
 
-  .scroll-indicators {
+  .about-page .scroll-indicators {
     bottom: 20px;
     right: 20px;
   }
 
-  .scroll-btn {
+  .about-page .scroll-btn {
     width: 40px;
     height: 40px;
     font-size: 20px;

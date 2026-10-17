@@ -5,7 +5,7 @@
 .hero-bg-layer {
   position: fixed;
   inset: 0;
-  background-color: #000;
+  background-color: var(--theme-surface);
   z-index: 0; /* Foundation */
   pointer-events: none;
 }
@@ -43,7 +43,7 @@
   font-weight: 400;
   line-height: 1.4;
   margin-bottom: clamp(30px, 3.97vw, 60px);
-  color: #FFFFFF;
+  color: var(--theme-accent);
   text-align: center;
 }
 
@@ -72,7 +72,7 @@
   font-size: clamp(20px, 2.12vw, 32px);
   font-weight: 400;
   line-height: 1.5;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
@@ -80,6 +80,13 @@
   gap: 8px;
   transition: opacity 0.12s ease;
 }
+
+.hero-name { font-size: clamp(14px, 1.2vw, 18px); color: var(--theme-ink); margin-bottom: 24px; }
+.hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 32px; }
+.hero-action { display: inline-flex; align-items: center; gap: 16px; border: 1px solid rgba(244, 235, 220, 0.28); border-radius: 40px; padding: 12px 22px; color: var(--theme-accent); background: rgba(0, 71, 171, 0.15); text-decoration: none; font-size: 14px; backdrop-filter: blur(10px); }
+.hero-action:hover { background: rgba(244, 235, 220, 0.12); }
+.hero-page .scroll-indicators { position: fixed; }
+@media (max-height: 650px) { .hero-name { margin-bottom: 12px; } .hero-subtitle { font-size: 26px; margin-bottom: 18px; } .hero-title { font-size: 18px; } .hero-actions { margin-top: 18px; } }
 
 .scroll-indicators {
   position: fixed;
@@ -94,9 +101,9 @@
   width: clamp(40px, 3.5vw, 52px);
   height: clamp(40px, 3.5vw, 52px);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 1);
-  color: #FFFFFF;
+  background: rgba(244, 235, 220, 0.1);
+  border: 1px solid rgba(244, 235, 220, 0.28);
+  color: var(--theme-accent);
   font-size: clamp(20px, 1.59vw, 24px);
   display: flex;
   align-items: center;

@@ -1,47 +1,59 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
-import ProjectCard from '../../components/ProjectCard';
-import ArchiveOverlay from '../../components/ArchiveOverlay';
+import './ProjectStack.css';
+import ProjectPreview from '../../components/ProjectPreview';
+import DirectionArrow from '../../components/DirectionArrow';
 import projectsData from '../../data/projects.json';
-import NavArrow from '../../assets/Nav-Arrow.webp';
 
+const projects = projectsData.projects;
 function Projects() {
-  const [isArchiveOpen, setIsArchiveOpen] = useState(false);
-
-  // Show first 3 projects (VidhaanAI, Stock Predictor, Ideation)
-  const displayedProjects = projectsData.projects.slice(0, 3);
-
-  return (
-    <>
-      <div className="projects-page page-container" id="projects">
-        <div className="projects-header">
-          <h1 className="projects-title">PROJECTS</h1>
-          <p className="projects-subtitle">Things I build to learn, experiment, and ship</p>
+  const runway = useRef(null);
+  const viewport = useRef(null);
+  const slides = useRef([]);
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    let frame;
+    const update = () => {
+      const height = viewport.current.offsetHeight;
+      const travelled = -runway.current.getBoundingClientRect().top;
+      const progress = Math.max(0, Math.min(projects.length - 1, travelled / height));
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const selected = Math.round(progress);
+      setActive(selected);
+      slides.current.forEach((slide, index) => {
+        const entrance = Math.max(0, Math.min(1, progress - index + 1));
+        const offset = index === 0 ? 0 : reduced ? (index <= selected ? 0 : 100) : (1 - entrance) * 100;
+        slide.style.transform = `translate3d(0, ${offset}%, 0)`;
+        const contentInView = index === 0 ? travelled >= -height * .4 : entrance >= .65;
+        slide.classList.toggle('is-revealed', reduced || contentInView);
+      });
+    };
+    const schedule = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(update); };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); };
+  }, []);
+  return <section className="projects-page page-container editorial-projects" id="projects" aria-label="Selected projects">
+    <div ref={runway} className="project-slider-runway" style={{ '--slide-count': projects.length }}>
+      <div ref={viewport} className="project-slider-viewport" role="region" aria-roledescription="carousel" aria-label="Project showcase">
+        <div className="project-slider-track">
+          {projects.map((project, index) => <article key={project.id} ref={element => { slides.current[index] = element; }} style={{ zIndex: index + 1 }} className={`project-slide ${active === index ? 'is-active' : ''}`} aria-roledescription="slide" aria-label={`${index + 1} of ${projects.length}: ${project.title}`} aria-hidden={active !== index} inert={active !== index ? '' : undefined}>
+            <div className="project-panel-media"><ProjectPreview project={project} fill /></div>
+            <div className="project-panel-caption">
+              <span className="project-panel-number">{project.stack.slice(0, 2).join(' / ')}</span>
+              <h2>{project.title}</h2>
+              <Link to={`/projects/${project.id}`} className="project-slide-action" aria-label={`See project: ${project.title}`}>See project <DirectionArrow /></Link>
+            </div>
+          </article>)}
         </div>
-
-        <div className="projects-grid">
-          {displayedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-
-        <div className="projects-cta">
-          <button 
-            onClick={() => setIsArchiveOpen(true)} 
-            className="projects-link"
-          >
-            View Full Project Archive
-                        <img src={NavArrow} alt="" className="archive-button-arrow" loading="lazy" decoding="async" width="14" height="22" />
-          </button>
+        <div className="project-slider-counter" aria-live="polite" aria-atomic="true">
+          <span>{active + 1}</span><span aria-hidden="true">/</span><span>{projects.length}</span>
         </div>
       </div>
+    </div>
 
-      <ArchiveOverlay 
-        isOpen={isArchiveOpen} 
-        onClose={() => setIsArchiveOpen(false)} 
-      />
-    </>
-  );
+  </section>;
 }
-
 export default memo(Projects);

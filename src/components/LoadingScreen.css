@@ -13,7 +13,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #000;
+  background: var(--theme-surface);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +65,7 @@
 .counter-bottom-right {
   font-size: 24px;
   font-weight: 400;
-  color: #fff;
+  color: var(--theme-accent);
   font-family: 'Stage Wanders', sans-serif;
   letter-spacing: 0.15em;
 }
@@ -74,14 +74,14 @@
 .progress-bar-container {
   width: 100%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(244, 235, 220, 0.1);
 }
 
 .progress-bar {
   height: 100%;
-  background: #fff;
+  background: var(--theme-accent);
   transition: width 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(244, 235, 220, 0.28);
 }
 
 @keyframes fadeInCounter {

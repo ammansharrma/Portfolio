@@ -1,6 +1,8 @@
+import DirectionArrow from '../../components/DirectionArrow';
+import MotionVideo from '../../components/MotionVideo';
 import { useState, useEffect, useRef, memo } from 'react'
 import './Hero.css'
-import InteractiveBubble from '../../components/InteractiveBubble'
+import { profile } from '../../data/profile'
 import NavArrow from '../../assets/Nav-Arrow.webp'
 import MonitorsTyping from '../../assets/GIFs/monitors-typing.webm'
 import BrainiacBrain from '../../assets/GIFs/brain.webm'
@@ -16,6 +18,7 @@ function Hero() {
 
   const startScrambleAnimation = (targetText) => {
     // Don't start if already animating
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setDisplayText(targetText); return }
     if (isAnimatingRef.current) return
     
     isAnimatingRef.current = true
@@ -84,7 +87,7 @@ function Hero() {
   }, [])
 
   const scrollToNext = () => {
-    window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+    document.getElementById('experience')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })
   }
 
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -114,11 +117,11 @@ function Hero() {
     <div className="hero-page" id="hero">
       <div className="hero-bg-layer" />
       <div className="hero-page-texture" />
-      <InteractiveBubble />
       <div className="hero-content" style={heroStyle}>
+        <p className="hero-name">{profile.name}</p>
         <h1 className="hero-subtitle">
-          A full-stack software engineer{" "}
-                    <video 
+          I build production AI agents{" "}
+                    <MotionVideo
             src={MonitorsTyping} 
             className="hero-gif" 
             autoPlay 
@@ -128,10 +131,10 @@ function Hero() {
             width="80"
             height="80"
           />{" "}
-          specializing
+          and
           <br />
-          in building intelligent{" "}
-                    <video 
+          reliable{" "}
+                    <MotionVideo
             src={BrainiacBrain} 
             className="hero-gif" 
             autoPlay 
@@ -141,7 +144,7 @@ function Hero() {
             width="60"
             height="60"
           />{" "}
-          user-centric applications
+          full-stack systems
         </h1>
         <p
           className="hero-title"
@@ -152,13 +155,17 @@ function Hero() {
           {displayText}
           
         </p>
+        <div className="hero-actions">
+          <a href="#experience" className="hero-action">Explore my work <DirectionArrow /></a>
+          <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="hero-action">View résumé <DirectionArrow /></a>
+        </div>
       </div>
 
       <div className="scroll-indicators" style={{ opacity: 1 - scrollProgress * 2 }}> 
         <button className="scroll-btn scroll-btn-pulse" onClick={scrollToNext} aria-label="Scroll down">
                     <img 
             src={NavArrow} 
-            alt="" 
+            alt=""
             loading="eager" 
             fetchPriority="high"
             decoding="async" 
@@ -169,7 +176,7 @@ function Hero() {
         <button className="scroll-btn scroll-btn-pulse" onClick={scrollToNext} aria-label="Scroll down" style={{ animationDelay: '0.1s' }}>
                     <img 
             src={NavArrow} 
-            alt="" 
+            alt=""
             loading="eager" 
             decoding="async" 
             width="14"

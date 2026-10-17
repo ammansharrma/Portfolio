@@ -1,14 +1,14 @@
 :root {
   --color-bg1: #000;
   --color-bg2: #000;
-  --color1: 235, 243, 3;
-  --color2: 243, 87, 3;
-  --color3: 228, 149, 13;
-  --color4: 191, 79, 4;
-  --color5: 249, 0, 0;
-  --color-interactive: 140, 100, 255;
+  --color1: 244, 235, 220;
+  --color2: 224, 205, 173;
+  --color3: 203, 175, 132;
+  --color4: 255, 246, 231;
+  --color5: 224, 205, 173;
+  --color-interactive: 244, 235, 220;
   --circle-size: 80%;
-  --blending: hard-light;
+  --blending: screen;
 }
 
 .gradient-bg {
@@ -29,7 +29,7 @@
   position: relative;
   z-index: 1;
   will-change: transform; /* optimized from filter */
-  opacity: 0.6; /* Reduced global intensity */
+  opacity: 0.32; /* Reduced global intensity */
 }
 
 /* Reduced Orbs - Focusing on 4 key sources */

@@ -12,8 +12,10 @@ function WhiteBubble() {
   useEffect(() => {
     const bubble = bubbleRef.current;
     if (!bubble) return;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     function move() {
+      if (motion.matches || document.hidden) { rafRef.current = null; return; }
       cur.current.x += (tg.current.x - cur.current.x) / 20;
       cur.current.y += (tg.current.y - cur.current.y) / 20;
       bubble.style.transform = `translate3d(${Math.round(cur.current.x)}px, ${Math.round(cur.current.y)}px, 0)`;
@@ -38,6 +40,9 @@ function WhiteBubble() {
       setTimeout(() => { tg.current.y -= 0.4; }, 40);
     }
 
+    function resume() { if (!rafRef.current) rafRef.current = requestAnimationFrame(move); }
+    motion.addEventListener('change', resume);
+    document.addEventListener('visibilitychange', resume);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('touchstart', onTouchMove, { passive: true });
     window.addEventListener('touchmove', onTouchMove, { passive: true });
@@ -46,6 +51,8 @@ function WhiteBubble() {
     rafRef.current = requestAnimationFrame(move);
 
     return () => {
+      motion.removeEventListener('change', resume);
+      document.removeEventListener('visibilitychange', resume);
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('touchstart', onTouchMove);
       window.removeEventListener('touchmove', onTouchMove);

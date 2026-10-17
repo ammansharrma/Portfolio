@@ -1,0 +1,934 @@
+{
+  "order-notes": {
+    "title": "Authenticated summarization",
+    "summary": "Production agent · deployed across two regions",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "notes",
+        "title": "Order notes",
+        "subtitle": "Summarization request",
+        "icon": null,
+        "x": 45,
+        "y": 95,
+        "description": "Order notes provide the context for the requested summary.",
+        "role": "Input"
+      },
+      {
+        "id": "auth",
+        "title": "Keycloak / OAuth",
+        "subtitle": "Shared authentication",
+        "icon": null,
+        "x": 335,
+        "y": 95,
+        "description": "Shared Keycloak/OAuth authentication controls access to the agent workflow.",
+        "role": "Access"
+      },
+      {
+        "id": "agent",
+        "title": "Bedrock AgentCore",
+        "subtitle": "Summarization agent",
+        "icon": "agentcore",
+        "x": 625,
+        "y": 95,
+        "description": "The production summarization agent runs on AWS Bedrock AgentCore.",
+        "role": "Runtime"
+      },
+      {
+        "id": "response",
+        "title": "SSE response",
+        "subtitle": "Streamed summary",
+        "icon": null,
+        "x": 625,
+        "y": 360,
+        "description": "The reworked streaming request lifecycle resolved the cascading three-tier timeout failure.",
+        "role": "Output"
+      },
+      {
+        "id": "review",
+        "title": "Summary review",
+        "subtitle": "Concise order context",
+        "icon": null,
+        "x": 45,
+        "y": 360,
+        "description": "The generated summary makes order context available for review.",
+        "role": "Experience"
+      }
+    ],
+    "edges": [
+      {
+        "from": "notes",
+        "to": "auth",
+        "label": "Request",
+        "dependency": false
+      },
+      {
+        "from": "auth",
+        "to": "agent",
+        "label": "Authorized call",
+        "dependency": false
+      },
+      {
+        "from": "agent",
+        "to": "response",
+        "label": "Stream",
+        "dependency": false
+      },
+      {
+        "from": "response",
+        "to": "review",
+        "label": "Summary",
+        "dependency": false
+      }
+    ]
+  },
+  "rca": {
+    "title": "Evidence to root cause",
+    "summary": "Coordinated investigation on AWS Bedrock AgentCore",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "observer",
+        "title": "CloudWatch Observer",
+        "subtitle": "Production log signals",
+        "icon": "cloudwatch",
+        "x": 45,
+        "y": 95,
+        "description": "The Observer gathers relevant production log signals from CloudWatch.",
+        "role": "Observe"
+      },
+      {
+        "id": "analyzer",
+        "title": "Analyzer",
+        "subtitle": "Evidence synthesis",
+        "icon": "agentcore",
+        "x": 335,
+        "y": 95,
+        "description": "The Analyzer brings observations and investigation evidence together.",
+        "role": "Investigate"
+      },
+      {
+        "id": "finalizer",
+        "title": "Finalizer",
+        "subtitle": "RCA document assembly",
+        "icon": "agentcore",
+        "x": 625,
+        "y": 95,
+        "description": "The Finalizer assembles the investigation findings into an RCA document.",
+        "role": "Conclude"
+      },
+      {
+        "id": "github",
+        "title": "GitHub MCP",
+        "subtitle": "Code evidence",
+        "icon": "github",
+        "x": 45,
+        "y": 360,
+        "description": "GitHub MCP provides code context for the investigation.",
+        "role": "Evidence"
+      },
+      {
+        "id": "search",
+        "title": "Web Search",
+        "subtitle": "Supporting context",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "Web search supplies supporting context during the investigation.",
+        "role": "Evidence"
+      },
+      {
+        "id": "s3",
+        "title": "Amazon S3",
+        "subtitle": "Report delivery",
+        "icon": "s3",
+        "x": 625,
+        "y": 360,
+        "description": "Generated RCA documents are delivered through Amazon S3.",
+        "role": "Output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "observer",
+        "to": "analyzer",
+        "label": "Log signals",
+        "dependency": false
+      },
+      {
+        "from": "analyzer",
+        "to": "finalizer",
+        "label": "Findings",
+        "dependency": false
+      },
+      {
+        "from": "github",
+        "to": "analyzer",
+        "label": "Code context",
+        "dependency": false
+      },
+      {
+        "from": "search",
+        "to": "analyzer",
+        "label": "Web evidence",
+        "dependency": false
+      },
+      {
+        "from": "finalizer",
+        "to": "s3",
+        "label": "RCA report",
+        "dependency": false
+      }
+    ]
+  },
+  "copilot": {
+    "title": "Context for better decisions",
+    "summary": "Customer-service copilot and claims analysis · proof of concept",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "connect",
+        "title": "Amazon Connect",
+        "subtitle": "Call context",
+        "icon": "connect",
+        "x": 45,
+        "y": 95,
+        "description": "Amazon Connect brings customer-service interaction context into the POC.",
+        "role": "Interaction"
+      },
+      {
+        "id": "socket",
+        "title": "WebSockets",
+        "subtitle": "Real-time exchange",
+        "icon": null,
+        "x": 335,
+        "y": 95,
+        "description": "WebSockets support real-time exchange in the copilot workflow.",
+        "role": "Transport"
+      },
+      {
+        "id": "bedrock",
+        "title": "Amazon Bedrock",
+        "subtitle": "Contextual generation",
+        "icon": "bedrock",
+        "x": 625,
+        "y": 95,
+        "description": "Amazon Bedrock generates contextual suggestions and claim verdicts using the available evidence.",
+        "role": "Generation"
+      },
+      {
+        "id": "retrieval",
+        "title": "RAG",
+        "subtitle": "Relevant evidence",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "Retrieval supplies supporting context to the generation workflow.",
+        "role": "Knowledge"
+      },
+      {
+        "id": "human",
+        "title": "Representative / auditor",
+        "subtitle": "Suggestions + citations",
+        "icon": null,
+        "x": 625,
+        "y": 360,
+        "description": "Suggestions and cited claim verdicts are presented for human review.",
+        "role": "Review"
+      }
+    ],
+    "edges": [
+      {
+        "from": "connect",
+        "to": "socket",
+        "label": "Context",
+        "dependency": false
+      },
+      {
+        "from": "socket",
+        "to": "bedrock",
+        "label": "Live exchange",
+        "dependency": false
+      },
+      {
+        "from": "retrieval",
+        "to": "bedrock",
+        "label": "Evidence",
+        "dependency": false
+      },
+      {
+        "from": "bedrock",
+        "to": "human",
+        "label": "Cited output",
+        "dependency": false
+      }
+    ]
+  },
+  "enterprise": {
+    "title": "Interface to production",
+    "summary": "Feature delivery and operational support · high-level view",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "react",
+        "title": "React 18",
+        "subtitle": "Product interfaces",
+        "icon": "react",
+        "x": 45,
+        "y": 95,
+        "description": "React interfaces implement product workflows from functional requirements.",
+        "role": "Frontend"
+      },
+      {
+        "id": "nest",
+        "title": "Node.js / NestJS",
+        "subtitle": "Backend services",
+        "icon": "nestjs",
+        "x": 335,
+        "y": 95,
+        "description": "Backend services connect product behavior to enterprise data integrations.",
+        "role": "Backend"
+      },
+      {
+        "id": "data",
+        "title": "Databases",
+        "subtitle": "Feature data",
+        "icon": null,
+        "x": 625,
+        "y": 95,
+        "description": "Database integrations support the feature data needs; the specific topology is not shown.",
+        "role": "Data"
+      },
+      {
+        "id": "quality",
+        "title": "SonarQube",
+        "subtitle": "Code quality",
+        "icon": null,
+        "x": 45,
+        "y": 360,
+        "description": "SonarQube supports investigation and code-quality work during delivery.",
+        "role": "Delivery"
+      },
+      {
+        "id": "logs",
+        "title": "Splunk",
+        "subtitle": "Production investigation",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "Splunk supports triage of production issues and recurring errors.",
+        "role": "Operations"
+      }
+    ],
+    "edges": [
+      {
+        "from": "react",
+        "to": "nest",
+        "label": "Requests",
+        "dependency": false
+      },
+      {
+        "from": "nest",
+        "to": "data",
+        "label": "Data access",
+        "dependency": false
+      },
+      {
+        "from": "quality",
+        "to": "react",
+        "label": "Quality checks",
+        "dependency": true
+      },
+      {
+        "from": "nest",
+        "to": "logs",
+        "label": "Investigation",
+        "dependency": true
+      }
+    ]
+  },
+  "inventory": {
+    "title": "Inventory data flow",
+    "summary": "Interface, service integration, and inventory data",
+    "height": 275,
+    "nodes": [
+      {
+        "id": "ui",
+        "title": "React",
+        "subtitle": "Inventory interface",
+        "icon": "react",
+        "x": 45,
+        "y": 95,
+        "description": "React provides the interface for inventory workflows.",
+        "role": "Frontend"
+      },
+      {
+        "id": "api",
+        "title": "Express.js",
+        "subtitle": "Backend integration",
+        "icon": "express",
+        "x": 335,
+        "y": 95,
+        "description": "Express.js connects inventory operations to backend integrations.",
+        "role": "Backend"
+      },
+      {
+        "id": "data",
+        "title": "Firebase",
+        "subtitle": "Inventory data",
+        "icon": "firebase",
+        "x": 625,
+        "y": 95,
+        "description": "Firebase supports the inventory data workflows and improvements to data accuracy.",
+        "role": "Data"
+      }
+    ],
+    "edges": [
+      {
+        "from": "ui",
+        "to": "api",
+        "label": "Operations",
+        "dependency": false
+      },
+      {
+        "from": "api",
+        "to": "data",
+        "label": "Data access",
+        "dependency": false
+      }
+    ]
+  },
+  "warranty": {
+    "title": "Warranty workflow",
+    "summary": "A clearer path through claim resolution",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "ui",
+        "title": "React",
+        "subtitle": "Warranty interface",
+        "icon": "react",
+        "x": 45,
+        "y": 95,
+        "description": "React manages the warranty workflow interface.",
+        "role": "Frontend"
+      },
+      {
+        "id": "claims",
+        "title": "Claim workflows",
+        "subtitle": "Resolution process",
+        "icon": null,
+        "x": 335,
+        "y": 95,
+        "description": "The redesigned workflow connects interface actions to the claim-resolution process.",
+        "role": "Application"
+      },
+      {
+        "id": "data",
+        "title": "Firebase",
+        "subtitle": "Backend integration",
+        "icon": "firebase",
+        "x": 625,
+        "y": 95,
+        "description": "Firebase supports the warranty workflow data integration.",
+        "role": "Data"
+      },
+      {
+        "id": "mui",
+        "title": "Material-UI",
+        "subtitle": "Interface components",
+        "icon": "materialui",
+        "x": 45,
+        "y": 360,
+        "description": "Material-UI supplies the interface components used in the React application.",
+        "role": "UI library"
+      }
+    ],
+    "edges": [
+      {
+        "from": "ui",
+        "to": "claims",
+        "label": "Claim actions",
+        "dependency": false
+      },
+      {
+        "from": "claims",
+        "to": "data",
+        "label": "Data access",
+        "dependency": false
+      },
+      {
+        "from": "mui",
+        "to": "ui",
+        "label": "Components",
+        "dependency": true
+      }
+    ]
+  },
+  "retailsoft": {
+    "title": "Retail product experience",
+    "summary": "Frontend composition and product data integration",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "vite",
+        "title": "Vite",
+        "subtitle": "Development / build",
+        "icon": "vitejs",
+        "x": 45,
+        "y": 95,
+        "description": "Vite provides the frontend development and build tooling.",
+        "role": "Tooling"
+      },
+      {
+        "id": "react",
+        "title": "React",
+        "subtitle": "Retail product pages",
+        "icon": "react",
+        "x": 335,
+        "y": 95,
+        "description": "React implements the improved product-page flows and interactions.",
+        "role": "Frontend"
+      },
+      {
+        "id": "data",
+        "title": "Firebase",
+        "subtitle": "Backend integration",
+        "icon": "firebase",
+        "x": 625,
+        "y": 95,
+        "description": "Firebase connects the retail interface to backend data workflows.",
+        "role": "Data"
+      },
+      {
+        "id": "mui",
+        "title": "Material-UI",
+        "subtitle": "Interface components",
+        "icon": "materialui",
+        "x": 335,
+        "y": 360,
+        "description": "Material-UI provides interface components used across the retail experience.",
+        "role": "UI library"
+      }
+    ],
+    "edges": [
+      {
+        "from": "vite",
+        "to": "react",
+        "label": "Build",
+        "dependency": true
+      },
+      {
+        "from": "react",
+        "to": "data",
+        "label": "Product data",
+        "dependency": false
+      },
+      {
+        "from": "mui",
+        "to": "react",
+        "label": "Components",
+        "dependency": true
+      }
+    ]
+  },
+  "vidhaan-ai": {
+    "title": "Retrieval, memory, generation",
+    "summary": "Hybrid retrieval with coordinated agent workflows",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "ui",
+        "title": "React",
+        "subtitle": "Conversation interface",
+        "icon": "react",
+        "x": 45,
+        "y": 95,
+        "description": "React displays conversation state and streamed responses.",
+        "role": "Frontend"
+      },
+      {
+        "id": "api",
+        "title": "Node.js + LangChain",
+        "subtitle": "Agent orchestration",
+        "icon": "nodejs",
+        "x": 335,
+        "y": 95,
+        "description": "Node.js and LangChain coordinate retrieval, memory, and specialized agent roles.",
+        "role": "Application"
+      },
+      {
+        "id": "model",
+        "title": "OpenAI API",
+        "subtitle": "Response generation",
+        "icon": null,
+        "x": 625,
+        "y": 95,
+        "description": "The OpenAI API generates responses using the supplied context and agent workflow.",
+        "role": "Model"
+      },
+      {
+        "id": "vector",
+        "title": "Pinecone",
+        "subtitle": "Semantic retrieval",
+        "icon": null,
+        "x": 45,
+        "y": 360,
+        "description": "Pinecone supplies semantic retrieval within the hybrid semantic and keyword search workflow.",
+        "role": "Knowledge"
+      },
+      {
+        "id": "memory",
+        "title": "Redis",
+        "subtitle": "Conversation memory",
+        "icon": "redis",
+        "x": 335,
+        "y": 360,
+        "description": "Redis supports retained conversation state across requests.",
+        "role": "State"
+      },
+      {
+        "id": "stream",
+        "title": "WebSocket stream",
+        "subtitle": "Incremental responses",
+        "icon": null,
+        "x": 625,
+        "y": 360,
+        "description": "Streaming WebSocket APIs deliver responses to the conversation interface.",
+        "role": "Transport"
+      }
+    ],
+    "edges": [
+      {
+        "from": "ui",
+        "to": "api",
+        "label": "Question",
+        "dependency": false
+      },
+      {
+        "from": "api",
+        "to": "model",
+        "label": "Context",
+        "dependency": false
+      },
+      {
+        "from": "vector",
+        "to": "api",
+        "label": "Retrieved context",
+        "dependency": false
+      },
+      {
+        "from": "memory",
+        "to": "api",
+        "label": "Session state",
+        "dependency": false
+      },
+      {
+        "from": "model",
+        "to": "stream",
+        "label": "Response",
+        "dependency": false
+      }
+    ]
+  },
+  "stock-predictor": {
+    "title": "Time-series forecasting",
+    "summary": "Data preparation, model computation, and predictions",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "data",
+        "title": "Market data",
+        "subtitle": "Historical observations",
+        "icon": null,
+        "x": 45,
+        "y": 95,
+        "description": "Historical market observations provide the input to the forecasting workflow.",
+        "role": "Input"
+      },
+      {
+        "id": "python",
+        "title": "Python",
+        "subtitle": "Feature preparation",
+        "icon": "python",
+        "x": 335,
+        "y": 95,
+        "description": "Python prepares time-series inputs and features for model use.",
+        "role": "Processing"
+      },
+      {
+        "id": "tf",
+        "title": "TensorFlow",
+        "subtitle": "LSTM + attention",
+        "icon": "tensorflow",
+        "x": 625,
+        "y": 95,
+        "description": "TensorFlow implements the LSTM and attention-based forecasting model described in the project.",
+        "role": "Model"
+      },
+      {
+        "id": "notebook",
+        "title": "Google Colab",
+        "subtitle": "Notebook environment",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "The forecasting workflow is implemented in a Google Colab notebook.",
+        "role": "Environment"
+      },
+      {
+        "id": "output",
+        "title": "Forecast output",
+        "subtitle": "Prediction review",
+        "icon": null,
+        "x": 625,
+        "y": 360,
+        "description": "Model predictions are reviewed against the time-series observations.",
+        "role": "Output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "data",
+        "to": "python",
+        "label": "Observations",
+        "dependency": false
+      },
+      {
+        "from": "python",
+        "to": "tf",
+        "label": "Features",
+        "dependency": false
+      },
+      {
+        "from": "notebook",
+        "to": "python",
+        "label": "Execution",
+        "dependency": true
+      },
+      {
+        "from": "tf",
+        "to": "output",
+        "label": "Predictions",
+        "dependency": false
+      }
+    ]
+  },
+  "portfolio-template": {
+    "title": "A motion-led web experience",
+    "summary": "Browser composition and interaction layers",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "html",
+        "title": "HTML + CSS",
+        "subtitle": "Content and layout",
+        "icon": "html5",
+        "x": 45,
+        "y": 95,
+        "description": "Semantic HTML and CSS define the portfolio content and responsive presentation.",
+        "role": "Structure"
+      },
+      {
+        "id": "js",
+        "title": "JavaScript",
+        "subtitle": "Interaction logic",
+        "icon": "javascript",
+        "x": 335,
+        "y": 95,
+        "description": "JavaScript connects interface events to cursor and preview interactions.",
+        "role": "Behavior"
+      },
+      {
+        "id": "view",
+        "title": "Browser experience",
+        "subtitle": "Rendered portfolio",
+        "icon": null,
+        "x": 625,
+        "y": 95,
+        "description": "The browser combines content, styling, and interactions into the portfolio experience.",
+        "role": "Output"
+      },
+      {
+        "id": "motion",
+        "title": "GSAP",
+        "subtitle": "Animation sequences",
+        "icon": null,
+        "x": 45,
+        "y": 360,
+        "description": "GSAP provides animation timelines for entry sequences and interface motion.",
+        "role": "Motion"
+      },
+      {
+        "id": "scroll",
+        "title": "Locomotive Scroll",
+        "subtitle": "Scroll coordination",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "Locomotive Scroll coordinates the smooth scrolling behavior.",
+        "role": "Motion"
+      }
+    ],
+    "edges": [
+      {
+        "from": "html",
+        "to": "js",
+        "label": "DOM",
+        "dependency": false
+      },
+      {
+        "from": "js",
+        "to": "view",
+        "label": "Interactions",
+        "dependency": false
+      },
+      {
+        "from": "motion",
+        "to": "js",
+        "label": "Timelines",
+        "dependency": true
+      },
+      {
+        "from": "scroll",
+        "to": "js",
+        "label": "Scroll events",
+        "dependency": true
+      }
+    ]
+  },
+  "portfolio-v1": {
+    "title": "A routed React portfolio",
+    "summary": "Content-driven rendering with lazy-loaded detail views",
+    "height": 540,
+    "nodes": [
+      {
+        "id": "vite",
+        "title": "Vite",
+        "subtitle": "Build toolchain",
+        "icon": "vitejs",
+        "x": 45,
+        "y": 95,
+        "description": "Vite bundles the React application and its assets.",
+        "role": "Tooling"
+      },
+      {
+        "id": "react",
+        "title": "React",
+        "subtitle": "Application shell",
+        "icon": "react",
+        "x": 335,
+        "y": 95,
+        "description": "React composes the shared layout and portfolio sections.",
+        "role": "Frontend"
+      },
+      {
+        "id": "router",
+        "title": "React Router",
+        "subtitle": "Page navigation",
+        "icon": null,
+        "x": 625,
+        "y": 95,
+        "description": "React Router selects project details and experience pages from the URL.",
+        "role": "Routing"
+      },
+      {
+        "id": "json",
+        "title": "Project data",
+        "subtitle": "Structured content",
+        "icon": null,
+        "x": 335,
+        "y": 360,
+        "description": "Structured project data supplies cards and case-study content.",
+        "role": "Content"
+      },
+      {
+        "id": "pages",
+        "title": "Lazy-loaded pages",
+        "subtitle": "Details and media",
+        "icon": null,
+        "x": 625,
+        "y": 360,
+        "description": "Detail pages and media are loaded as the visitor explores the portfolio.",
+        "role": "Views"
+      }
+    ],
+    "edges": [
+      {
+        "from": "vite",
+        "to": "react",
+        "label": "Build",
+        "dependency": true
+      },
+      {
+        "from": "react",
+        "to": "router",
+        "label": "Navigation",
+        "dependency": false
+      },
+      {
+        "from": "json",
+        "to": "react",
+        "label": "Content",
+        "dependency": false
+      },
+      {
+        "from": "router",
+        "to": "pages",
+        "label": "Route",
+        "dependency": false
+      }
+    ]
+  },
+  "rings-project": {
+    "title": "Browser-native interactions",
+    "summary": "Modular JavaScript with direct DOM rendering",
+    "height": 275,
+    "nodes": [
+      {
+        "id": "html",
+        "title": "HTML + CSS",
+        "subtitle": "Page structure",
+        "icon": "html5",
+        "x": 45,
+        "y": 95,
+        "description": "HTML and CSS provide the browser interface and its presentation.",
+        "role": "Structure"
+      },
+      {
+        "id": "js",
+        "title": "JavaScript modules",
+        "subtitle": "Events and state",
+        "icon": "javascript",
+        "x": 335,
+        "y": 95,
+        "description": "Modular JavaScript handles browser events and state changes.",
+        "role": "Behavior"
+      },
+      {
+        "id": "dom",
+        "title": "DOM rendering",
+        "subtitle": "Updated interface",
+        "icon": null,
+        "x": 625,
+        "y": 95,
+        "description": "DOM updates reflect application state in the interface without a frontend framework.",
+        "role": "Output"
+      }
+    ],
+    "edges": [
+      {
+        "from": "html",
+        "to": "js",
+        "label": "User events",
+        "dependency": false
+      },
+      {
+        "from": "js",
+        "to": "dom",
+        "label": "State updates",
+        "dependency": false
+      }
+    ]
+  }
+}

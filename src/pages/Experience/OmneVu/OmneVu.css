@@ -1,13 +1,16 @@
-:root {
+.omnevu-page {
   --nebula-bg: #000316;
   --card-bg: rgba(255, 255, 255, 0.03);
   --card-border: rgba(255, 255, 255, 0.05);
   --text-primary: #FFFFFF;
   --text-secondary: rgba(255, 255, 255, 0.75);
-  --text-muted: rgba(255, 255, 255, 0.35);
+  --text-muted: rgba(255, 255, 255, 0.65);
   --accent-color: #60A5FA;
   --glow-color: rgba(96, 165, 250, 0.1);
 }
+
+.omnevu-page { padding-top: 110px !important; }
+.omnevu-page .experience-back { display: inline-block; padding: 10px 0; margin-bottom: 20px; color: var(--theme-ink); text-decoration: none; font-size: 14px; }
 
 .omnevu-page {
   background-color: var(--nebula-bg);
@@ -24,7 +27,7 @@
   overflow-x: hidden;
 }
 
-.omnevu-container {
+.omnevu-page .omnevu-container {
   max-width: 1200px;
   width: 100%;
   z-index: 10;
@@ -34,7 +37,7 @@
 }
 
 /* Texture Layer */
-.nebula-texture {
+.omnevu-page .nebula-texture {
   position: absolute;
   inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
@@ -44,41 +47,41 @@
 }
 
 /* Header Section */
-.omnevu-header {
+.omnevu-page .omnevu-header {
   position: relative;
   padding-bottom: 1rem;
 }
 
-.header-meta {
+.omnevu-page .header-meta {
   margin-bottom: 0.75rem;
 }
 
-.duration {
+.omnevu-page .duration {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--text-muted);
 }
 
-.company-name {
+.omnevu-page .company-name {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.03em;
-  background: linear-gradient(to bottom, #FFFFFF, rgba(255, 255, 255, 0.8));
+  background: linear-gradient(to bottom, var(--theme-accent), rgba(244, 235, 220, 0.8));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.role-title {
+.omnevu-page .role-title {
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 400;
   color: var(--text-secondary);
   margin: 0.5rem 0 1.5rem 0;
 }
 
-.brief-summary {
+.omnevu-page .brief-summary {
   font-size: 1.15rem;
   color: var(--text-secondary);
   max-width: 700px;
@@ -86,7 +89,7 @@
   font-weight: 300;
 }
 
-.company-link {
+.omnevu-page .company-link {
   display: inline-flex;
   align-items: center;
   color: var(--accent-color);
@@ -97,21 +100,21 @@
   transition: transform 0.3s ease;
 }
 
-.company-link:hover {
+.omnevu-page .company-link:hover {
   transform: translateX(3px);
 }
 
-.company-link .external-link-arrow {
+.omnevu-page .company-link .external-link-arrow {
   margin-left: 6px;
   vertical-align: middle;
   opacity: 0.7;
 }
 
-.company-link:hover .external-link-arrow {
+.omnevu-page .company-link:hover .external-link-arrow {
   opacity: 1;
 }
 
-.header-underline {
+.omnevu-page .header-underline {
   margin-top: 2.5rem;
   height: 1px;
   width: 100%;
@@ -120,13 +123,13 @@
 }
 
 /* Bento Grid */
-.bento-grid {
+.omnevu-page .bento-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
-.bento-card {
+.omnevu-page .bento-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
@@ -139,18 +142,18 @@
   backdrop-filter: blur(4px);
 }
 
-.bento-card:hover {
+.omnevu-page .bento-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(244, 235, 220, 0.12);
+  background: rgba(244, 235, 220, 0.05);
+  box-shadow: 0 20px 40px rgba(244, 235, 220, 0.28);
 }
 
-.overview {
+.omnevu-page .overview {
   grid-column: span 2;
 }
 
-.card-label {
+.omnevu-page .card-label {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -159,65 +162,65 @@
 }
 
 /* Overview Content */
-.overview .card-content p {
+.omnevu-page .overview .card-content p {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
-.domain-tags {
+.omnevu-page .domain-tags {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
   margin-top: 1rem;
 }
 
-.tag {
-  background: rgba(255, 255, 255, 0.04);
+.omnevu-page .tag {
+  background: rgba(244, 235, 220, 0.04);
   padding: 0.35rem 0.8rem;
   border-radius: 100px;
   font-size: 0.7rem;
   color: var(--text-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 235, 220, 0.08);
 }
 
 /* Project Cards */
-.project-header {
+.omnevu-page .project-header {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
 
-.project-title {
+.omnevu-page .project-title {
   font-size: 1.4rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--theme-accent);
   margin: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.project-domain {
+.omnevu-page .project-domain {
   font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
 }
 
-.project-body {
+.omnevu-page .project-body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.project-list-section {
+.omnevu-page .project-list-section {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
-.section-label {
+.omnevu-page .section-label {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
@@ -225,7 +228,7 @@
   letter-spacing: 0.05em;
 }
 
-.project-bullet-list {
+.omnevu-page .project-bullet-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -234,7 +237,7 @@
   gap: 0.6rem;
 }
 
-.project-bullet-list li {
+.omnevu-page .project-bullet-list li {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--text-secondary);
@@ -243,21 +246,21 @@
   gap: 0.75rem;
 }
 
-.project-bullet-list .external-link-arrow {
+.omnevu-page .project-bullet-list .external-link-arrow {
   margin-top: 4px;
 }
 
-.impact-list .external-link-arrow {
+.omnevu-page .impact-list .external-link-arrow {
   filter: sepia(1) saturate(10) hue-rotate(5deg); /* Golden tint for impact */
 }
 
 /* Growth Section */
-.growth {
+.omnevu-page .growth {
   grid-column: span 2;
   margin-top: 1rem;
 }
 
-.growth-points {
+.omnevu-page .growth-points {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -266,7 +269,7 @@
   gap: 1rem 2rem;
 }
 
-.growth-points li {
+.omnevu-page .growth-points li {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -275,7 +278,7 @@
   padding: 0.5rem 0;
 }
 
-.external-link-arrow {
+.omnevu-page .external-link-arrow {
   width: 14px;
   height: 14px;
   flex-shrink: 0;
@@ -284,14 +287,14 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.project-card:hover .external-link-arrow,
-.growth-points li:hover .external-link-arrow {
+.omnevu-page .project-card:hover .external-link-arrow,
+.omnevu-page .growth-points li:hover .external-link-arrow {
   opacity: 1;
   transform: scale(1.1) rotate(45deg);
 }
 
 /* Decorative Glows */
-.nebula-glow {
+.omnevu-page .nebula-glow {
   position: fixed;
   border-radius: 50%;
   filter: blur(120px);
@@ -300,7 +303,7 @@
   opacity: 0.3;
 }
 
-.glow-primary {
+.omnevu-page .glow-primary {
   width: 500px;
   height: 500px;
   background: var(--glow-color);
@@ -308,26 +311,26 @@
   left: 20%;
 }
 
-.glow-secondary {
+.omnevu-page .glow-secondary {
   width: 400px;
   height: 400px;
-  background: rgba(139, 92, 246, 0.05);
+  background: rgba(244, 235, 220, 0.05);
   bottom: 0px;
   right: 10%;
 }
 
 /* Responsiveness */
 @media (max-width: 1024px) {
-  .bento-grid {
+  .omnevu-page .bento-grid {
     grid-template-columns: 1fr;
   }
   
-  .overview,
-  .growth {
+  .omnevu-page .overview,
+  .omnevu-page .growth {
     grid-column: span 1;
   }
 
-  .growth-points {
+  .omnevu-page .growth-points {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
@@ -338,15 +341,15 @@
     padding: 4rem 1.5rem;
   }
   
-  .duration {
+  .omnevu-page .duration {
     font-size: 0.7rem;
   }
   
-  .company-name {
+  .omnevu-page .company-name {
     font-size: 2.8rem;
   }
   
-  .bento-card {
+  .omnevu-page .bento-card {
     padding: 1.5rem;
     border-radius: 16px;
   }
