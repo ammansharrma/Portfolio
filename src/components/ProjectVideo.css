@@ -1,0 +1,20 @@
+.project-video-player { position: relative; overflow: hidden; border-radius: 20px; isolation: isolate; background: #071b3b; }
+.project-video-player video { display: block; width: 100%; height: auto; }
+.project-video-shade { position: absolute; inset: 65% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.32)); pointer-events: none; }
+.project-video-control { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; border: 0; background: rgba(45,45,45,.52); color: white; padding: 0; cursor: pointer; transition: background .2s, opacity .2s; }
+.project-video-control:hover { background: rgba(30,30,30,.78); }
+.project-video-top { position: absolute; top: 14px; right: 14px; display: flex; gap: 8px; }
+.project-video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; }
+.project-video-player.is-playing .project-video-play { opacity: 0; }
+.project-video-player:hover .project-video-play, .project-video-player:focus-within .project-video-play { opacity: 1; }
+.project-video-seek { appearance: none; -webkit-appearance: none; position: absolute; bottom: 6px; left: 14px; width: calc(100% - 28px); height: 24px; margin: 0; background: transparent; cursor: pointer; }
+.project-video-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 4px; background: linear-gradient(to right, white var(--video-progress), rgba(255,255,255,.4) var(--video-progress)); }
+.project-video-seek::-moz-range-track { height: 3px; border-radius: 4px; background: rgba(255,255,255,.4); }
+.project-video-seek::-moz-range-progress { height: 3px; background: white; }
+.project-video-seek::-webkit-slider-thumb { appearance: none; width: 10px; height: 10px; border-radius: 50%; margin-top: -3.5px; background: white; }
+.project-video-seek::-moz-range-thumb { width: 10px; height: 10px; border: 0; border-radius: 50%; background: white; }
+.project-video-error { position: absolute; bottom: 40px; left: 20px; right: 20px; padding: 10px; background: #06285f; color: white; font-size: 14px; }
+.project-video-player:fullscreen { display: flex; align-items: center; justify-content: center; border-radius: 0; }
+.project-video-player:fullscreen video { width: 100%; height: 100%; object-fit: contain; }
+@media (hover: none) { .project-video-player.is-playing .project-video-play { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .project-video-control { transition: none; } }

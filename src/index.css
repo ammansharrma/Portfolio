@@ -1,18 +1,22 @@
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+  src: url('/fonts/Poppins-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.ttf') format('truetype');
+  src: url('/fonts/Poppins-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 :root {
+  --type-section: clamp(32px, 3.2vw, 48px);
+  --type-body: clamp(16px, 1.15vw, 18px);
+  --type-label: 13px;
+
   /* Global easing tokens */
   --ease-fast: cubic-bezier(0.4, 0, 0.6, 1);
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,4 +74,18 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+button, input, textarea, select { font-family: inherit; }
+
+:root {
+  --type-reading: 40px;
+  --type-support: 22px;
+  --type-subheading: 28px;
+}
+@media (max-width: 768px) {
+  :root { --type-reading: 28px; --type-support: 18px; --type-subheading: 24px; }
+}
+@media (max-width: 380px) {
+  :root { --type-reading: 25px; }
 }

@@ -14,12 +14,12 @@
         "Pinecone",
         "Redis"
       ],
-      "thumbnail": "Mockups/vidhaanai/1.png",
+      "thumbnail": "Mockups/vidhaanai/1.webp",
       "mockups": [
-        "Mockups/vidhaanai/1.png",
-        "Mockups/vidhaanai/2.png",
-        "Mockups/vidhaanai/3.png",
-        "Mockups/vidhaanai/4.png"
+        "Mockups/vidhaanai/1.webp",
+        "Mockups/vidhaanai/2.webp",
+        "Mockups/vidhaanai/3.webp",
+        "Mockups/vidhaanai/4.webp"
       ],
       "problem": "Traditional chatbots lack context retention and fail to handle complex, multi-step reasoning tasks. Users need intelligent systems that can maintain conversation state, retrieve relevant knowledge, and orchestrate multiple AI agents for specialized tasks.",
       "solution": "Built an LLM orchestration platform with hybrid semantic and keyword retrieval, conversation memory, and coordination across 4+ agent roles. Implemented streaming WebSocket APIs and a React interface supporting 20+ concurrent sessions.",
@@ -94,11 +94,11 @@
       ],
       "heroVideo": "Mockups/product_designer/Ideation-DemoVideo.mp4",
       "detailsVideo": "Mockups/product_designer/Ideation.mp4",
-      "thumbnail": "Mockups/product_designer/1.png",
+      "thumbnail": "Mockups/product_designer/1.webp",
       "mockups": [
-        "Mockups/product_designer/1.png",
-        "Mockups/product_designer/2.png",
-        "Mockups/product_designer/3.png"
+        "Mockups/product_designer/1.webp",
+        "Mockups/product_designer/2.webp",
+        "Mockups/product_designer/3.webp"
       ],
       "problem": "Traditional portfolio websites often feel static and fail to create a memorable first impression. Designers and developers need visually immersive experiences that communicate creativity, technical depth, and attention to detail through interaction and motion.",
       "solution": "Built a visually dynamic single-page portfolio template leveraging GSAP for advanced animation sequencing and Locomotive Scroll for smooth inertial scrolling. Implemented a custom cursor system, interactive hover-based image previews, and timeline-driven landing animations to deliver a premium, modern browsing experience.",
@@ -187,11 +187,11 @@
       ],
       "heroVideo": "Mockups/ratna/Ratna.mp4",
       "detailsVideo": "Mockups/ratna/Ratna.mp4",
-      "thumbnail": "Mockups/ratna/1.png",
+      "thumbnail": "Mockups/ratna/1.webp",
       "mockups": [
-        "Mockups/ratna/1.png",
-        "Mockups/ratna/2.png",
-        "Mockups/ratna/3.png"
+        "Mockups/ratna/1.webp",
+        "Mockups/ratna/2.webp",
+        "Mockups/ratna/3.webp"
       ],
       "problem": "Modern web projects often rely heavily on frameworks, which can mask core browser mechanics and DOM fundamentals. There is a need to demonstrate strong front-end foundations using minimal tooling while maintaining clean architecture and responsiveness.",
       "solution": "Developed a lightweight interactive web application using pure HTML, CSS, and JavaScript. Implemented modular logic separation (main.js, counter.js), dynamic state handling, and real-time DOM updates to ensure clean structure, maintainability, and responsive interaction without external frameworks.",

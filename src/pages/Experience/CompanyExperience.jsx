@@ -12,7 +12,7 @@ export default function CompanyExperience({ company }) {
   return <main className="company-experience">
     <div className="company-experience-container">
       <header className="company-experience-header">
-        <Link to="/#experience" className="company-back"><DirectionArrow direction="left" /> Back to experience</Link>
+        <Link to="/" state={{ scrollTo: 'experience' }} className="company-back"><DirectionArrow direction="left" /> Back to experience</Link>
         <p className="company-duration">{experience.duration}</p>
         <h1>{experience.name}</h1><h2>{experience.role}</h2>
         <p className="company-summary">{experience.summary}</p>

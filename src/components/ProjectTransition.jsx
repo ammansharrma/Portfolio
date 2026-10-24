@@ -105,7 +105,11 @@ export default function ProjectTransition() {
     let busy = false;
     let disposed = false;
     // Warm the destination before a click, so coverage never waits on a download.
-    void preloadDetails();
+    const warmDetails = event => {
+      if (event.target.closest?.('a[href*="/projects/"]')) void preloadDetails();
+    };
+    document.addEventListener('pointerover', warmDetails, { passive: true });
+    document.addEventListener('focusin', warmDetails);
     const animations = new Set();
     const animate = async (element, frames, options) => {
       const animation = element.animate(frames, { ...options, fill: 'both' });
@@ -181,6 +185,8 @@ export default function ProjectTransition() {
     document.addEventListener('click', onClick, true);
     return () => {
       disposed = true;
+      document.removeEventListener('pointerover', warmDetails);
+      document.removeEventListener('focusin', warmDetails);
       document.removeEventListener('click', onClick, true);
       animations.forEach(animation => animation.cancel());
       overlays.forEach(overlay => overlay.remove());

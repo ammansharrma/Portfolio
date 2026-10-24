@@ -27,7 +27,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  background-image: url("/images/egg-shell.webp");
   background-repeat: repeat;
   background-size: 200px;
   opacity: 0.15; /* Reduced from 0.4 for text clarity */
@@ -59,9 +59,10 @@
 }
 
 .about-title {
-  font-size: clamp(32px, 3vw, 45px);
+  font-size: var(--type-section);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--theme-accent);
   writing-mode: horizontal-tb;
   white-space: nowrap;
@@ -110,7 +111,7 @@
 
 .about-text .highlight {
   color: var(--theme-accent);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .about-section {
@@ -119,7 +120,7 @@
 
 .about-section-title {
   font-size: clamp(18px, 1.5vw, 22px);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--theme-accent);
   margin: 0 0 clamp(10px, 1.2vw, 16px) 0;
   letter-spacing: -0.02em;
@@ -183,7 +184,7 @@
 
 .experience-item {
   font-size: clamp(17px, 1.39vw, 21px);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--theme-accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -295,7 +296,7 @@
   }
 
   .experience-item {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .about-page .scroll-indicators {
@@ -308,4 +309,67 @@
     height: 40px;
     font-size: 20px;
   }
+}
+
+/* Scroll changes emphasis only; the reading size and word positions stay fixed. */
+.about-reveal-word { opacity: var(--word-opacity, 1); }
+.about-content { gap: clamp(24px, 3vw, 40px); }
+.about-principles li { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .about-reveal-word { opacity: 1; }
+}
+@media print {
+  .about-reveal-word { opacity: 1; }
+}
+
+/* Large, line-by-line reading treatment inspired by the reference. */
+.about-content .about-text,
+.about-content .about-principles li {
+  font-size: 40px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -.025em;
+}
+.about-content { gap: 48px; }
+.about-principles { gap: 28px; }
+.about-reveal-word { display: inline-block; }
+.about-marked-phrase { position: relative; white-space: nowrap; }
+@media (max-width: 768px) {
+  .about-content .about-text, .about-content .about-principles li { font-size: 28px; }
+  .about-content { gap: 32px; }
+}
+@media (max-width: 380px) {
+  .about-content .about-text, .about-content .about-principles li { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .about-annotation path { stroke-dashoffset: 0 !important; transition: none !important; }
+  .about-mark-highlight::before, .about-mark-highlight::after { transform: scaleX(1) !important; transition: none !important; }
+}
+
+.about-marked-phrase { isolation: isolate; }
+.about-annotation { position: absolute; left: -3%; bottom: -.14em; width: 106%; height: .4em; overflow: visible; pointer-events: none; }
+.about-mark-circle .about-annotation { top: -8%; left: -7%; width: 114%; height: 120%; transform: rotate(-4deg); }
+.about-annotation path { fill: none; stroke: #ffe600; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.is-annotated .about-annotation path { stroke-dashoffset: 0; transition: stroke-dashoffset .65s cubic-bezier(.4,0,.2,1) .22s; }
+.is-annotated.about-mark-circle path { transition-duration: .85s; transition-delay: .3s; }
+.is-annotated.about-mark-double path:nth-child(2) { transition-delay: .5s; }
+.about-mark-highlight::before { content: ''; position: absolute; z-index: -1; left: -.035em; right: -.035em; top: calc(50% - .6em); height: .68em; background: rgba(255,230,0,.24); border-radius: 40% 12% 30% 8% / 12% 35% 15% 30%; transform: scaleX(0) rotate(-1deg); transform-origin: left center; pointer-events: none; }
+.about-mark-highlight.is-annotated::before { transform: scaleX(1) rotate(-1deg); transition: transform .6s cubic-bezier(.22,1,.36,1) .25s; }
+.about-mark-highlight::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -.055em;
+  right: -.015em;
+  top: calc(50% - .08em);
+  height: .68em;
+  background: rgba(255, 230, 0, .2);
+  border-radius: 12% 35% 8% 28% / 30% 12% 35% 15%;
+  transform: scaleX(0) rotate(1.2deg);
+  transform-origin: right center;
+  pointer-events: none;
+}
+.about-mark-highlight.is-annotated::after {
+  transform: scaleX(1) rotate(1.2deg);
+  transition: transform .55s cubic-bezier(.22,1,.36,1) .65s;
 }

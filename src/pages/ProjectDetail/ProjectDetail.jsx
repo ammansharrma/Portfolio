@@ -1,31 +1,23 @@
 import DirectionArrow from '../../components/DirectionArrow';
-import MotionVideo from '../../components/MotionVideo';
-import { memo, useState, useEffect, useRef } from 'react';
+import ProjectVideo from '../../components/ProjectVideo';
+import { memo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProjectDetail.css';
+import './ProjectCaseStudy.css';
 import companies from '../../data/experience/projects.json';
 import { getProjectCollection } from '../../data/projectNavigation';
 import ArchitectureDiagram from '../../components/ArchitectureDiagram';
 import ProjectNavPanel from '../../components/ProjectNavPanel';
 import projectsData from '../../data/projects.json';
-import MonitorsTyping from '../../assets/GIFs/monitors-typing.webm';
 
 function ProjectDetail() {
   const { id, company } = useParams();
   const collection = getProjectCollection(projectsData.projects, companies, company);
   const project = collection.find(p => p.id === id);
-  const backPath = company && companies[company] ? `/experience/${company}` : "/#projects";
-  const defaultView = project?.mockups?.length ? 'mockup' : 'architecture';
-  const [activeView, setActiveView] = useState(defaultView);
-  const [activeMockupIndex, setActiveMockupIndex] = useState(0);
-  const rightPanelRef = useRef(null);
-
+  const backPath = company && companies[company] ? `/experience/${company}` : "/";
   useEffect(() => {
     document.title = `${project?.title || 'Project not found'} â€” Aamaan Sharrma`;
-    setActiveView(defaultView);
-    setActiveMockupIndex(0);
-    if (rightPanelRef.current) rightPanelRef.current.scrollTop = 0;
-  }, [id, company, project, defaultView]);
+  }, [project]);
 
   if (!project) {
     return (
@@ -38,154 +30,26 @@ function ProjectDetail() {
   }
 
   return (
-    <div className="project-detail-page">
+    <div className="project-detail-page project-case-study">
       <div className="project-detail-container">
-        {/* Left Panel: Media */}
-        <div className={`project-detail-left ${activeView === 'architecture' ? 'showing-architecture' : 'showing-media'}`}>
-          {/* Back navigation and view controls */}
+        <div className="project-detail-left">
           <div className="project-media-toolbar">
-            <Link className="project-back" to={backPath}
-        aria-label={company && companies[company] ? `Back to ${companies[company].name}` : 'Back to projects'}>
-        <DirectionArrow direction="left" />
-      </Link>
-          <div className="media-toggle" role="group" aria-label="Project views">
-            <button type="button" className={`toggle-btn ${activeView === 'architecture' ? 'active' : ''}`} aria-pressed={activeView === 'architecture'} onClick={() => setActiveView('architecture')}>Architecture</button>
-            {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
-              <button
-                className={`toggle-btn ${activeView === 'video' ? 'active' : ''}`}
-                aria-pressed={activeView === 'video'}
-                onClick={() => setActiveView('video')}
-              >
-                {project.isBuilding ? 'Status' : 'Video'}
-              </button>
-            )}
-            {project.mockups && project.mockups.length > 0 && (
-              <button
-                className={`toggle-btn ${activeView === 'mockup' ? 'active' : ''}`}
-                aria-pressed={activeView === 'mockup'}
-                onClick={() => setActiveView('mockup')}
-              >
-                Mockups
-              </button>
-            )}
+            <Link className="project-back" to={backPath} state={company ? undefined : { scrollTo: 'projects', projectId: id }}
+              aria-label={company && companies[company] ? `Back to ${companies[company].name}` : 'Back to projects'}>
+              <DirectionArrow direction="left" />
+            </Link>
           </div>
-
-          </div>
-
-          {/* Media Display */}
-          <div className={activeView === 'architecture' ? 'architecture-media' : 'media-container'}>
-            {activeView === 'architecture' ? <ArchitectureDiagram key={`${company || 'projects'}-${id}`} projectId={project.diagram || project.id} /> : <>
-            {(project.detailsVideo || project.heroVideo || project.isBuilding) && (
-              <div className={`media-view video-view ${activeView === 'video' ? 'active' : ''}`}>
-                {project.isBuilding ? (
-                  <div className="building-animation-container" style={{ position: 'relative', width: '100%', height: '100%', borderRadius: 'inherit' }}>
-                    <div className="building-icon-wrapper" style={{ padding: '24px' }}>
-                      <MotionVideo
-                        src={MonitorsTyping} 
-                        className="building-icon-video"
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline
-                        width="80"
-                        height="80"
-                        style={{ opacity: 0.8 }}
-                      />
-                    </div>
-                    <div className="building-content" style={{ gap: '12px' }}>
-                      <div className="building-text" style={{ fontSize: '20px' }}>
-                        System in Development<span className="pulsing-cursor"></span>
-                      </div>
-                      <div className="building-subtext" style={{ fontSize: '15px' }}>Currently arguing with the compiler...</div>
-                    </div>
-                  </div>
-                ) : (
-                  <MotionVideo
-                    key={project.detailsVideo || project.heroVideo}
-                    className="project-video-full"
-                    src={`${import.meta.env.BASE_URL}${project.detailsVideo || project.heroVideo}`}
-                    controls
-                    loop
-                    autoPlay
-                    muted
-                    playsInline
-                  />
-                )}
-              </div>
-            )}
-
-            {project.mockups && project.mockups.length > 0 && (
-              <div className={`media-view mockup-view ${activeView === 'mockup' ? 'active' : ''}`}>
-                <div className="mockup-viewer">
-                  <div className="mockup-main">
-                    {project.mockups.length > 1 && (
-                      <button 
-                        className="mockup-nav-btn prev"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setActiveMockupIndex((prev) => (prev === 0 ? project.mockups.length - 1 : prev - 1));
-                        }}
-                        aria-label="Previous mockup"
-                      >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="15 18 9 12 15 6" />
-                        </svg>
-                      </button>
-                    )}
-                    
-                    <img 
-                      key={activeMockupIndex}
-                      src={`${import.meta.env.BASE_URL}${project.mockups[activeMockupIndex]}`} 
-                      alt={`${project.title} mockup ${activeMockupIndex + 1}`}
-                      className="mockup-image main-image"
-                      loading="eager"
-                      decoding="async"
-                    />
-
-                    {project.mockups.length > 1 && (
-                      <button 
-                        className="mockup-nav-btn next"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setActiveMockupIndex((prev) => (prev === project.mockups.length - 1 ? 0 : prev + 1));
-                        }}
-                        aria-label="Next mockup"
-                      >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <polyline points="9 18 15 12 9 6" />
-                        </svg>
-                      </button>
-                    )}
-                  </div>
-                  
-                  {project.mockups.length > 1 && (
-                    <div className="mockup-thumbnails">
-                      {project.mockups.map((mockup, idx) => (
-                        <button type="button"
-                          key={idx}
-                          aria-label={`View screenshot ${idx + 1}`}
-                          aria-pressed={idx === activeMockupIndex}
-                          className={`mockup-thumbnail ${idx === activeMockupIndex ? 'active' : ''}`}
-                          onClick={() => setActiveMockupIndex(idx)}
-                        >
-                          <img 
-                            src={`${import.meta.env.BASE_URL}${mockup}`} 
-                            alt=""
-                            loading="lazy"
-                          />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
-            </>}
-          </div>
+          {(project.detailsVideo || project.heroVideo) ? <figure className="case-opening-media">
+            <ProjectVideo key={id} title={project.title} src={`${import.meta.env.BASE_URL}${project.detailsVideo || project.heroVideo}`} />
+          </figure> : project.mockups?.[0] ? <figure className="case-opening-media">
+            <img src={`${import.meta.env.BASE_URL}${project.mockups[0]}`} alt={`${project.title} overview`} loading="eager" decoding="async" />
+          </figure> : project.thumbnail ? <figure className="case-opening-media">
+            <img src={`${import.meta.env.BASE_URL}${project.thumbnail}`} alt={`${project.title} overview`} loading="eager" />
+          </figure> : null}
         </div>
 
         {/* Right Panel: Info (Scrollable) */}
-        <div className="project-detail-right" ref={rightPanelRef}>
+        <div className="project-detail-right">
           <div className="project-detail-content">
             {/* Header */}
             <div className="detail-header">
@@ -193,9 +57,15 @@ function ProjectDetail() {
               <h1 className="detail-title">{project.title}</h1>
               <p className="detail-subtitle">{project.shortDescription}</p>
             </div>
+            <dl className="case-facts">
+              {company && companies[company] && <div><dt>My role</dt><dd>{companies[company].role}</dd></div>}
+              {company && companies[company] && <div><dt>Company</dt><dd>{companies[company].name}</dd></div>}
+              {project.status && <div><dt>Status</dt><dd>{project.status}</dd></div>}
+              <div><dt>Focus</dt><dd>{project.stack.slice(0, 3).join(' · ')}</dd></div>
+            </dl>
             {/* Stack Tags */}
             <div className="detail-section">
-              <h3 className="section-label">Tech Stack</h3>
+              <h2 className="section-label">Built with</h2>
               <div className="detail-stack">
                 {project.stack.map((tech, idx) => (
                   <span key={idx} className="detail-stack-tag">{tech}</span>
@@ -205,20 +75,28 @@ function ProjectDetail() {
 
             {/* Problem */}
             <div className="detail-section">
-              <h3 className="section-label">Problem</h3>
+              <h2 className="section-label">The challenge</h2>
               <p className="section-text">{project.problem}</p>
             </div>
 
             {/* Solution */}
             <div className="detail-section">
-              <h3 className="section-label">Solution</h3>
+              <h2 className="section-label">What I built</h2>
               <p className="section-text">{project.solution}</p>
             </div>
 
+            {project.mockups?.[0] && (project.detailsVideo || project.heroVideo) && <figure className="case-inline-media">
+              <img src={`${import.meta.env.BASE_URL}${project.mockups[0]}`} alt={`${project.title} interface overview`} loading="lazy" decoding="async" />
+              <figcaption>{project.title} / Overview</figcaption>
+            </figure>}
+            {project.mockups?.[1] && <figure className="case-inline-media">
+              <img src={`${import.meta.env.BASE_URL}${project.mockups[1]}`} alt={`${project.title} interface — screenshot 2`} loading="lazy" decoding="async" />
+              <figcaption>{project.title} · Product interface</figcaption>
+            </figure>}
             {/* Architecture */}
             {project.architecture && project.architecture.length > 0 && (
               <div className="detail-section">
-                <h3 className="section-label">Architecture</h3>
+                <h2 className="section-label">How it works</h2>
                 <ul className="section-list">
                   {project.architecture.map((item, idx) => (
                     <li key={idx}>{item}</li>
@@ -227,10 +105,13 @@ function ProjectDetail() {
               </div>
             )}
 
+            <div className="case-architecture">
+              <ArchitectureDiagram key={`case-${company || 'personal'}-${id}`} projectId={project.diagram || project.id} />
+            </div>
             {/* Highlights */}
             {project.highlights && project.highlights.length > 0 && (
               <div className="detail-section">
-                <h3 className="section-label">Key Highlights</h3>
+                <h2 className="section-label">Results & highlights</h2>
                 <ul className="section-list highlights-list">
                   {project.highlights.map((item, idx) => (
                     <li key={idx}>{item}</li>
@@ -239,10 +120,16 @@ function ProjectDetail() {
               </div>
             )}
 
+            {project.mockups?.length > 2 && <div className="case-gallery">
+              {project.mockups.slice(2).map((src, index) => <figure key={src}>
+                <img src={`${import.meta.env.BASE_URL}${src}`} alt={`${project.title} interface — screenshot ${index + 3}`} loading="lazy" decoding="async" />
+                <figcaption>{project.title} · View {index + 3}</figcaption>
+              </figure>)}
+            </div>}
             {/* Learnings */}
             {project.learnings && project.learnings.length > 0 && (
               <div className="detail-section">
-                <h3 className="section-label">Learnings</h3>
+                <h2 className="section-label">What I learned</h2>
                 <ul className="section-list">
                   {project.learnings.map((item, idx) => (
                     <li key={idx}>{item}</li>

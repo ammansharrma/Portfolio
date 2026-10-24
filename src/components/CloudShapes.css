@@ -6,6 +6,13 @@
   z-index: 1;
   pointer-events: none;
   background: var(--theme-surface);
+  transition: background-color .45s ease;
+}
+body:has(.experience-row:is(:hover, :focus-visible)) .gradient-bg {
+  background-color: #06285f;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gradient-bg { transition: none; }
 }
 .cloud {
   --cloud-width: clamp(300px, 42vw, 720px);

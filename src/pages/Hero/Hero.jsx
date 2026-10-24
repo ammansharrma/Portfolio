@@ -117,10 +117,15 @@ function Hero() {
     <div className="hero-page" id="hero">
       <div className="hero-bg-layer" />
       <div className="hero-page-texture" />
+      <div className="hero-focus-layer" aria-hidden="true" style={{ opacity: Math.max(0, 1 - scrollProgress * 1.5) }} />
       <div className="hero-content" style={heroStyle}>
         <p className="hero-name">{profile.name}</p>
         <h1 className="hero-subtitle">
-          I build production AI agents{" "}
+          I build production <span className="hero-circled-text">AI agents
+            <svg className="hero-text-ring" viewBox="0 0 240 90" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M213 19C181 3 88 2 39 17C-1 29 2 60 42 72C85 85 175 82 211 66C246 50 240 26 203 16C164 5 85 8 45 22" />
+            </svg>
+          </span>{" "}
                     <MotionVideo
             src={MonitorsTyping} 
             className="hero-gif" 
@@ -131,9 +136,8 @@ function Hero() {
             width="80"
             height="80"
           />{" "}
-          and
           <br />
-          reliable{" "}
+          and reliable{" "}
                     <MotionVideo
             src={BrainiacBrain} 
             className="hero-gif" 

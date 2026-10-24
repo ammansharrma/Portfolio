@@ -19,10 +19,10 @@ import pythonLogo from '../../assets/Python.webp'
 
 
 const skills = [
-  { title: 'AI / Agent Engineering', capabilities: ['Building agents with AWS Bedrock AgentCore', 'Coordinating multi-agent workflows', 'Connecting retrieval, memory, and tools', 'Evaluating answers against a benchmark'], tools: ['Amazon Bedrock', 'AgentCore', 'LangChain', 'RAG', 'MCP'] },
-  { title: 'Backend & Real-Time Systems', capabilities: ['Building Node.js and NestJS services', 'Streaming responses with SSE and WebSockets', 'Integrating OAuth and JWT authentication', 'Debugging asynchronous request lifecycles'], tools: ['Node.js', 'TypeScript', 'NestJS', 'SSE', 'WebSockets'] },
-  { title: 'Frontend & Product Interfaces', capabilities: ['Building React interfaces from requirements', 'Connecting interfaces to backend workflows', 'Improving inventory and warranty experiences', 'Delivering features across frontend and backend'], tools: ['React 18', 'JavaScript', 'Material-UI', 'Vite'] },
-  { title: 'Cloud & Engineering Delivery', capabilities: ['Operating AI workflows across two regions', 'Investigating production issues with logs', 'Working through planning, estimation, and delivery', 'Connecting cloud services and data stores'], tools: ['AWS', 'CloudWatch', 'S3', 'SQL', 'Git'] },
+  { title: 'AI & Agent Engineering', description: 'Agents, retrieval, memory, and evaluation.', tools: ['Amazon Bedrock', 'AgentCore', 'LangChain', 'RAG', 'MCP'] },
+  { title: 'Frontend & Product Interfaces', description: 'Interfaces connected to working systems.', tools: ['React 18', 'JavaScript', 'Material-UI', 'Vite'] },
+  { title: 'Backend & Real-Time Systems', description: 'APIs, authentication, and streamed responses.', tools: ['Node.js', 'TypeScript', 'NestJS', 'SSE', 'WebSockets'] },
+  { title: 'Cloud & Delivery', description: 'Deployment, observability, and reliability.', tools: ['AWS', 'CloudWatch', 'S3', 'SQL', 'Git'] },
 ];
 
 // Global tech stack for bottom animation
@@ -61,6 +61,8 @@ const globalTechBadges = [
 const toolLogos = { 'React 18': reactLogo, JavaScript: jsLogo, 'Node.js': nodeLogo, Git: gitLogo };
 const cloudIcon = name => `${import.meta.env.BASE_URL}architecture/icons/${name}.svg`;
 Object.assign(toolLogos, { 'Amazon Bedrock': cloudIcon('bedrock'), AgentCore: cloudIcon('agentcore'), CloudWatch: cloudIcon('cloudwatch'), S3: cloudIcon('s3'), 'Material-UI': cloudIcon('materialui'), Vite: cloudIcon('vitejs'), NestJS: cloudIcon('nestjs') });
+const skillLogo = name => `${import.meta.env.BASE_URL}images/skills/${name}`;
+Object.assign(toolLogos, { LangChain: skillLogo('langchain.svg'), MCP: skillLogo('mcp.png'), TypeScript: skillLogo('typescript.png'), AWS: skillLogo('aws.svg') });
 
 function SkillsMinimal() {
   const sectionRef = useRef(null);
@@ -71,15 +73,24 @@ function SkillsMinimal() {
     return () => observer.disconnect();
   }, []);
   return <section ref={sectionRef} className={`skills-minimal-page page-container ${isVisible ? 'is-visible' : ''}`} id="skills-minimal" aria-labelledby="skills-heading">
-    <div className="skills-minimal-container"><div className="skills-minimal-header"><h2 className="skills-minimal-title" id="skills-heading">SKILLS</h2><p className="skills-minimal-subtitle">What I build and how I deliver it</p></div>
-      <div className="skills-minimal-grid">{skills.map(category => <article className="skill-card-minimal" key={category.title} tabIndex="0" aria-label={category.title}>
-        <h3 className="skill-category-title">{category.title}</h3><ul className="skill-list">{category.capabilities.map(capability => <li className="skill-item" key={capability}>{capability}</li>)}</ul>
-        <div className="skill-motion-strip"><div className="skill-motion-track">
-          {[...category.tools, ...category.tools].map((tool, index) => <span className="skill-badge" key={index} aria-hidden={index >= category.tools.length || undefined}>
-            {toolLogos[tool] && <img src={toolLogos[tool]} alt="" className="skill-badge-logo" width="18" height="18" loading="lazy" />}
-            <span className="skill-badge-text">{tool}</span>
-          </span>)}
-        </div></div>
+    <div className="skills-minimal-container"><div className="skills-minimal-header"><h2 className="skills-minimal-title" id="skills-heading">SKILLS</h2><p className="skills-minimal-subtitle">What goes into the work.</p></div>
+      <div className="skills-editorial-list">{skills.map(category => <article className="skill-editorial-row" key={category.title} tabIndex="0" aria-label={`${category.title}: ${category.tools.join(', ')}`}
+        onPointerEnter={event => {
+          const bounds = event.currentTarget.getBoundingClientRect();
+          event.currentTarget.style.setProperty('--reveal-from', event.clientY < bounds.top + bounds.height / 2 ? '-110%' : '110%');
+        }}>
+        <div className="skill-heading-window">
+          <h3 className="skill-category-title">{category.title.startsWith('AI &') ? <><span className="skill-ai-accent">AI<svg viewBox="0 0 100 70" preserveAspectRatio="none" aria-hidden="true"><path d="M91 20C76 2 19 5 7 28C-4 52 35 65 73 56C105 49 105 20 81 12C56 2 15 12 9 31" /></svg></span>{category.title.slice(2)}</> : category.title}</h3>
+          <div className="skill-reveal-ribbon" aria-hidden="true"><div className="skill-reveal-track">
+            {[0, 1].map(copy => <div className="skill-reveal-group" key={copy}>
+              {category.tools.map(tool => <span className="skill-reveal-tool" key={tool}>
+                {toolLogos[tool] && <img src={toolLogos[tool]} className={tool === 'LangChain' ? 'skill-logo-wordmark' : undefined} alt={tool === 'LangChain' ? tool : ''} width={tool === 'LangChain' ? '142' : '30'} height="30" loading="lazy" />}
+                {tool !== 'LangChain' && tool}
+              </span>)}
+            </div>)}
+          </div></div>
+        </div>
+        <p className="skill-description">{category.description}</p>
       </article>)}</div>
       <div className="skills-stack-summary"><div className="global-tech-track">
         {globalTechBadges.map((badge, index) => <span className="global-tech-badge" key={index} aria-hidden={index >= globalTechBadges.length / 2 || undefined}>

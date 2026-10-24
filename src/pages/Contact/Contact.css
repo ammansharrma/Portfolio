@@ -76,15 +76,15 @@
 
 .contact-title {
   font-size: clamp(36px, 3.70vw, 56px);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   line-height: 1.2;
   color: var(--theme-accent);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 .contact-title .bold-text {
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .cta-button {
@@ -241,7 +241,7 @@
 }
 
 .time-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
   color: rgba(255, 246, 231, 0.72);
   text-transform: uppercase;
@@ -318,7 +318,7 @@
   }
 
   .copyright {
-    font-size: 10px;
+    font-size: 12px;
   }
   
   .footer {

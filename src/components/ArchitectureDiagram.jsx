@@ -25,10 +25,10 @@ function connection(from, to) {
   return { d: `M${startX},${startY} V${middle} H${endX} V${endY}`, x: (startX + endX) / 2, y: middle - 13 };
 }
 
-function DiagramCanvas({ diagram, selected, onSelect }) {
+function DiagramCanvas({ diagram }) {
   const uid = useId().replace(/:/g, '');
   return (
-    <svg className="architecture-canvas" viewBox={`0 0 890 ${diagram.height}`} role="group" aria-label={`${diagram.title}. Select a component for details.`}>
+    <svg className="architecture-canvas" viewBox={`0 0 890 ${diagram.height}`} role="img" aria-label={diagram.title}>
       <defs>
         <pattern id={`${uid}-grid`} width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#f4ebdc" opacity=".14" /></pattern>
         <linearGradient id={`${uid}-surface`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#1759b5" /><stop offset="1" stopColor="#064092" /></linearGradient>
@@ -41,8 +41,7 @@ function DiagramCanvas({ diagram, selected, onSelect }) {
         const from = diagram.nodes.find(node => node.id === edge.from);
         const to = diagram.nodes.find(node => node.id === edge.to);
         const path = connection(from, to);
-        const active = edge.from === selected || edge.to === selected;
-        return <g key={index} className={`architecture-edge ${active ? 'is-active' : ''}`}>
+        return <g key={index} className="architecture-edge">
           <path d={path.d} fill="none" stroke="#d9c9ab" strokeWidth="1.8" strokeDasharray={edge.dependency ? '6 5' : undefined} markerEnd={`url(#${uid}-arrow)`} />
           <text x={path.x} y={path.y} textAnchor="middle" className="architecture-edge-label">
             {(from.y === to.y && edge.label.length > 12 ? edge.label.split(' ') : [edge.label]).map((line, lineIndex, lines) => <tspan key={lineIndex} x={path.x} dy={lineIndex === 0 ? -(lines.length - 1) * 13 : 13}>{line}</tspan>)}
@@ -50,9 +49,8 @@ function DiagramCanvas({ diagram, selected, onSelect }) {
         </g>;
       })}
       {diagram.nodes.map(node => (
-        <g key={node.id} transform={`translate(${node.x},${node.y})`} className={`architecture-node ${selected === node.id ? 'is-selected' : ''}`} role="button" tabIndex="0" aria-label={`${node.title}: ${node.subtitle}`} aria-pressed={selected === node.id} onClick={() => onSelect(node.id)} onKeyDown={event => {
-          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); onSelect(node.id); }
-        }}>
+        <g key={node.id} transform={`translate(${node.x},${node.y})`} className="architecture-node">
+          <title>{`${node.title}: ${node.subtitle}`}</title>
           <rect className="architecture-node-surface" width={CARD_WIDTH} height={CARD_HEIGHT} rx="13" fill={`url(#${uid}-surface)`} stroke="#a8bbd9" />
           <text x="18" y="25" className="architecture-node-role">{node.role.toUpperCase()}</text>
           {node.icon && <image href={iconPath(node.icon)} x="174" y="14" width="30" height="30" className={['github', 'express'].includes(node.icon) ? 'architecture-monochrome' : undefined} />}
@@ -66,12 +64,10 @@ function DiagramCanvas({ diagram, selected, onSelect }) {
 
 export default function ArchitectureDiagram({ projectId }) {
   const diagram = diagrams[projectId];
-  const [selected, setSelected] = useState(diagram?.nodes[0]?.id);
   const [expanded, setExpanded] = useState(false);
   const dialog = useRef(null);
   const opener = useRef(null);
   const titleId = useId();
-  useEffect(() => { setSelected(diagram?.nodes[0]?.id); }, [diagram]);
   useEffect(() => {
     if (!expanded) return;
     const previous = document.documentElement.style.overflow;
@@ -79,19 +75,15 @@ export default function ArchitectureDiagram({ projectId }) {
     return () => { document.documentElement.style.overflow = previous; };
   }, [expanded]);
   if (!diagram) return null;
-  const active = diagram.nodes.find(node => node.id === selected) ?? diagram.nodes[0];
   const contents = <>
     <div className="architecture-viewport" tabIndex="0" role="region" aria-label="Architecture diagram. Scroll horizontally to explore.">
-      <DiagramCanvas diagram={diagram} selected={active.id} onSelect={setSelected} />
+      <DiagramCanvas diagram={diagram} />
     </div>
-    <div className="architecture-legend"><span>→ Data / control flow</span><span>┄ Tooling / supporting dependency</span></div>
-    <div className="architecture-inspector" aria-live="polite"><strong>{active.title}</strong><p>{active.description}</p></div>
   </>;
   return <figure className="architecture-diagram" aria-labelledby={titleId}>
     <figcaption className="architecture-heading"><div><span className="architecture-eyebrow">ARCHITECTURE</span><h2 id={titleId}>{diagram.title}</h2><p>{diagram.summary}</p></div></figcaption>
-    <div className="architecture-toolbar"><span>Select a component to explore</span><button ref={opener} type="button" onClick={() => { dialog.current.showModal(); setExpanded(true); }}>Expand diagram <DirectionArrow /></button></div>
+    <div className="architecture-toolbar"><button ref={opener} type="button" onClick={() => { dialog.current.showModal(); setExpanded(true); }}>Expand diagram <DirectionArrow /></button></div>
     {contents}
-    <p className="architecture-scope">High-level architecture based on the project description; deployment and implementation details are simplified.</p>
     <dialog ref={dialog} className="architecture-dialog" aria-label={`${diagram.title} — expanded diagram`} onClose={() => { setExpanded(false); opener.current?.focus(); }} onClick={event => { if (event.target === event.currentTarget) dialog.current.close(); }}>
       <div className="architecture-dialog-body"><header><h2>{diagram.title}</h2><button type="button" autoFocus onClick={() => dialog.current.close()}>Close ✕</button></header>{expanded && contents}</div>
     </dialog>

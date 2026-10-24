@@ -40,7 +40,7 @@
 .omnevu-page .nebula-texture {
   position: absolute;
   inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/egg-shell.png");
+  background-image: url("/images/egg-shell.webp");
   opacity: 0.08;
   pointer-events: none;
   z-index: 1;
@@ -95,7 +95,7 @@
   color: var(--accent-color);
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 400;
   margin-top: 1rem;
   transition: transform 0.3s ease;
 }
@@ -194,7 +194,7 @@
 
 .omnevu-page .project-title {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--theme-accent);
   margin: 0;
   display: flex;
@@ -205,7 +205,7 @@
 .omnevu-page .project-domain {
   font-size: 0.8rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .omnevu-page .project-body {
@@ -222,7 +222,7 @@
 
 .omnevu-page .section-label {
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;

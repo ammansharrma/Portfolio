@@ -1,8 +1,16 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 // Decorative previews play only while visible and when motion is welcome.
 export default function MotionVideo({ autoPlay, src, children, ...props }) {
   const ref = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { setLoaded(true); observer.disconnect(); }
+    }, { rootMargin: '150px' });
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [src]);
   useEffect(() => {
     if (!autoPlay) return;
     const video = ref.current;
@@ -17,6 +25,6 @@ export default function MotionVideo({ autoPlay, src, children, ...props }) {
     motion.addEventListener('change', update);
     document.addEventListener('visibilitychange', update);
     return () => { observer.disconnect(); motion.removeEventListener('change', update); document.removeEventListener('visibilitychange', update); };
-  }, [autoPlay, src]);
-  return <video ref={ref} src={src} preload="metadata" {...props}>{children}</video>;
+  }, [autoPlay, src, loaded]);
+  return <video ref={ref} src={loaded ? src : undefined} preload="none" {...props}>{loaded ? children : null}</video>;
 }

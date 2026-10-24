@@ -28,7 +28,7 @@ body:has(.project-detail-page) { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .project-back .direction-arrow { transition: none; }
 }
-.detail-project-status { font-size: 11px; color: var(--theme-ink); letter-spacing: .08em; margin-bottom: 18px; }
+.detail-project-status { font-size: var(--type-label); color: var(--theme-ink); letter-spacing: .08em; margin-bottom: 18px; }
 .architecture-media { min-width: 0; }
 .project-detail-left.showing-media { height: 100dvh; }
 .mockup-thumbnail { padding: 0; background: transparent; }
@@ -96,7 +96,7 @@ body:has(.project-detail-page) { overflow-x: clip; }
 .toggle-btn {
   padding: 8px 18px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   background: transparent;
   border: none;
   color: rgba(255, 246, 231, 0.72);
@@ -336,19 +336,19 @@ body:has(.project-detail-page) { overflow-x: clip; }
 }
 
 .section-label {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--type-label);
+  font-weight: 700;
   color: rgba(255, 246, 231, 0.72);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   margin: 0 0 20px 0;
 }
 
 .section-text {
-  font-size: 15px;
+  font-size: var(--type-body);
   font-weight: 400;
   color: rgba(255, 246, 231, 0.75);
-  line-height: 1.8;
+  line-height: 1.75;
   margin: 0;
   max-width: 95%;
 }
@@ -360,10 +360,10 @@ body:has(.project-detail-page) { overflow-x: clip; }
 }
 
 .section-list li {
-  font-size: 15px;
+  font-size: var(--type-body);
   font-weight: 400;
   color: rgba(255, 246, 231, 0.75);
-  line-height: 1.8;
+  line-height: 1.75;
   margin-bottom: 12px;
   position: relative;
   padding-left: 28px;
@@ -411,8 +411,8 @@ body:has(.project-detail-page) { overflow-x: clip; }
 }
 
 .detail-stack-tag {
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--type-label);
+  font-weight: 400;
   padding: 6px 14px;
   border-radius: 100px;
   background: rgba(244, 235, 220, 0.04);
@@ -440,7 +440,7 @@ body:has(.project-detail-page) { overflow-x: clip; }
   gap: 10px;
   padding: 12px 24px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   background: rgba(244, 235, 220, 0.05);
   border: 1px solid rgba(244, 235, 220, 0.1);
   color: var(--theme-accent);
@@ -537,4 +537,18 @@ body:has(.project-detail-page) { overflow-x: clip; }
     width: 100%;
     justify-content: center;
   }
+}
+
+.detail-title { font-size: clamp(40px, 4vw, 64px); line-height: 1.15; }
+.detail-subtitle, .section-text, .section-list li { font-size: var(--type-reading); line-height: 1.6; letter-spacing: -.025em; max-width: 100%; }
+.detail-project-status, .section-label { font-size: 16px; line-height: 1.5; letter-spacing: .08em; }
+.detail-stack-tag, .detail-link-btn, .toggle-btn { font-size: 16px; }
+.detail-section { margin-bottom: 48px; padding-bottom: 40px; }
+.section-list li { margin-bottom: 20px; }
+.section-list li::before { top: .55em; }
+.detail-links { flex-wrap: wrap; }
+.media-toggle { flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .toggle-btn { font-size: 14px; }
+  .detail-title { font-size: 36px; }
 }
