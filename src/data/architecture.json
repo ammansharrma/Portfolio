@@ -1,0 +1,118 @@
+{
+  "centralized-notes": [
+    {
+      "title": "Associate workspace",
+      "detail": "React UI · authenticated browser"
+    },
+    {
+      "title": "Order notes service",
+      "detail": "Spring Boot · REST + SSE"
+    },
+    {
+      "title": "Notes storage",
+      "detail": "MongoDB · legacy notes APIs"
+    },
+    {
+      "title": "Identity services",
+      "detail": "Okta user login · Keycloak service auth"
+    },
+    {
+      "title": "AI summarizer",
+      "detail": "AgentCore · Python · Strands"
+    },
+    {
+      "title": "Model & operations",
+      "detail": "Bedrock Claude · managed prompts"
+    }
+  ],
+  "order-notes": [
+    {
+      "title": "Caller / backend",
+      "detail": "InvokeAgentRuntime · streamed reply"
+    },
+    {
+      "title": "Request orchestration",
+      "detail": "Rate limit · session context"
+    },
+    {
+      "title": "Retrieve & rank notes",
+      "detail": "Notes API · OAuth · category filter"
+    },
+    {
+      "title": "Runtime cache",
+      "detail": "In-memory · note-change fingerprint"
+    },
+    {
+      "title": "Strands + Bedrock",
+      "detail": "Claude · managed prompt templates"
+    },
+    {
+      "title": "Operations & config",
+      "detail": "CloudWatch · X-Ray · Secrets Manager"
+    }
+  ],
+  "csr-copilot": [
+    {
+      "title": "Support workspace",
+      "detail": "React · Firebase · Google Identity"
+    },
+    {
+      "title": "Q&A backend",
+      "detail": "Flask · REST + Socket.IO"
+    },
+    {
+      "title": "Policy retrieval",
+      "detail": "Milvus · OpenAI answers + embeddings"
+    },
+    {
+      "title": "Call context",
+      "detail": "Amazon Connect · transcript webhooks"
+    },
+    {
+      "title": "Conversation records",
+      "detail": "MongoDB · cloud transcript storage"
+    },
+    {
+      "title": "Observability",
+      "detail": "Jaeger · OpenTelemetry traces"
+    }
+  ],
+  "presentation-agent": [
+    {
+      "title": "Project input",
+      "detail": "AgentCore · config · project ID"
+    },
+    {
+      "title": "Fetch & prepare",
+      "detail": "Salesforce · catalog · image resolution"
+    },
+    {
+      "title": "Validate inputs",
+      "detail": "Report / strict validation gates"
+    },
+    {
+      "title": "Template & page plans",
+      "detail": "S3 IDML · categories · layouts"
+    },
+    {
+      "title": "Select plan & hero",
+      "detail": "Strands + Bedrock · deterministic fallback"
+    },
+    {
+      "title": "Assemble & fill",
+      "detail": "Clone spreads · images · captions"
+    },
+    {
+      "title": "Validate output",
+      "detail": "IDML structure · rules · retry up to 3"
+    },
+    {
+      "title": "Publish artifact",
+      "detail": "S3 IDML output · local dev option"
+    },
+    {
+      "title": "Return manifest",
+      "detail": "Pages · findings · SHA-256 checksum"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="945" viewBox="0 0 1200 945" role="img" aria-labelledby="title desc">
+<title id="title">Presentation Agent</title><desc id="desc">Implementation: 16-node LangGraph workflow with per-step tracing. Adobe PDF export and Drive delivery are separate design / feasibility work.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#73877b"/></marker></defs>
+<rect width="1200" height="945" fill="#f7f9f7"/>
+<text x="48" y="64" font-family="Arial,sans-serif" font-size="30" font-weight="600" fill="#202923">Presentation Agent</text>
+<text x="48" y="98" font-family="Arial,sans-serif" font-size="17" fill="#637168">Luxury furniture retailer · in development</text>
+<path d="M378 227 L424 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M754 227 L800 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M965 300 L965 370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M800 442 L754 442" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M424 442 L378 442" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M213 515 L213 585" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M378 657 L424 657" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M754 657 L800 657" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">01</text>
+<text x="68" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Project input</text>
+<text x="68" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">AgentCore · config · project ID</text>
+<rect x="424" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">02</text>
+<text x="444" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Fetch &amp; prepare</text>
+<text x="444" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">Salesforce · catalog · image</text>
+<text x="444" y="270" font-family="Arial,sans-serif" font-size="15" fill="#607067">resolution</text>
+<rect x="800" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">03</text>
+<text x="820" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Validate inputs</text>
+<text x="820" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">Report / strict validation gates</text>
+<rect x="800" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">04</text>
+<text x="820" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Template &amp; page plans</text>
+<text x="820" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">S3 IDML · categories · layouts</text>
+<rect x="424" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">05</text>
+<text x="444" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Select plan &amp; hero</text>
+<text x="444" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">Strands + Bedrock · deterministic</text>
+<text x="444" y="485" font-family="Arial,sans-serif" font-size="15" fill="#607067">fallback</text>
+<rect x="48" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">06</text>
+<text x="68" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Assemble &amp; fill</text>
+<text x="68" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">Clone spreads · images · captions</text>
+<rect x="48" y="585" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="615" font-family="Arial,sans-serif" font-size="13" fill="#52715e">07</text>
+<text x="68" y="647" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Validate output</text>
+<text x="68" y="677" font-family="Arial,sans-serif" font-size="15" fill="#607067">IDML structure · rules · retry up</text>
+<text x="68" y="700" font-family="Arial,sans-serif" font-size="15" fill="#607067">to 3</text>
+<rect x="424" y="585" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="615" font-family="Arial,sans-serif" font-size="13" fill="#52715e">08</text>
+<text x="444" y="647" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Publish artifact</text>
+<text x="444" y="677" font-family="Arial,sans-serif" font-size="15" fill="#607067">S3 IDML output · local dev option</text>
+<rect x="800" y="585" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="615" font-family="Arial,sans-serif" font-size="13" fill="#52715e">09</text>
+<text x="820" y="647" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Return manifest</text>
+<text x="820" y="677" font-family="Arial,sans-serif" font-size="15" fill="#607067">Pages · findings · SHA-256</text>
+<text x="820" y="700" font-family="Arial,sans-serif" font-size="15" fill="#607067">checksum</text>
+<text x="48" y="875" font-family="Arial,sans-serif" font-size="16" fill="#607067">Implementation: 16-node LangGraph workflow with per-step tracing. Adobe PDF export and Drive delivery are separate design /</text>
+<text x="48" y="900" font-family="Arial,sans-serif" font-size="16" fill="#607067">feasibility work.</text>
+</svg>

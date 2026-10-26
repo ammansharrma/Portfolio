@@ -1,0 +1,14 @@
+WARN  /Portfolio/experience         sentence repeated 3x: "From business requirements to production systems."
+WARN  /Portfolio/skills             sentence repeated 3x: "I connect AI, application development and cloud infrastructure to solv"
+WARN  /Portfolio/services           sentence repeated 3x: "Alongside my role at Mindstix, I’m open to freelance projects that bri"
+WARN  /Portfolio/about              sentence repeated 3x: "I’m Aamaan Ssanjay Sharrma, a software engineer based in Pune, India."
+WARN  /Portfolio/projects/order-notes-agent  sentence repeated 3x: "Production note summarization on AWS, built to handle real authenticat"
+WARN  /Portfolio/projects/vidhaan-ai  sentence repeated 3x: "An LLM orchestration platform that connects retrieval, memory and mult"
+WARN  /Portfolio/projects/presentation-agent  sentence repeated 3x: "Turning project and product data into template-based interior design p"
+WARN  /Portfolio/projects/rep-copilot  sentence repeated 3x: "Contextual suggestions for support calls, with evidence-backed claims "
+WARN  /Portfolio/projects/multi-agent-rca  sentence repeated 3x: "Specialized agents investigate production failures and assemble root-c"
+WARN  /Portfolio/projects/retail-workflows  sentence repeated 3x: "Inventory, warranty and retail interfaces that reduce everyday manual "
+
+14 pages crawled from http://127.0.0.1:4400/Portfolio/
+heaviest page /Portfolio/projects: ~88 KB | html 3 | JS 49 (gz) | CSS 6 (gz) | fonts 0 | images 30
+0 FAIL, 10 WARN

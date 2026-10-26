@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="730" viewBox="0 0 1200 730" role="img" aria-labelledby="title desc">
+<title id="title">Order notes summarization</title><desc id="desc">Cache hits reuse prior results; misses stream a model response. Cache and rate-limit state are scoped to each runtime instance.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#73877b"/></marker></defs>
+<rect width="1200" height="730" fill="#f7f9f7"/>
+<text x="48" y="64" font-family="Arial,sans-serif" font-size="30" font-weight="600" fill="#202923">Order notes summarization</text>
+<text x="48" y="98" font-family="Arial,sans-serif" font-size="17" fill="#637168">AgentCore runtime</text>
+<path d="M378 227 L424 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M754 227 L800 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M589 300 V335.0 H965 V370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M965 300 V335.0 H589 V370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M754 442 L800 442" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M589 300 V335.0 H213 V370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">01</text>
+<text x="68" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Caller / backend</text>
+<text x="68" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">InvokeAgentRuntime · streamed</text>
+<text x="68" y="270" font-family="Arial,sans-serif" font-size="15" fill="#607067">reply</text>
+<rect x="424" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">02</text>
+<text x="444" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Request orchestration</text>
+<text x="444" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">Rate limit · session context</text>
+<rect x="800" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">03</text>
+<text x="820" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Retrieve &amp; rank notes</text>
+<text x="820" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">Notes API · OAuth · category</text>
+<text x="820" y="270" font-family="Arial,sans-serif" font-size="15" fill="#607067">filter</text>
+<rect x="800" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">04</text>
+<text x="820" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Runtime cache</text>
+<text x="820" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">In-memory · note-change</text>
+<text x="820" y="485" font-family="Arial,sans-serif" font-size="15" fill="#607067">fingerprint</text>
+<rect x="424" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">05</text>
+<text x="444" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Strands + Bedrock</text>
+<text x="444" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">Claude · managed prompt templates</text>
+<rect x="48" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">06</text>
+<text x="68" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Operations &amp; config</text>
+<text x="68" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">CloudWatch · X-Ray · Secrets</text>
+<text x="68" y="485" font-family="Arial,sans-serif" font-size="15" fill="#607067">Manager</text>
+<text x="48" y="660" font-family="Arial,sans-serif" font-size="16" fill="#607067">Cache hits reuse prior results; misses stream a model response. Cache and rate-limit state are scoped to each runtime</text>
+<text x="48" y="685" font-family="Arial,sans-serif" font-size="16" fill="#607067">instance.</text>
+</svg>

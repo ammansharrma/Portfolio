@@ -1,0 +1,5 @@
+WARN  /Portfolio/projects/presentation-agent  1 em/en dash(es) in visible text (read as AI tell; rewrite)
+
+14 pages crawled from http://127.0.0.1:4400/Portfolio/
+heaviest page /Portfolio/projects/vidhaan-ai: ~86 KB | html 3 | JS 47 (gz) | CSS 6 (gz) | fonts 0 | images 30
+0 FAIL, 1 WARN

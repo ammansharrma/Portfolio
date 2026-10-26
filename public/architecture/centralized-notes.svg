@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="730" viewBox="0 0 1200 730" role="img" aria-labelledby="title desc">
+<title id="title">Centralized notes system</title><desc id="desc">The Java service relays summary events to the UI. Email and regional notes integrations are omitted for clarity.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#73877b"/></marker></defs>
+<rect width="1200" height="730" fill="#f7f9f7"/>
+<text x="48" y="64" font-family="Arial,sans-serif" font-size="30" font-weight="600" fill="#202923">Centralized notes system</text>
+<text x="48" y="98" font-family="Arial,sans-serif" font-size="17" fill="#637168">Luxury furniture retailer</text>
+<path d="M378 227 L424 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M754 227 L800 227" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M213 300 V335.0 H965 V370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M589 300 L589 370" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M589 370 L589 300" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M424 442 L378 442" fill="none" stroke="#73877b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="48" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">01</text>
+<text x="68" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Associate workspace</text>
+<text x="68" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">React UI · authenticated browser</text>
+<rect x="424" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">02</text>
+<text x="444" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Order notes service</text>
+<text x="444" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">Spring Boot · REST + SSE</text>
+<rect x="800" y="155" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="185" font-family="Arial,sans-serif" font-size="13" fill="#52715e">03</text>
+<text x="820" y="217" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Notes storage</text>
+<text x="820" y="247" font-family="Arial,sans-serif" font-size="15" fill="#607067">MongoDB · legacy notes APIs</text>
+<rect x="800" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="820" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">04</text>
+<text x="820" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Identity services</text>
+<text x="820" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">Okta user login · Keycloak service</text>
+<text x="820" y="485" font-family="Arial,sans-serif" font-size="15" fill="#607067">auth</text>
+<rect x="424" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="444" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">05</text>
+<text x="444" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">AI summarizer</text>
+<text x="444" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">AgentCore · Python · Strands</text>
+<rect x="48" y="370" width="330" height="145" rx="14" fill="#fff" stroke="#dce4de"/>
+<text x="68" y="400" font-family="Arial,sans-serif" font-size="13" fill="#52715e">06</text>
+<text x="68" y="432" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#24352a">Model &amp; operations</text>
+<text x="68" y="462" font-family="Arial,sans-serif" font-size="15" fill="#607067">Bedrock Claude · managed prompts</text>
+<text x="48" y="660" font-family="Arial,sans-serif" font-size="16" fill="#607067">The Java service relays summary events to the UI. Email and regional notes integrations are omitted for clarity.</text>
+</svg>

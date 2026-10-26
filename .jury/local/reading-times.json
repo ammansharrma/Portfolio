@@ -1,0 +1,26 @@
+[
+  {
+    "route": "experience",
+    "firstTextMs": 940,
+    "completeMs": 6343,
+    "words": 181
+  },
+  {
+    "route": "projects/order-notes-agent",
+    "firstTextMs": 869,
+    "completeMs": 15421,
+    "words": 293
+  },
+  {
+    "route": "projects/presentation-agent",
+    "firstTextMs": 847,
+    "completeMs": 16466,
+    "words": 415
+  },
+  {
+    "route": "services",
+    "firstTextMs": 834,
+    "completeMs": 4695,
+    "words": 114
+  }
+]
