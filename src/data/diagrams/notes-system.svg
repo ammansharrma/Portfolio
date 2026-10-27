@@ -1,0 +1,285 @@
+<svg viewBox="0 0 1534 632" role="img" lang="en" aria-labelledby="notes-system-archify-diagram-title notes-system-archify-diagram-description">
+        <title id="notes-system-archify-diagram-title">Centralized order notes system</title>
+        <desc id="notes-system-archify-diagram-description">The centralized order notes system: a React app and a Spring Boot service, MongoDB for notes, and the summarizer agent invoked over AgentCore.</desc>
+        <defs>
+          <marker id="notes-system-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="notes-system-arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="notes-system-arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="notes-system-arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="notes-system-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#notes-system-grid)" />
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="Kubernetes · Helm" x="206" y="279" width="588" height="109" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="1" data-composition-frame-label="AWS · us-west-2 (prod)" x="976" y="279" width="518" height="109" rx="12" class="c-region" stroke-width="1"/>
+        <g data-graph-role="automatic-crossover" style="--step:0">
+          <path data-graph-role="automatic-crossover-underlay" d="M 150 336 L 220 336" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="associate" data-edge-to="ui" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="open" data-composition-points="150,336;220,336" data-composition-crossover="halo" data-composition-independent="true" d="M 150 336 L 220 336" class="a-emphasis" stroke-width="1.8" marker-end="url(#notes-system-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:1">
+          <path data-graph-role="automatic-crossover-underlay" d="M 303 304 L 303 164" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ui" data-edge-to="okta" data-edge-label="OIDC login" data-edge-key="1" data-edge-id="login" data-composition-points="303,304;303,164" data-composition-crossover="halo" data-composition-independent="true" d="M 303 304 L 303 164" class="a-security" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:2">
+          <path data-graph-role="automatic-crossover-underlay" d="M 400 327.95 L 580 327.95" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ui" data-edge-to="svc" data-edge-label="REST + SSE · Okta JWT" data-edge-key="2" data-edge-id="bff" data-composition-points="400,327.95;580,327.95" data-composition-crossover="halo" data-composition-independent="true" d="M 400 327.95 L 580 327.95" class="a-emphasis" stroke-width="1.8" marker-end="url(#notes-system-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:3">
+          <path data-graph-role="automatic-crossover-underlay" d="M 673 304 L 673 242 Q 673 234 665 234 L 325 234 Q 317 234 317 226 L 317 164" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="svc" data-edge-to="okta" data-edge-label="verify JWT" data-edge-key="3" data-edge-id="verify" data-composition-points="673,304;673,234;317,234;317,164" data-composition-crossover="halo" data-composition-independent="true" d="M 673 304 L 673 242 Q 673 234 665 234 L 325 234 Q 317 234 317 226 L 317 164" class="a-security" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:4">
+          <path data-graph-role="automatic-crossover-underlay" d="M 680 368 L 680 500" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="svc" data-edge-to="mongo" data-edge-label="notes CRUD" data-edge-key="4" data-edge-id="crud" data-composition-points="680,368;680,500" data-composition-crossover="halo" data-composition-independent="true" d="M 680 368 L 680 500" class="a-default" stroke-width="1.5" marker-end="url(#notes-system-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:5">
+          <path data-graph-role="automatic-crossover-underlay" d="M 580 343 L 573.75 343 Q 567.5 343 567.5 349.25 L 567.5 525.75 Q 567.5 532 561.25 532 L 555 532" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="svc" data-edge-to="legacy" data-edge-label="GET legacy notes" data-edge-key="5" data-edge-id="legacy-get" data-composition-points="580,343;567.5,343;567.5,532;555,532" data-composition-crossover="halo" data-composition-independent="true" d="M 580 343 L 573.75 343 Q 567.5 343 567.5 349.25 L 567.5 525.75 Q 567.5 532 561.25 532 L 555 532" class="a-default" stroke-width="1.5" marker-end="url(#notes-system-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:6">
+          <path data-graph-role="automatic-crossover-underlay" d="M 780 344.05 L 786.25 344.05 Q 792.5 344.05 792.5 350.3 L 792.5 525.75 Q 792.5 532 798.75 532 L 805 532" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="svc" data-edge-to="smtp" data-edge-label="SMTP :587" data-edge-key="6" data-edge-id="mail" data-composition-points="780,344.05;792.5,344.05;792.5,532;805,532" data-composition-crossover="halo" data-composition-independent="true" d="M 780 344.05 L 786.25 344.05 Q 792.5 344.05 792.5 350.3 L 792.5 525.75 Q 792.5 532 798.75 532 L 805 532" class="a-dashed" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:7">
+          <path data-graph-role="automatic-crossover-underlay" d="M 780 329 L 990 329" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="svc" data-edge-to="agent" data-edge-label="InvokeAgentRuntime · SigV4" data-edge-key="7" data-edge-id="invoke" data-composition-points="780,329;990,329" data-composition-crossover="halo" data-composition-independent="true" d="M 780 329 L 990 329" class="a-emphasis" stroke-width="1.8" marker-end="url(#notes-system-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:8">
+          <path data-graph-role="automatic-crossover-underlay" d="M 1076 304 L 1076 288 Q 1076 280 1068 280 L 695 280 Q 687 280 687 288 L 687 304" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="svc" data-edge-label="GET /ai/order/{id}/notes" data-edge-key="8" data-edge-id="fetch-notes" data-composition-points="1076,304;1076,280;687,280;687,304" data-composition-crossover="halo" data-composition-independent="true" d="M 1076 304 L 1076 288 Q 1076 280 1068 280 L 695 280 Q 687 280 687 288 L 687 304" class="a-default" stroke-width="1.5" marker-end="url(#notes-system-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:9">
+          <path data-graph-role="automatic-crossover-underlay" d="M 1090 368 L 1090 500" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="keycloak" data-edge-label="client_credentials" data-edge-key="9" data-edge-id="token" data-composition-points="1090,368;1090,500" data-composition-crossover="halo" data-composition-independent="true" d="M 1090 368 L 1090 500" class="a-security" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:10">
+          <path data-graph-role="automatic-crossover-underlay" d="M 1190 336 L 1320 336" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="bedrock" data-edge-label="ConverseStream" data-edge-key="10" data-edge-id="llm" data-composition-points="1190,336;1320,336" data-composition-crossover="halo" data-composition-independent="true" d="M 1190 336 L 1320 336" class="a-emphasis" stroke-width="1.8" marker-end="url(#notes-system-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:11">
+          <path data-graph-role="automatic-crossover-underlay" d="M 1090 164 L 1090 304" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="global" data-edge-to="agent" data-edge-label="invoke + org_id" data-edge-key="11" data-edge-id="global-invoke" data-composition-points="1090,164;1090,304" data-composition-crossover="halo" data-composition-independent="true" d="M 1090 164 L 1090 304" class="a-dashed" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:12">
+          <path data-graph-role="automatic-crossover-underlay" d="M 1104 304 L 1104 164" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="global" data-edge-label="GET org notes" data-edge-key="12" data-edge-id="global-notes" data-composition-points="1104,304;1104,164" data-composition-crossover="halo" data-composition-independent="true" d="M 1104 304 L 1104 164" class="a-dashed" stroke-width="1.5" marker-end="url(#notes-system-arrowhead-dashed)"/>
+        </g>
+        <g id="notes-system-node-associate" data-node-id="associate" data-node-label="Associate" tabindex="0" role="button" aria-label="Focus Associate, browser · order URL, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="browser · order URL" data-node-context="Architecture component">
+          <title>Associate · browser · order URL · Architecture component</title>
+          <rect x="20" y="304" width="130" height="64" rx="6" class="c-mask"/>
+          <rect x="20" y="304" width="130" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(26 310) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="85" y="334" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Associate</text>
+        <text data-detail="context" x="85" y="350" class="t-muted" font-size="9" text-anchor="middle">browser · order URL</text>
+        </g>
+        <g id="notes-system-node-okta" data-node-id="okta" data-node-label="Okta" tabindex="0" role="button" aria-label="Focus Okta, OIDC + PKCE, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="OIDC + PKCE" data-node-context="Architecture component">
+          <title>Okta · OIDC + PKCE · Architecture component</title>
+          <rect x="230" y="100" width="160" height="64" rx="6" class="c-mask"/>
+          <rect x="230" y="100" width="160" height="64" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(236 106) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="310" y="130" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Okta</text>
+        <text data-detail="context" x="310" y="146" class="t-muted" font-size="9" text-anchor="middle">OIDC + PKCE</text>
+        </g>
+        <g id="notes-system-node-ui" data-node-id="ui" data-node-label="Centralized Notes UI" tabindex="0" role="button" aria-label="Focus Centralized Notes UI, React 17 SPA · nginx :80, Kubernetes · Helm" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="React 17 SPA · nginx :80" data-node-context="Kubernetes · Helm">
+          <title>Centralized Notes UI · React 17 SPA · nginx :80 · Kubernetes · Helm</title>
+          <rect x="220" y="304" width="180" height="64" rx="6" class="c-mask"/>
+          <rect x="220" y="304" width="180" height="64" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(226 310) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="310" y="334" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Centralized Notes UI</text>
+        <text data-detail="context" x="310" y="350" class="t-muted" font-size="9" text-anchor="middle">React 17 SPA · nginx :80</text>
+        </g>
+        <g id="notes-system-node-svc" data-node-id="svc" data-node-label="Order Notes Service" tabindex="0" role="button" aria-label="Focus Order Notes Service, Spring Boot 3.1 · Java 17, Kubernetes · Helm" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Spring Boot 3.1 · Java 17" data-node-tag="Java BFF" data-node-context="Kubernetes · Helm">
+          <title>Order Notes Service · Spring Boot 3.1 · Java 17 · Kubernetes · Helm · Java BFF</title>
+          <rect x="580" y="304" width="200" height="64" rx="6" class="c-mask"/>
+          <rect x="580" y="304" width="200" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(586 310) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="680" y="334" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Order Notes Service</text>
+        <text data-detail="context" x="680" y="350" class="t-muted" font-size="9" text-anchor="middle">Spring Boot 3.1 · Java 17</text>
+        <text data-detail="fine" x="680" y="360" class="t-backend" font-size="7" text-anchor="middle">Java BFF</text>
+        </g>
+        <g id="notes-system-node-legacy" data-node-id="legacy" data-node-label="Legacy Order Notes" tabindex="0" role="button" aria-label="Focus Legacy Order Notes, order management, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="order management" data-node-context="Architecture component">
+          <title>Legacy Order Notes · order management · Architecture component</title>
+          <rect x="395" y="500" width="160" height="64" rx="6" class="c-mask"/>
+          <rect x="395" y="500" width="160" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(401 506) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="475" y="530" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Legacy Order Notes</text>
+        <text data-detail="context" x="475" y="546" class="t-muted" font-size="9" text-anchor="middle">order management</text>
+        </g>
+        <g id="notes-system-node-mongo" data-node-id="mongo" data-node-label="MongoDB" tabindex="0" role="button" aria-label="Focus MongoDB, notes · history · feedback, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="notes · history · feedback" data-node-context="Architecture component">
+          <title>MongoDB · notes · history · feedback · Architecture component</title>
+          <rect x="595" y="500" width="170" height="64" rx="6" class="c-mask"/>
+          <rect x="595" y="500" width="170" height="64" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(601 506) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="680" y="530" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MongoDB</text>
+        <text data-detail="context" x="680" y="546" class="t-muted" font-size="9" text-anchor="middle">notes · history · feedback</text>
+        </g>
+        <g id="notes-system-node-smtp" data-node-id="smtp" data-node-label="SendGrid SMTP" tabindex="0" role="button" aria-label="Focus SendGrid SMTP, multi-order note email, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="multi-order note email" data-node-context="Architecture component">
+          <title>SendGrid SMTP · multi-order note email · Architecture component</title>
+          <rect x="805" y="500" width="150" height="64" rx="6" class="c-mask"/>
+          <rect x="805" y="500" width="150" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(811 506) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="880" y="530" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SendGrid SMTP</text>
+        <text data-detail="context" x="880" y="546" class="t-muted" font-size="9" text-anchor="middle">multi-order note email</text>
+        </g>
+        <g id="notes-system-node-global" data-node-id="global" data-node-label="Global Notes Service" tabindex="0" role="button" aria-label="Focus Global Notes Service, EU · outside this workspace, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="EU · outside this workspace" data-node-context="Architecture component">
+          <title>Global Notes Service · EU · outside this workspace · Architecture component</title>
+          <rect x="1000" y="100" width="180" height="64" rx="6" class="c-mask"/>
+          <rect x="1000" y="100" width="180" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(1006 106) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1090" y="130" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Global Notes Service</text>
+        <text data-detail="context" x="1090" y="146" class="t-muted" font-size="9" text-anchor="middle">EU · outside this workspace</text>
+        </g>
+        <g id="notes-system-node-agent" data-node-id="agent" data-node-label="Notes Summarizer" tabindex="0" role="button" aria-label="Focus Notes Summarizer, AgentCore · Strands · Py 3.13, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="AgentCore · Strands · Py 3.13" data-node-tag="in-memory cache" data-node-context="AWS · us-west-2 (prod)">
+          <title>Notes Summarizer · AgentCore · Strands · Py 3.13 · AWS · us-west-2 (prod) · in-memory cache</title>
+          <rect x="990" y="304" width="200" height="64" rx="6" class="c-mask"/>
+          <rect x="990" y="304" width="200" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(996 310) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1090" y="334" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Notes Summarizer</text>
+        <text data-detail="context" x="1090" y="350" class="t-muted" font-size="9" text-anchor="middle">AgentCore · Strands · Py 3.13</text>
+        <text data-detail="fine" x="1090" y="360" class="t-backend" font-size="7" text-anchor="middle">in-memory cache</text>
+        </g>
+        <g id="notes-system-node-keycloak" data-node-id="keycloak" data-node-label="Keycloak" tabindex="0" role="button" aria-label="Focus Keycloak, identity provider, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="identity provider" data-node-context="Architecture component">
+          <title>Keycloak · identity provider · Architecture component</title>
+          <rect x="1010" y="500" width="160" height="64" rx="6" class="c-mask"/>
+          <rect x="1010" y="500" width="160" height="64" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1016 506) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1090" y="530" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Keycloak</text>
+        <text data-detail="context" x="1090" y="546" class="t-muted" font-size="9" text-anchor="middle">identity provider</text>
+        </g>
+        <g id="notes-system-node-bedrock" data-node-id="bedrock" data-node-label="Bedrock · Claude" tabindex="0" role="button" aria-label="Focus Bedrock · Claude, Sonnet 4.6, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="Sonnet 4.6" data-node-context="AWS · us-west-2 (prod)">
+          <title>Bedrock · Claude · Sonnet 4.6 · AWS · us-west-2 (prod)</title>
+          <rect x="1320" y="304" width="160" height="64" rx="6" class="c-mask"/>
+          <rect x="1320" y="304" width="160" height="64" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(1326 310) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1400" y="334" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bedrock · Claude</text>
+        <text data-detail="context" x="1400" y="350" class="t-muted" font-size="9" text-anchor="middle">Sonnet 4.6</text>
+        </g>
+        <g data-detail="context" data-edge-from="associate" data-edge-to="ui" data-edge-label="HTTPS" data-edge-key="0" data-edge-id="open">
+          <rect x="168" y="316" width="34" height="14" rx="3" class="c-mask"/>
+          <text x="185" y="326" class="t-edge-emphasis" font-size="8" text-anchor="middle">HTTPS</text>
+        </g>
+        <g data-detail="context" data-edge-from="ui" data-edge-to="okta" data-edge-label="OIDC login" data-edge-key="1" data-edge-id="login">
+          <rect x="239" y="227" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="268" y="237" class="t-edge-security" font-size="8" text-anchor="middle">OIDC login</text>
+        </g>
+        <g data-detail="context" data-edge-from="ui" data-edge-to="svc" data-edge-label="REST + SSE · Okta JWT" data-edge-key="2" data-edge-id="bff">
+          <rect x="434.6" y="307.95" width="110.8" height="14" rx="3" class="c-mask"/>
+          <text x="490" y="317.95" class="t-edge-emphasis" font-size="8" text-anchor="middle">REST + SSE · Okta JWT</text>
+        </g>
+        <g data-detail="context" data-edge-from="svc" data-edge-to="okta" data-edge-label="verify JWT" data-edge-key="3" data-edge-id="verify">
+          <rect x="466" y="214" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="495" y="224" class="t-edge-security" font-size="8" text-anchor="middle">verify JWT</text>
+        </g>
+        <g data-detail="context" data-edge-from="svc" data-edge-to="mongo" data-edge-label="notes CRUD" data-edge-key="4" data-edge-id="crud">
+          <rect x="616" y="427" width="58" height="14" rx="3" class="c-mask"/>
+          <text x="645" y="437" class="t-edge-default" font-size="8" text-anchor="middle">notes CRUD</text>
+        </g>
+        <g data-detail="context" data-edge-from="svc" data-edge-to="legacy" data-edge-label="GET legacy notes" data-edge-key="5" data-edge-id="legacy-get">
+          <rect x="524.1" y="417.5" width="86.8" height="14" rx="3" class="c-mask"/>
+          <text x="567.5" y="427.5" class="t-edge-default" font-size="8" text-anchor="middle">GET legacy notes</text>
+        </g>
+        <g data-detail="context" data-edge-from="svc" data-edge-to="smtp" data-edge-label="SMTP :587" data-edge-key="6" data-edge-id="mail">
+          <rect x="765.9" y="418.025" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="792.5" y="428.025" class="t-edge-dashed" font-size="8" text-anchor="middle">SMTP :587</text>
+        </g>
+        <g data-detail="context" data-edge-from="svc" data-edge-to="agent" data-edge-label="InvokeAgentRuntime · SigV4" data-edge-key="7" data-edge-id="invoke">
+          <rect x="817.6" y="309" width="134.8" height="14" rx="3" class="c-mask"/>
+          <text x="885" y="319" class="t-edge-emphasis" font-size="8" text-anchor="middle">InvokeAgentRuntime · SigV4</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="svc" data-edge-label="GET /ai/order/{id}/notes" data-edge-key="8" data-edge-id="fetch-notes">
+          <rect x="818.9" y="260" width="125.19999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="881.5" y="270" class="t-edge-default" font-size="8" text-anchor="middle">GET /ai/order/{id}/notes</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="keycloak" data-edge-label="client_credentials" data-edge-key="9" data-edge-id="token">
+          <rect x="987.5999999999999" y="427" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="1035.8" y="437" class="t-edge-security" font-size="8" text-anchor="middle">client_credentials</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="bedrock" data-edge-label="ConverseStream" data-edge-key="10" data-edge-id="llm">
+          <rect x="1216.4" y="316" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="1255" y="326" class="t-edge-emphasis" font-size="8" text-anchor="middle">ConverseStream</text>
+        </g>
+        <g data-detail="context" data-edge-from="global" data-edge-to="agent" data-edge-label="invoke + org_id" data-edge-key="11" data-edge-id="global-invoke">
+          <rect x="1002" y="227" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="1043" y="237" class="t-edge-dashed" font-size="8" text-anchor="middle">invoke + org_id</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="global" data-edge-label="GET org notes" data-edge-key="12" data-edge-id="global-notes">
+          <rect x="1110" y="227" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="1146.2" y="237" class="t-edge-dashed" font-size="8" text-anchor="middle">GET org notes</text>
+        </g>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="Kubernetes · Helm">
+          <rect data-graph-role="structural-frame-label-mask" x="210" y="283" width="164.38969301935484" height="17" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="214" y="296.89677519354836" class="t-cloud" font-size="9.896775193548386" font-weight="600">Kubernetes · Helm</text>
+        </g>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="region" data-composition-frame-label="AWS · us-west-2 (prod)">
+          <rect data-graph-role="structural-frame-label-mask" x="980" y="283" width="217.8322790645161" height="17" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="984" y="296.89677519354836" class="t-cloud" font-size="9.896775193548386" font-weight="600">AWS · us-west-2 (prod)</text>
+        </g>
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="596" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="616" data-legend-width="83">
+            <rect x="40" y="607" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="616" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="616" data-legend-width="78">
+            <rect x="145" y="607" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="616" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Database" data-legend-x="245" data-legend-baseline="616" data-legend-width="83">
+            <rect x="245" y="607" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="267" y="616" class="t-muted" font-size="10" font-weight="500">Database</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Cloud" data-legend-x="350" data-legend-baseline="616" data-legend-width="68">
+            <rect x="350" y="607" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="372" y="616" class="t-muted" font-size="10" font-weight="500">Cloud</text>
+          </g>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="440" data-legend-baseline="616" data-legend-width="83">
+            <rect x="440" y="607" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="462" y="616" class="t-muted" font-size="10" font-weight="500">Security</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="545" data-legend-baseline="616" data-legend-width="83">
+            <rect x="545" y="607" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="567" y="616" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>

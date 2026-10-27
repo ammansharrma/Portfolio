@@ -45,3 +45,7 @@ Thumbs.db
 # Agent specific (if applicable)
 .agent/logs/
 .agent/temp/
+
+# Design review output (jury scores, screenshots, taste-skill inspections)
+.jury/
+.taste-skill/

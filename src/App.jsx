@@ -1,112 +1,19 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Hero from './pages/Hero/Hero';
-import CustomCursor from './components/CustomCursor';
-import WhiteBubble from './components/WhiteBubble';
-import LoadingScreen from './components/LoadingScreen';
-import MainLogo from './components/MainLogo';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Case, { NotFound } from './pages/Case';
 
-// Lazy load below-the-fold components
-const About = lazy(() => import('./pages/About/About'));
-const Projects = lazy(() => import('./pages/Projects/Projects'));
-const ExperienceSection = lazy(() => import('./pages/ExperienceSection/ExperienceSection'));
-const SkillsMinimal = lazy(() => import('./pages/SkillsMinimal/SkillsMinimal'));
-const Contact = lazy(() => import('./pages/Contact/Contact'));
-const ProjectDetail = lazy(() => import('./pages/ProjectDetail/ProjectDetail'));
-const Mindstix = lazy(() => import('./pages/Experience/Mindstix/Mindstix'));
-const OmneVu = lazy(() => import('./pages/Experience/OmneVu/OmneVu'));
-
-function HomePage() {
+/* "The Handoff": one amber light carries the site. See design-v3/DESIGN-v3.md for the idea and the system. */
+export default function App() {
   return (
-    <>
-      <Hero />
-      <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
-        <About />
-        <ExperienceSection />
-        <Projects />
-        <SkillsMinimal />
-        <Contact />
-      </Suspense>
-    </>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="work/:slug" element={<Case />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoadComplete = () => {
-    setIsLoading(false);
-    // Scroll to top after loading completes
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 100);
-  };
-
-  useEffect(() => {
-    // Ensure page starts at top on mount
-    window.scrollTo(0, 0);
-  }, []);
-
-  return (
-    <Router basename={import.meta.env.BASE_URL}>
-      {isLoading && <LoadingScreen onLoadComplete={handleLoadComplete} />}
-      <div className="app">
-        <CustomCursor />
-        <nav className="navbar">
-          <div className="navbar-content">
-            <Link to="/" className="logo-container">
-              <div className="logo">
-                <MainLogo />
-              </div>
-              <div className="logo-name">
-                {' Sharrma'.split('').map((letter, index) => (
-                  <span 
-                    key={index} 
-                    className="logo-letter"
-                    style={{ '--letter-index': index }}
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </div>
-            </Link>
-          </div>
-        </nav>
-        
-        <div className="pages-container">
-          <WhiteBubble />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route 
-              path="/projects/:id" 
-              element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <ProjectDetail />
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/experience/mindstix" 
-              element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <Mindstix />
-                </Suspense>
-              } 
-            />
-            <Route 
-              path="/experience/omnevu" 
-              element={
-                <Suspense fallback={<div style={{ minHeight: '100vh', background: '#000316' }} />}>
-                  <OmneVu />
-                </Suspense>
-              } 
-            />
-          </Routes>
-        </div>
-      </div>
-    </Router>
-  );
-}
-
-export default App;

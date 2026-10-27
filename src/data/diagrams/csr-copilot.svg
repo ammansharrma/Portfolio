@@ -1,0 +1,240 @@
+<svg viewBox="0 0 1348 856" role="img" lang="en" aria-labelledby="csr-copilot-archify-diagram-title csr-copilot-archify-diagram-description">
+        <title id="csr-copilot-archify-diagram-title">CSR copilot</title>
+        <desc id="csr-copilot-archify-diagram-description">The CSR copilot: a React app and a Flask Socket.IO API fed by Amazon Connect, with retrieval in Milvus and answers from OpenAI.</desc>
+        <defs>
+          <marker id="csr-copilot-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="csr-copilot-arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="csr-copilot-arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="csr-copilot-arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="csr-copilot-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#csr-copilot-grid)" />
+        <g data-graph-role="automatic-crossover" style="--step:0">
+          <path data-graph-role="automatic-crossover-underlay" d="M 184 324 L 300 324" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="csr" data-edge-to="ui" data-edge-label="opens" data-edge-key="0" data-edge-id="csr-opens-ui" data-composition-points="184,324;300,324" data-composition-crossover="halo" data-composition-independent="true" d="M 184 324 L 300 324" class="a-emphasis" stroke-width="1.8" marker-end="url(#csr-copilot-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:1">
+          <path data-graph-role="automatic-crossover-underlay" d="M 400 280 L 400 104" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ui" data-edge-to="google" data-edge-label="OAuth ID token" data-edge-key="1" data-edge-id="ui-oauth" data-composition-points="400,280;400,104" data-composition-crossover="halo" data-composition-independent="true" d="M 400 280 L 400 104" class="a-security" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:2">
+          <path data-graph-role="automatic-crossover-underlay" d="M 500 315.95 L 720 315.95" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ui" data-edge-to="api" data-edge-label="REST + Socket.IO" data-edge-key="2" data-edge-id="ui-calls-api" data-composition-points="500,315.95;720,315.95" data-composition-crossover="halo" data-composition-independent="true" d="M 500 315.95 L 720 315.95" class="a-emphasis" stroke-width="1.8" marker-end="url(#csr-copilot-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:3">
+          <path data-graph-role="automatic-crossover-underlay" d="M 400 368 L 400 500" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="ui" data-edge-to="connect" data-edge-label="initCCP" data-edge-key="3" data-edge-id="ui-loads-ccp" data-composition-points="400,368;400,500" data-composition-crossover="halo" data-composition-independent="true" d="M 400 368 L 400 500" class="a-default" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:4">
+          <path data-graph-role="automatic-crossover-underlay" d="M 500 536 L 602 536 Q 610 536 610 528 L 610 339 Q 610 331 618 331 L 720 331" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="connect" data-edge-to="api" data-edge-label="POST /webhook" data-edge-key="4" data-edge-id="connect-webhook" data-composition-points="500,536;610,536;610,331;720,331" data-composition-crossover="halo" data-composition-independent="true" d="M 500 536 L 602 536 Q 610 536 610 528 L 610 339 Q 610 331 618 331 L 720 331" class="a-dashed" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:5">
+          <path data-graph-role="automatic-crossover-underlay" d="M 940 324 L 1120 324" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="openai" data-edge-label="chat + embed" data-edge-key="5" data-edge-id="api-calls-openai" data-composition-points="940,324;1120,324" data-composition-crossover="halo" data-composition-independent="true" d="M 940 324 L 1120 324" class="a-emphasis" stroke-width="1.8" marker-end="url(#csr-copilot-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:6">
+          <path data-graph-role="automatic-crossover-underlay" d="M 830 264 L 830 100" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="jaeger" data-edge-label="OTLP traces" data-edge-key="6" data-edge-id="api-traces" data-composition-points="830,264;830,100" data-composition-crossover="halo" data-composition-independent="true" d="M 830 264 L 830 100" class="a-dashed" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:7">
+          <path data-graph-role="automatic-crossover-underlay" d="M 816 384 L 816 400 Q 816 408 808 408 L 628 408 Q 620 408 620 416 L 620 720" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="milvus" data-edge-label="policy search" data-edge-key="7" data-edge-id="api-searches-milvus" data-composition-points="816,384;816,408;620,408;620,720" data-composition-crossover="halo" data-composition-independent="true" d="M 816 384 L 816 400 Q 816 408 808 408 L 628 408 Q 620 408 620 416 L 620 720" class="a-default" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:8">
+          <path data-graph-role="automatic-crossover-underlay" d="M 830 384 L 830 720" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="mongo" data-edge-label="chats, sessions" data-edge-key="8" data-edge-id="api-writes-mongo" data-composition-points="830,384;830,720" data-composition-crossover="halo" data-composition-independent="true" d="M 830 384 L 830 720" class="a-default" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:9">
+          <path data-graph-role="automatic-crossover-underlay" d="M 844 384 L 844 544 Q 844 552 852 552 L 1040 552 Q 1048 552 1048 560 L 1048 720" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="api" data-edge-to="gcs" data-edge-label="read transcripts" data-edge-key="9" data-edge-id="api-reads-gcs" data-composition-points="844,384;844,552;1048,552;1048,720" data-composition-crossover="halo" data-composition-independent="true" d="M 844 384 L 844 544 Q 844 552 852 552 L 1040 552 Q 1048 552 1048 560 L 1048 720" class="a-default" stroke-width="1.5" marker-end="url(#csr-copilot-arrowhead)"/>
+        </g>
+        <g id="csr-copilot-node-csr" data-node-id="csr" data-node-label="CSR Agent" tabindex="0" role="button" aria-label="Focus CSR Agent, Browser session, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="Browser session" data-node-context="Architecture component">
+          <title>CSR Agent · Browser session · Architecture component</title>
+          <rect x="36" y="292" width="148" height="64" rx="6" class="c-mask"/>
+          <rect x="36" y="292" width="148" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(42 298) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="110" y="322" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CSR Agent</text>
+        <text data-detail="context" x="110" y="338" class="t-muted" font-size="9" text-anchor="middle">Browser session</text>
+        </g>
+        <g id="csr-copilot-node-ui" data-node-id="ui" data-node-label="Copilot UI" tabindex="0" role="button" aria-label="Focus Copilot UI, React SPA on Firebase, Architecture component" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="React SPA on Firebase" data-node-context="Architecture component">
+          <title>Copilot UI · React SPA on Firebase · Architecture component</title>
+          <rect x="300" y="280" width="200" height="88" rx="6" class="c-mask"/>
+          <rect x="300" y="280" width="200" height="88" rx="6" class="c-frontend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="frontend" class="semantic-sigil s-frontend" transform="translate(306 286) scale(0.6875)">
+            <rect x="2" y="3" width="12" height="10" rx="2"/>
+            <path d="M2 6.5h12"/>
+            <circle cx="4.1" cy="4.8" r=".7" class="sigil-fill"/>
+            <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="400" y="322" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Copilot UI</text>
+        <text data-detail="context" x="400" y="338" class="t-muted" font-size="9" text-anchor="middle">React SPA on Firebase</text>
+        </g>
+        <g id="csr-copilot-node-google" data-node-id="google" data-node-label="Google Identity" tabindex="0" role="button" aria-label="Focus Google Identity, OAuth ID token, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="OAuth ID token" data-node-context="Architecture component">
+          <title>Google Identity · OAuth ID token · Architecture component</title>
+          <rect x="310" y="36" width="180" height="68" rx="6" class="c-mask"/>
+          <rect x="310" y="36" width="180" height="68" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(316 42) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="400" y="68" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Google Identity</text>
+        <text data-detail="context" x="400" y="84" class="t-muted" font-size="9" text-anchor="middle">OAuth ID token</text>
+        </g>
+        <g id="csr-copilot-node-connect" data-node-id="connect" data-node-label="Amazon Connect" tabindex="0" role="button" aria-label="Focus Amazon Connect, CCP and contact events, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="CCP and contact events" data-node-context="Architecture component">
+          <title>Amazon Connect · CCP and contact events · Architecture component</title>
+          <rect x="300" y="500" width="200" height="72" rx="6" class="c-mask"/>
+          <rect x="300" y="500" width="200" height="72" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(306 506) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="400" y="534" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Amazon Connect</text>
+        <text data-detail="context" x="400" y="550" class="t-muted" font-size="9" text-anchor="middle">CCP and contact events</text>
+        </g>
+        <g id="csr-copilot-node-api" data-node-id="api" data-node-label="Q&amp;A API" tabindex="0" role="button" aria-label="Focus Q&amp;A API, Flask Socket.IO :5000, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Flask Socket.IO :5000" data-node-tag="verifies ID token" data-node-context="Architecture component">
+          <title>Q&amp;A API · Flask Socket.IO :5000 · Architecture component · verifies ID token</title>
+          <rect x="720" y="264" width="220" height="120" rx="6" class="c-mask"/>
+          <rect x="720" y="264" width="220" height="120" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(726 270) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="830" y="322" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Q&amp;A API</text>
+        <text data-detail="context" x="830" y="338" class="t-muted" font-size="9" text-anchor="middle">Flask Socket.IO :5000</text>
+        <text data-detail="fine" x="830" y="376" class="t-backend" font-size="7" text-anchor="middle">verifies ID token</text>
+        </g>
+        <g id="csr-copilot-node-openai" data-node-id="openai" data-node-label="OpenAI" tabindex="0" role="button" aria-label="Focus OpenAI, gpt-4o and ada-002, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="gpt-4o and ada-002" data-node-context="Architecture component">
+          <title>OpenAI · gpt-4o and ada-002 · Architecture component</title>
+          <rect x="1120" y="288" width="188" height="72" rx="6" class="c-mask"/>
+          <rect x="1120" y="288" width="188" height="72" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(1126 294) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1214" y="322" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">OpenAI</text>
+        <text data-detail="context" x="1214" y="338" class="t-muted" font-size="9" text-anchor="middle">gpt-4o and ada-002</text>
+        </g>
+        <g id="csr-copilot-node-jaeger" data-node-id="jaeger" data-node-label="Jaeger" tabindex="0" role="button" aria-label="Focus Jaeger, OTLP HTTP :4318, Architecture component" aria-pressed="false" data-node-kind="backend" data-node-sublabel="OTLP HTTP :4318" data-node-context="Architecture component">
+          <title>Jaeger · OTLP HTTP :4318 · Architecture component</title>
+          <rect x="745" y="36" width="170" height="64" rx="6" class="c-mask"/>
+          <rect x="745" y="36" width="170" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(751 42) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="830" y="66" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Jaeger</text>
+        <text data-detail="context" x="830" y="82" class="t-muted" font-size="9" text-anchor="middle">OTLP HTTP :4318</text>
+        </g>
+        <g id="csr-copilot-node-milvus" data-node-id="milvus" data-node-label="Milvus" tabindex="0" role="button" aria-label="Focus Milvus, policies :19530, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="policies :19530" data-node-context="Architecture component">
+          <title>Milvus · policies :19530 · Architecture component</title>
+          <rect x="540" y="720" width="160" height="68" rx="6" class="c-mask"/>
+          <rect x="540" y="720" width="160" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(546 726) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="620" y="752" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Milvus</text>
+        <text data-detail="context" x="620" y="768" class="t-muted" font-size="9" text-anchor="middle">policies :19530</text>
+        </g>
+        <g id="csr-copilot-node-mongo" data-node-id="mongo" data-node-label="MongoDB" tabindex="0" role="button" aria-label="Focus MongoDB, sessions database, Architecture component" aria-pressed="false" data-node-kind="database" data-node-sublabel="sessions database" data-node-context="Architecture component">
+          <title>MongoDB · sessions database · Architecture component</title>
+          <rect x="750" y="720" width="160" height="68" rx="6" class="c-mask"/>
+          <rect x="750" y="720" width="160" height="68" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(756 726) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="830" y="752" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">MongoDB</text>
+        <text data-detail="context" x="830" y="768" class="t-muted" font-size="9" text-anchor="middle">sessions database</text>
+        </g>
+        <g id="csr-copilot-node-gcs" data-node-id="gcs" data-node-label="Cloud Storage" tabindex="0" role="button" aria-label="Focus Cloud Storage, transcript bucket, Architecture component" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="transcript bucket" data-node-tag="demo transcripts" data-node-context="Architecture component">
+          <title>Cloud Storage · transcript bucket · Architecture component · demo transcripts</title>
+          <rect x="960" y="720" width="176" height="68" rx="6" class="c-mask"/>
+          <rect x="960" y="720" width="176" height="68" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(966 726) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1048" y="752" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Cloud Storage</text>
+        <text data-detail="context" x="1048" y="768" class="t-muted" font-size="9" text-anchor="middle">transcript bucket</text>
+        <text data-detail="fine" x="1048" y="780" class="t-cloud" font-size="7" text-anchor="middle">demo transcripts</text>
+        </g>
+        <g data-detail="context" data-edge-from="csr" data-edge-to="ui" data-edge-label="opens" data-edge-key="0" data-edge-id="csr-opens-ui">
+          <rect x="225" y="304" width="34" height="14" rx="3" class="c-mask"/>
+          <text x="242" y="314" class="t-edge-emphasis" font-size="8" text-anchor="middle">opens</text>
+        </g>
+        <g data-detail="context" data-edge-from="ui" data-edge-to="google" data-edge-label="OAuth ID token" data-edge-key="1" data-edge-id="ui-oauth">
+          <rect x="361.4" y="260" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="400" y="270" class="t-edge-security" font-size="8" text-anchor="middle">OAuth ID token</text>
+        </g>
+        <g data-detail="context" data-edge-from="ui" data-edge-to="api" data-edge-label="REST + Socket.IO" data-edge-key="2" data-edge-id="ui-calls-api">
+          <rect x="566.6" y="295.95" width="86.8" height="14" rx="3" class="c-mask"/>
+          <text x="610" y="305.95" class="t-edge-emphasis" font-size="8" text-anchor="middle">REST + Socket.IO</text>
+        </g>
+        <g data-detail="context" data-edge-from="ui" data-edge-to="connect" data-edge-label="initCCP" data-edge-key="3" data-edge-id="ui-loads-ccp">
+          <rect x="350.4" y="427" width="43.6" height="14" rx="3" class="c-mask"/>
+          <text x="372.2" y="437" class="t-edge-default" font-size="8" text-anchor="middle">initCCP</text>
+        </g>
+        <g data-detail="context" data-edge-from="connect" data-edge-to="api" data-edge-label="POST /webhook" data-edge-key="4" data-edge-id="connect-webhook">
+          <rect x="518.8" y="516" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="555" y="526" class="t-edge-dashed" font-size="8" text-anchor="middle">POST /webhook</text>
+        </g>
+        <g data-detail="context" data-edge-from="api" data-edge-to="openai" data-edge-label="chat + embed" data-edge-key="5" data-edge-id="api-calls-openai">
+          <rect x="996.2" y="304" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="1030" y="314" class="t-edge-emphasis" font-size="8" text-anchor="middle">chat + embed</text>
+        </g>
+        <g data-detail="context" data-edge-from="api" data-edge-to="jaeger" data-edge-label="OTLP traces" data-edge-key="6" data-edge-id="api-traces">
+          <rect x="798.6" y="244" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="830" y="254" class="t-edge-dashed" font-size="8" text-anchor="middle">OTLP traces</text>
+        </g>
+        <g data-detail="context" data-edge-from="api" data-edge-to="milvus" data-edge-label="policy search" data-edge-key="7" data-edge-id="api-searches-milvus">
+          <rect x="681.8" y="388" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="718" y="398" class="t-edge-default" font-size="8" text-anchor="middle">policy search</text>
+        </g>
+        <g data-detail="context" data-edge-from="api" data-edge-to="mongo" data-edge-label="chats, sessions" data-edge-key="8" data-edge-id="api-writes-mongo">
+          <rect x="742" y="545" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="783" y="555" class="t-edge-default" font-size="8" text-anchor="middle">chats, sessions</text>
+        </g>
+        <g data-detail="context" data-edge-from="api" data-edge-to="gcs" data-edge-label="read transcripts" data-edge-key="9" data-edge-id="api-reads-gcs">
+          <rect x="902.6" y="532" width="86.8" height="14" rx="3" class="c-mask"/>
+          <text x="946" y="542" class="t-edge-default" font-size="8" text-anchor="middle">read transcripts</text>
+        </g>
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="820" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="frontend" data-legend-kind="frontend" data-legend-label="Frontend" data-legend-x="40" data-legend-baseline="840" data-legend-width="83">
+            <rect x="40" y="831" width="16" height="10" rx="2.5" class="c-frontend" stroke-width="1"/>
+            <text x="62" y="840" class="t-muted" font-size="10" font-weight="500">Frontend</text>
+          </g>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="145" data-legend-baseline="840" data-legend-width="78">
+            <rect x="145" y="831" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="167" y="840" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Database" data-legend-x="245" data-legend-baseline="840" data-legend-width="83">
+            <rect x="245" y="831" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="267" y="840" class="t-muted" font-size="10" font-weight="500">Database</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Cloud" data-legend-x="350" data-legend-baseline="840" data-legend-width="68">
+            <rect x="350" y="831" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="372" y="840" class="t-muted" font-size="10" font-weight="500">Cloud</text>
+          </g>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="440" data-legend-baseline="840" data-legend-width="83">
+            <rect x="440" y="831" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="462" y="840" class="t-muted" font-size="10" font-weight="500">Security</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="545" data-legend-baseline="840" data-legend-width="83">
+            <rect x="545" y="831" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="567" y="840" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>

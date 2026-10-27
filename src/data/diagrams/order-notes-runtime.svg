@@ -1,0 +1,346 @@
+<svg viewBox="0 0 1236 952" role="img" lang="en" aria-labelledby="order-notes-runtime-archify-diagram-title order-notes-runtime-archify-diagram-description">
+        <title id="order-notes-runtime-archify-diagram-title">Order notes summarizer runtime</title>
+        <desc id="order-notes-runtime-archify-diagram-description">The summarizer agent runtime: a request enters the AgentCore entrypoint, notes are fetched, ranked and cached, and a Strands agent on Amazon Bedrock streams the summary back.</desc>
+        <defs>
+          <marker id="order-notes-runtime-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-default" />
+          </marker>
+          <marker id="order-notes-runtime-arrowhead-emphasis" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-emphasis" />
+          </marker>
+          <marker id="order-notes-runtime-arrowhead-security" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-security" />
+          </marker>
+          <marker id="order-notes-runtime-arrowhead-dashed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+            <polygon points="0 0, 10 3.5, 0 7" class="m-dashed" />
+          </marker>
+          <pattern id="order-notes-runtime-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" class="c-grid" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#order-notes-runtime-grid)" />
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="0" data-composition-frame-label="AWS · us-west-2 (prod)" x="288" y="86" width="908" height="648" rx="12" class="c-region" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="1" data-composition-frame-label="AgentCore Runtime · Python 3.13 microVM" x="286" y="266" width="626" height="288" rx="8" class="c-security-group" stroke-width="1"/>
+        <g data-graph-role="automatic-crossover" style="--step:0">
+          <path data-graph-role="automatic-crossover-underlay" d="M 160 317.95 L 300 317.95" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="caller" data-edge-to="entry" data-edge-label="InvokeAgentRuntime" data-edge-key="0" data-edge-id="invoke" data-composition-points="160,317.95;300,317.95" data-composition-crossover="halo" data-composition-independent="true" d="M 160 317.95 L 300 317.95" class="a-emphasis" stroke-width="1.8" marker-end="url(#order-notes-runtime-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:1">
+          <path data-graph-role="automatic-crossover-underlay" d="M 300 333 L 160 333" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="caller" data-edge-label="streamed reply" data-edge-key="1" data-edge-id="reply" data-composition-points="300,333;160,333" data-composition-crossover="halo" data-composition-independent="true" d="M 300 333 L 160 333" class="a-dashed" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:2">
+          <path data-graph-role="automatic-crossover-underlay" d="M 433 290 L 433 240 Q 433 232 425 232 L 378 232 Q 370 232 370 224 L 370 174" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="guardrails" data-edge-label="ApplyGuardrail if enabled" data-edge-key="2" data-edge-id="pii" data-composition-points="433,290;433,232;370,232;370,174" data-composition-crossover="halo" data-composition-independent="true" d="M 433 290 L 433 240 Q 433 232 425 232 L 378 232 Q 370 232 370 224 L 370 174" class="a-security" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:3">
+          <path data-graph-role="automatic-crossover-underlay" d="M 447 290 L 447 240 Q 447 232 455 232 L 504.5 232 Q 512.5 232 512.5 224 L 512.5 174" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="observability" data-edge-label="logs + traces" data-edge-key="3" data-edge-id="telemetry" data-composition-points="447,290;447,232;512.5,232;512.5,174" data-composition-crossover="halo" data-composition-independent="true" d="M 447 290 L 447 240 Q 447 232 455 232 L 504.5 232 Q 512.5 232 512.5 224 L 512.5 174" class="a-dashed" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:4">
+          <path data-graph-role="automatic-crossover-underlay" d="M 433 362 L 433 408 Q 433 416 425 416 L 380.5 416 Q 372.5 416 372.5 424 L 372.5 470" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="tool" data-edge-label="fetch notes" data-edge-key="4" data-edge-id="fetch" data-composition-points="433,362;433,416;372.5,416;372.5,470" data-composition-crossover="halo" data-composition-independent="true" d="M 433 362 L 433 408 Q 433 416 425 416 L 380.5 416 Q 372.5 416 372.5 424 L 372.5 470" class="a-default" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:5">
+          <path data-graph-role="automatic-crossover-underlay" d="M 447 362 L 447 408 Q 447 416 455 416 L 524.5 416 Q 532.5 416 532.5 424 L 532.5 470" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="state" data-edge-label="check / store" data-edge-key="5" data-edge-id="state-io" data-composition-points="447,362;447,416;532.5,416;532.5,470" data-composition-crossover="halo" data-composition-independent="true" d="M 447 362 L 447 408 Q 447 416 455 416 L 524.5 416 Q 532.5 416 532.5 424 L 532.5 470" class="a-default" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:6">
+          <path data-graph-role="automatic-crossover-underlay" d="M 300 493.95 L 160 493.95" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="tool" data-edge-to="notes" data-edge-label="GET notes (retry)" data-edge-key="6" data-edge-id="notes-get" data-composition-points="300,493.95;160,493.95" data-composition-crossover="halo" data-composition-independent="true" d="M 300 493.95 L 160 493.95" class="a-emphasis" stroke-width="1.8" marker-end="url(#order-notes-runtime-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:7">
+          <path data-graph-role="automatic-crossover-underlay" d="M 300 509 L 235.5 509 Q 227.5 509 227.5 517 L 227.5 674 Q 227.5 682 219.5 682 L 155 682" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="tool" data-edge-to="keycloak" data-edge-label="OAuth2 token" data-edge-key="7" data-edge-id="token" data-composition-points="300,509;227.5,509;227.5,682;155,682" data-composition-crossover="halo" data-composition-independent="true" d="M 300 509 L 235.5 509 Q 227.5 509 227.5 517 L 227.5 674 Q 227.5 682 219.5 682 L 155 682" class="a-security" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:8">
+          <path data-graph-role="automatic-crossover-underlay" d="M 580 326 L 752 326" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="entry" data-edge-to="agent" data-edge-label="enriched prompt when not cached" data-edge-key="8" data-edge-id="prompt" data-composition-points="580,326;752,326" data-composition-crossover="halo" data-composition-independent="true" d="M 580 326 L 752 326" class="a-emphasis" stroke-width="1.8" marker-end="url(#order-notes-runtime-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:9">
+          <path data-graph-role="automatic-crossover-underlay" d="M 898 326 L 1014 326" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="bedrock" data-edge-label="ConverseStream" data-edge-key="9" data-edge-id="llm" data-composition-points="898,326;1014,326" data-composition-crossover="halo" data-composition-independent="true" d="M 898 326 L 1014 326" class="a-emphasis" stroke-width="1.8" marker-end="url(#order-notes-runtime-arrowhead-emphasis)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:10">
+          <path data-graph-role="automatic-crossover-underlay" d="M 825 294 L 825 174" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="agent" data-edge-to="prompts" data-edge-label="GetPrompt" data-edge-key="10" data-edge-id="sysprompt" data-composition-points="825,294;825,174" data-composition-crossover="halo" data-composition-independent="true" d="M 825 294 L 825 174" class="a-dashed" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:11">
+          <path data-graph-role="automatic-crossover-underlay" d="M 898 495 L 1014 495" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="startup" data-edge-to="secrets" data-edge-label="GetSecretValue" data-edge-key="11" data-edge-id="creds" data-composition-points="898,495;1014,495" data-composition-crossover="halo" data-composition-independent="true" d="M 898 495 L 1014 495" class="a-security" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-security)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:12">
+          <path data-graph-role="automatic-crossover-underlay" d="M 898 509 L 948 509 Q 956 509 956 517 L 956 624 Q 956 632 964 632 L 1014 632" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="startup" data-edge-to="bundle" data-edge-label="feature flags" data-edge-key="12" data-edge-id="flags" data-composition-points="898,509;956,509;956,632;1014,632" data-composition-crossover="halo" data-composition-independent="true" d="M 898 509 L 948 509 Q 956 509 956 517 L 956 624 Q 956 632 964 632 L 1014 632" class="a-dashed" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead-dashed)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:13">
+          <path data-graph-role="automatic-crossover-underlay" d="M 825 650 L 825 534" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="s3" data-edge-to="startup" data-edge-label="direct_code_deploy" data-edge-key="13" data-edge-id="deploy" data-composition-points="825,650;825,534" data-composition-crossover="halo" data-composition-independent="true" d="M 825 650 L 825 534" class="a-default" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead)"/>
+        </g>
+        <g data-graph-role="automatic-crossover" style="--step:14">
+          <path data-graph-role="automatic-crossover-underlay" d="M 825 820 L 825 714" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="jenkins" data-edge-to="s3" data-edge-label="agentcore deploy" data-edge-key="14" data-edge-id="upload" data-composition-points="825,820;825,714" data-composition-crossover="halo" data-composition-independent="true" d="M 825 820 L 825 714" class="a-default" stroke-width="1.5" marker-end="url(#order-notes-runtime-arrowhead)"/>
+        </g>
+        <g id="order-notes-runtime-node-caller" data-node-id="caller" data-node-label="BFF / Caller" tabindex="0" role="button" aria-label="Focus BFF / Caller, NA, or Global via org_id, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="NA, or Global via org_id" data-node-context="Architecture component">
+          <title>BFF / Caller · NA, or Global via org_id · Architecture component</title>
+          <rect x="15" y="294" width="145" height="64" rx="6" class="c-mask"/>
+          <rect x="15" y="294" width="145" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(21 300) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="87.5" y="324" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">BFF / Caller</text>
+        <text data-detail="context" x="87.5" y="340" class="t-muted" font-size="9" text-anchor="middle">NA, or Global via org_id</text>
+        </g>
+        <g id="order-notes-runtime-node-entry" data-node-id="entry" data-node-label="AgentCore Entrypoint" tabindex="0" role="button" aria-label="Focus AgentCore Entrypoint, process_request · agent.py, AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM" aria-pressed="false" data-node-kind="backend" data-node-sublabel="process_request · agent.py" data-node-tag="orchestrator" data-node-context="AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM">
+          <title>AgentCore Entrypoint · process_request · agent.py · AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM · orchestrator</title>
+          <rect x="300" y="290" width="280" height="72" rx="6" class="c-mask"/>
+          <rect x="300" y="290" width="280" height="72" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(306 296) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="440" y="324" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AgentCore Entrypoint</text>
+        <text data-detail="context" x="440" y="340" class="t-muted" font-size="9" text-anchor="middle">process_request · agent.py</text>
+        <text data-detail="fine" x="440" y="354" class="t-backend" font-size="7" text-anchor="middle">orchestrator</text>
+        </g>
+        <g id="order-notes-runtime-node-guardrails" data-node-id="guardrails" data-node-label="Bedrock Guardrails" tabindex="0" role="button" aria-label="Focus Bedrock Guardrails, input PII masking, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="security" data-node-sublabel="input PII masking" data-node-tag="off in prod" data-node-context="AWS · us-west-2 (prod)">
+          <title>Bedrock Guardrails · input PII masking · AWS · us-west-2 (prod) · off in prod</title>
+          <rect x="305" y="110" width="130" height="64" rx="6" class="c-mask"/>
+          <rect x="305" y="110" width="130" height="64" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(311 116) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="370" y="140" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bedrock Guardrails</text>
+        <text data-detail="context" x="370" y="156" class="t-muted" font-size="9" text-anchor="middle">input PII masking</text>
+        <text data-detail="fine" x="370" y="166" class="t-security" font-size="7" text-anchor="middle">off in prod</text>
+        </g>
+        <g id="order-notes-runtime-node-observability" data-node-id="observability" data-node-label="CloudWatch + X-Ray" tabindex="0" role="button" aria-label="Focus CloudWatch + X-Ray, logs · audit · traces, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="logs · audit · traces" data-node-context="AWS · us-west-2 (prod)">
+          <title>CloudWatch + X-Ray · logs · audit · traces · AWS · us-west-2 (prod)</title>
+          <rect x="445" y="110" width="135" height="64" rx="6" class="c-mask"/>
+          <rect x="445" y="110" width="135" height="64" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(451 116) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="512.5" y="140" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">CloudWatch + X-Ray</text>
+        <text data-detail="context" x="512.5" y="156" class="t-muted" font-size="9" text-anchor="middle">logs · audit · traces</text>
+        </g>
+        <g id="order-notes-runtime-node-state" data-node-id="state" data-node-label="In-process Stores" tabindex="0" role="button" aria-label="Focus In-process Stores, cache · limit · provenance, AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM" aria-pressed="false" data-node-kind="database" data-node-sublabel="cache · limit · provenance" data-node-tag="per microVM" data-node-context="AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM">
+          <title>In-process Stores · cache · limit · provenance · AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM · per microVM</title>
+          <rect x="455" y="470" width="155" height="64" rx="6" class="c-mask"/>
+          <rect x="455" y="470" width="155" height="64" rx="6" class="c-database" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(461 476) scale(0.6875)">
+            <ellipse cx="8" cy="4" rx="5" ry="2"/>
+            <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="532.5" y="500" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">In-process Stores</text>
+        <text data-detail="context" x="532.5" y="516" class="t-muted" font-size="9" text-anchor="middle">cache · limit · provenance</text>
+        <text data-detail="fine" x="532.5" y="526" class="t-database" font-size="7" text-anchor="middle">per microVM</text>
+        </g>
+        <g id="order-notes-runtime-node-tool" data-node-id="tool" data-node-label="get_ranked_notes" tabindex="0" role="button" aria-label="Focus get_ranked_notes, filter · rank top-N, AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM" aria-pressed="false" data-node-kind="backend" data-node-sublabel="filter · rank top-N" data-node-context="AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM">
+          <title>get_ranked_notes · filter · rank top-N · AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM</title>
+          <rect x="300" y="470" width="145" height="64" rx="6" class="c-mask"/>
+          <rect x="300" y="470" width="145" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(306 476) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="372.5" y="500" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">get_ranked_notes</text>
+        <text data-detail="context" x="372.5" y="516" class="t-muted" font-size="9" text-anchor="middle">filter · rank top-N</text>
+        </g>
+        <g id="order-notes-runtime-node-notes" data-node-id="notes" data-node-label="Centralized Notes API" tabindex="0" role="button" aria-label="Focus Centralized Notes API, NA · Global by org_id, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="NA · Global by org_id" data-node-context="Architecture component">
+          <title>Centralized Notes API · NA · Global by org_id · Architecture component</title>
+          <rect x="5" y="470" width="155" height="64" rx="6" class="c-mask"/>
+          <rect x="5" y="470" width="155" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(11 476) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="82.5" y="500" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Centralized Notes API</text>
+        <text data-detail="context" x="82.5" y="516" class="t-muted" font-size="9" text-anchor="middle">NA · Global by org_id</text>
+        </g>
+        <g id="order-notes-runtime-node-keycloak" data-node-id="keycloak" data-node-label="Keycloak" tabindex="0" role="button" aria-label="Focus Keycloak, OAuth2 token endpoint, Architecture component" aria-pressed="false" data-node-kind="security" data-node-sublabel="OAuth2 token endpoint" data-node-context="Architecture component">
+          <title>Keycloak · OAuth2 token endpoint · Architecture component</title>
+          <rect x="10" y="650" width="145" height="64" rx="6" class="c-mask"/>
+          <rect x="10" y="650" width="145" height="64" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(16 656) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="82.5" y="680" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Keycloak</text>
+        <text data-detail="context" x="82.5" y="696" class="t-muted" font-size="9" text-anchor="middle">OAuth2 token endpoint</text>
+        </g>
+        <g id="order-notes-runtime-node-agent" data-node-id="agent" data-node-label="Strands Agent" tabindex="0" role="button" aria-label="Focus Strands Agent, per session · pure reasoning, AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM" aria-pressed="false" data-node-kind="backend" data-node-sublabel="per session · pure reasoning" data-node-context="AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM">
+          <title>Strands Agent · per session · pure reasoning · AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM</title>
+          <rect x="752" y="294" width="146" height="64" rx="6" class="c-mask"/>
+          <rect x="752" y="294" width="146" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(758 300) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="825" y="324" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Strands Agent</text>
+        <text data-detail="context" x="825" y="340" class="t-muted" font-size="9" text-anchor="middle">per session · pure reasoning</text>
+        </g>
+        <g id="order-notes-runtime-node-bedrock" data-node-id="bedrock" data-node-label="Bedrock · Claude" tabindex="0" role="button" aria-label="Focus Bedrock · Claude, us.anthropic.claude-sonnet-4-6, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="us.anthropic.claude-sonnet-4-6" data-node-tag="Sonnet 4.6" data-node-context="AWS · us-west-2 (prod)">
+          <title>Bedrock · Claude · us.anthropic.claude-sonnet-4-6 · AWS · us-west-2 (prod) · Sonnet 4.6</title>
+          <rect x="1014" y="290" width="170" height="72" rx="6" class="c-mask"/>
+          <rect x="1014" y="290" width="170" height="72" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(1020 296) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1099" y="324" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bedrock · Claude</text>
+        <text data-detail="context" x="1099" y="340" class="t-muted" font-size="9" text-anchor="middle">us.anthropic.claude-sonnet-4-6</text>
+        <text data-detail="fine" x="1099" y="354" class="t-cloud" font-size="7" text-anchor="middle">Sonnet 4.6</text>
+        </g>
+        <g id="order-notes-runtime-node-prompts" data-node-id="prompts" data-node-label="Bedrock Prompt Mgmt" tabindex="0" role="button" aria-label="Focus Bedrock Prompt Mgmt, core + locale prompts, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="core + locale prompts" data-node-context="AWS · us-west-2 (prod)">
+          <title>Bedrock Prompt Mgmt · core + locale prompts · AWS · us-west-2 (prod)</title>
+          <rect x="750" y="110" width="150" height="64" rx="6" class="c-mask"/>
+          <rect x="750" y="110" width="150" height="64" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(756 116) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="825" y="140" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Bedrock Prompt Mgmt</text>
+        <text data-detail="context" x="825" y="156" class="t-muted" font-size="9" text-anchor="middle">core + locale prompts</text>
+        </g>
+        <g id="order-notes-runtime-node-startup" data-node-id="startup" data-node-label="Startup Config" tabindex="0" role="button" aria-label="Focus Startup Config, import-time loader, AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM" aria-pressed="false" data-node-kind="backend" data-node-sublabel="import-time loader" data-node-context="AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM">
+          <title>Startup Config · import-time loader · AWS · us-west-2 (prod) › AgentCore Runtime · Python 3.13 microVM</title>
+          <rect x="752" y="470" width="146" height="64" rx="6" class="c-mask"/>
+          <rect x="752" y="470" width="146" height="64" rx="6" class="c-backend" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(758 476) scale(0.6875)">
+            <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="825" y="500" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Startup Config</text>
+        <text data-detail="context" x="825" y="516" class="t-muted" font-size="9" text-anchor="middle">import-time loader</text>
+        </g>
+        <g id="order-notes-runtime-node-secrets" data-node-id="secrets" data-node-label="Secrets Manager" tabindex="0" role="button" aria-label="Focus Secrets Manager, notes-api-oauth, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="security" data-node-sublabel="notes-api-oauth" data-node-context="AWS · us-west-2 (prod)">
+          <title>Secrets Manager · notes-api-oauth · AWS · us-west-2 (prod)</title>
+          <rect x="1014" y="470" width="164" height="64" rx="6" class="c-mask"/>
+          <rect x="1014" y="470" width="164" height="64" rx="6" class="c-security" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(1020 476) scale(0.6875)">
+            <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
+            <path d="m5.8 8 1.5 1.5 3-3"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1096" y="500" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Secrets Manager</text>
+        <text data-detail="context" x="1096" y="516" class="t-muted" font-size="9" text-anchor="middle">notes-api-oauth</text>
+        </g>
+        <g id="order-notes-runtime-node-bundle" data-node-id="bundle" data-node-label="AgentCore Config" tabindex="0" role="button" aria-label="Focus AgentCore Config, configuration bundle, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="configuration bundle" data-node-context="AWS · us-west-2 (prod)">
+          <title>AgentCore Config · configuration bundle · AWS · us-west-2 (prod)</title>
+          <rect x="1014" y="600" width="164" height="64" rx="6" class="c-mask"/>
+          <rect x="1014" y="600" width="164" height="64" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(1020 606) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="1096" y="630" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">AgentCore Config</text>
+        <text data-detail="context" x="1096" y="646" class="t-muted" font-size="9" text-anchor="middle">configuration bundle</text>
+        </g>
+        <g id="order-notes-runtime-node-s3" data-node-id="s3" data-node-label="S3 Deploy Bucket" tabindex="0" role="button" aria-label="Focus S3 Deploy Bucket, agentcore codebuild src, AWS · us-west-2 (prod)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="agentcore codebuild src" data-node-context="AWS · us-west-2 (prod)">
+          <title>S3 Deploy Bucket · agentcore codebuild src · AWS · us-west-2 (prod)</title>
+          <rect x="752" y="650" width="146" height="64" rx="6" class="c-mask"/>
+          <rect x="752" y="650" width="146" height="64" rx="6" class="c-cloud" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(758 656) scale(0.6875)">
+            <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="825" y="680" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">S3 Deploy Bucket</text>
+        <text data-detail="context" x="825" y="696" class="t-muted" font-size="9" text-anchor="middle">agentcore codebuild src</text>
+        </g>
+        <g id="order-notes-runtime-node-jenkins" data-node-id="jenkins" data-node-label="Jenkins Pipeline" tabindex="0" role="button" aria-label="Focus Jenkins Pipeline, agentCoreDeployment, Architecture component" aria-pressed="false" data-node-kind="external" data-node-sublabel="agentCoreDeployment" data-node-context="Architecture component">
+          <title>Jenkins Pipeline · agentCoreDeployment · Architecture component</title>
+          <rect x="752" y="820" width="146" height="64" rx="6" class="c-mask"/>
+          <rect x="752" y="820" width="146" height="64" rx="6" class="c-external" stroke-width="1.5"/>
+          <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(758 826) scale(0.6875)">
+            <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
+            <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
+          </g>
+          <text data-node-label="" data-detail-anchor="" x="825" y="850" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Jenkins Pipeline</text>
+        <text data-detail="context" x="825" y="866" class="t-muted" font-size="9" text-anchor="middle">agentCoreDeployment</text>
+        </g>
+        <g data-detail="context" data-edge-from="caller" data-edge-to="entry" data-edge-label="InvokeAgentRuntime" data-edge-key="0" data-edge-id="invoke">
+          <rect x="181.8" y="297.95" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="230" y="307.95" class="t-edge-emphasis" font-size="8" text-anchor="middle">InvokeAgentRuntime</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="caller" data-edge-label="streamed reply" data-edge-key="1" data-edge-id="reply">
+          <rect x="191.4" y="343" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="230" y="353" class="t-edge-dashed" font-size="8" text-anchor="middle">streamed reply</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="guardrails" data-edge-label="ApplyGuardrail if enabled" data-edge-key="2" data-edge-id="pii">
+          <rect x="297" y="254" width="130" height="14" rx="3" class="c-mask"/>
+          <text x="362" y="264" class="t-edge-security" font-size="8" text-anchor="middle">ApplyGuardrail if enabled</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="observability" data-edge-label="logs + traces" data-edge-key="3" data-edge-id="telemetry">
+          <rect x="443.55" y="212" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="479.75" y="222" class="t-edge-dashed" font-size="8" text-anchor="middle">logs + traces</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="tool" data-edge-label="fetch notes" data-edge-key="4" data-edge-id="fetch">
+          <rect x="371.35" y="396" width="62.8" height="14" rx="3" class="c-mask"/>
+          <text x="402.75" y="406" class="t-edge-default" font-size="8" text-anchor="middle">fetch notes</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="state" data-edge-label="check / store" data-edge-key="5" data-edge-id="state-io">
+          <rect x="453.55" y="396" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="489.75" y="406" class="t-edge-default" font-size="8" text-anchor="middle">check / store</text>
+        </g>
+        <g data-detail="context" data-edge-from="tool" data-edge-to="notes" data-edge-label="GET notes (retry)" data-edge-key="6" data-edge-id="notes-get">
+          <rect x="184.2" y="473.95" width="91.6" height="14" rx="3" class="c-mask"/>
+          <text x="230" y="483.95" class="t-edge-emphasis" font-size="8" text-anchor="middle">GET notes (retry)</text>
+        </g>
+        <g data-detail="context" data-edge-from="tool" data-edge-to="keycloak" data-edge-label="OAuth2 token" data-edge-key="7" data-edge-id="token">
+          <rect x="193.7" y="575.5" width="67.6" height="14" rx="3" class="c-mask"/>
+          <text x="227.5" y="585.5" class="t-edge-security" font-size="8" text-anchor="middle">OAuth2 token</text>
+        </g>
+        <g data-detail="context" data-edge-from="entry" data-edge-to="agent" data-edge-label="enriched prompt when not cached" data-edge-key="8" data-edge-id="prompt">
+          <rect x="605.8" y="306" width="120.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="666" y="316" class="t-edge-emphasis" font-size="8" text-anchor="middle">enriched prompt when not cached</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="bedrock" data-edge-label="ConverseStream" data-edge-key="9" data-edge-id="llm">
+          <rect x="917.4" y="306" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="956" y="316" class="t-edge-emphasis" font-size="8" text-anchor="middle">ConverseStream</text>
+        </g>
+        <g data-detail="context" data-edge-from="agent" data-edge-to="prompts" data-edge-label="GetPrompt" data-edge-key="10" data-edge-id="sysprompt">
+          <rect x="798.4" y="274" width="53.199999999999996" height="14" rx="3" class="c-mask"/>
+          <text x="825" y="284" class="t-edge-dashed" font-size="8" text-anchor="middle">GetPrompt</text>
+        </g>
+        <g data-detail="context" data-edge-from="startup" data-edge-to="secrets" data-edge-label="GetSecretValue" data-edge-key="11" data-edge-id="creds">
+          <rect x="917.4" y="475" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="956" y="485" class="t-edge-security" font-size="8" text-anchor="middle">GetSecretValue</text>
+        </g>
+        <g data-detail="context" data-edge-from="startup" data-edge-to="bundle" data-edge-label="feature flags" data-edge-key="12" data-edge-id="flags">
+          <rect x="919.8" y="550.5" width="72.4" height="14" rx="3" class="c-mask"/>
+          <text x="956" y="560.5" class="t-edge-dashed" font-size="8" text-anchor="middle">feature flags</text>
+        </g>
+        <g data-detail="context" data-edge-from="s3" data-edge-to="startup" data-edge-label="direct_code_deploy" data-edge-key="13" data-edge-id="deploy">
+          <rect x="776.8" y="630" width="96.39999999999999" height="14" rx="3" class="c-mask"/>
+          <text x="825" y="640" class="t-edge-default" font-size="8" text-anchor="middle">direct_code_deploy</text>
+        </g>
+        <g data-detail="context" data-edge-from="jenkins" data-edge-to="s3" data-edge-label="agentcore deploy" data-edge-key="14" data-edge-id="upload">
+          <rect x="781.6" y="800" width="86.8" height="14" rx="3" class="c-mask"/>
+          <text x="825" y="810" class="t-edge-default" font-size="8" text-anchor="middle">agentcore deploy</text>
+        </g>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="0" data-composition-frame-kind="region" data-composition-frame-label="AWS · us-west-2 (prod)">
+          <rect data-graph-role="structural-frame-label-mask" x="292" y="90" width="242.2" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="296" y="103" class="t-cloud" font-size="9" font-weight="600">AWS · us-west-2 (prod)</text>
+        </g>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="1" data-composition-frame-kind="security-group" data-composition-frame-label="AgentCore Runtime · Python 3.13 microVM">
+          <rect data-graph-role="structural-frame-label-mask" x="290" y="270" width="220.6" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="294" y="283" class="t-security" font-size="9" font-weight="600">AgentCore Runtime · Python 3.13 microVM</text>
+        </g>
+        <g data-legend="" data-legend-bridge="">
+          <text x="40" y="916" class="t-primary" font-size="12" font-weight="650">Legend</text>
+          <g data-legend-semantic-kind="backend" data-legend-kind="backend" data-legend-label="Backend" data-legend-x="40" data-legend-baseline="936" data-legend-width="78">
+            <rect x="40" y="927" width="16" height="10" rx="2.5" class="c-backend" stroke-width="1"/>
+            <text x="62" y="936" class="t-muted" font-size="10" font-weight="500">Backend</text>
+          </g>
+          <g data-legend-semantic-kind="database" data-legend-kind="database" data-legend-label="Database" data-legend-x="140" data-legend-baseline="936" data-legend-width="83">
+            <rect x="140" y="927" width="16" height="10" rx="2.5" class="c-database" stroke-width="1"/>
+            <text x="162" y="936" class="t-muted" font-size="10" font-weight="500">Database</text>
+          </g>
+          <g data-legend-semantic-kind="cloud" data-legend-kind="cloud" data-legend-label="Cloud" data-legend-x="245" data-legend-baseline="936" data-legend-width="68">
+            <rect x="245" y="927" width="16" height="10" rx="2.5" class="c-cloud" stroke-width="1"/>
+            <text x="267" y="936" class="t-muted" font-size="10" font-weight="500">Cloud</text>
+          </g>
+          <g data-legend-semantic-kind="security" data-legend-kind="security" data-legend-label="Security" data-legend-x="335" data-legend-baseline="936" data-legend-width="83">
+            <rect x="335" y="927" width="16" height="10" rx="2.5" class="c-security" stroke-width="1"/>
+            <text x="357" y="936" class="t-muted" font-size="10" font-weight="500">Security</text>
+          </g>
+          <g data-legend-semantic-kind="external" data-legend-kind="external" data-legend-label="External" data-legend-x="440" data-legend-baseline="936" data-legend-width="83">
+            <rect x="440" y="927" width="16" height="10" rx="2.5" class="c-external" stroke-width="1"/>
+            <text x="462" y="936" class="t-muted" font-size="10" font-weight="500">External</text>
+          </g>
+        </g>
+      </svg>
