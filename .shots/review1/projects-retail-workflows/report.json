@@ -1,0 +1,54 @@
+{
+  "route": "projects/retail-workflows",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": [
+    {
+      "id": "region",
+      "impact": "moderate",
+      "nodes": [
+        {
+          "target": [
+            "label"
+          ],
+          "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "target": [
+            "#question"
+          ],
+          "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        },
+        {
+          "target": [
+            ".composer-caption"
+          ],
+          "summary": "Fix any of the following:\n  Some page content is not contained by landmarks"
+        }
+      ]
+    }
+  ]
+}

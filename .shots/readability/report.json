@@ -1,0 +1,44 @@
+[
+  {
+    "name": "desktop",
+    "sizes": {
+      "body": "20px",
+      ".lead": "24px",
+      ".small": "16px",
+      ".project-index-label small": "16px",
+      ".scene-label": "16px",
+      "h1": "233.28px",
+      "h2": "95.04px"
+    },
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "name": "tablet",
+    "sizes": {
+      "body": "18px",
+      ".lead": "20px",
+      ".small": "16px",
+      ".project-index-label small": "16px",
+      ".scene-label": "16px",
+      "h1": "145.8px",
+      "h2": "59.4px"
+    },
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "name": "phone",
+    "sizes": {
+      "body": "18px",
+      ".lead": "20px",
+      ".small": "16px",
+      ".project-index-label small": "16px",
+      ".scene-label": "16px",
+      "h1": "71.76px",
+      "h2": "48px"
+    },
+    "errors": [],
+    "overflow": false
+  }
+]

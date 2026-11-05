@@ -1,0 +1,11 @@
+FAIL  /Portfolio/                   0 <h1> elements (want exactly 1)
+FAIL  /Portfolio/                   no <main> landmark
+WARN  /Portfolio/                   no canonical link
+WARN  /Portfolio/                   only 0 words of visible text (thin content)
+WARN  site                          404 page has no <h1> (design it: a way back, in the site voice)
+WARN  site                          no robots.txt
+WARN  site                          no sitemap
+
+1 pages crawled from http://127.0.0.1:4400/Portfolio/
+heaviest page /Portfolio/: ~155 KB | html 1 | JS 75 (gz) | CSS 9 (gz) | fonts 71 | images 0
+2 FAIL, 5 WARN

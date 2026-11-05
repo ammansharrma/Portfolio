@@ -1,0 +1,32 @@
+[
+  {
+    "name": "d",
+    "width": 1440,
+    "errors": [],
+    "axe": [],
+    "links": 8,
+    "opened": true,
+    "keyboardClosed": true,
+    "overflow": false
+  },
+  {
+    "name": "m",
+    "width": 390,
+    "errors": [],
+    "axe": [],
+    "links": 8,
+    "opened": true,
+    "keyboardClosed": true,
+    "overflow": false
+  },
+  {
+    "name": "r",
+    "width": 390,
+    "errors": [],
+    "axe": [],
+    "links": 8,
+    "opened": true,
+    "keyboardClosed": true,
+    "overflow": false
+  }
+]

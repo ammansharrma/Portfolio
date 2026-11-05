@@ -1,0 +1,140 @@
+{
+  "url": "http://127.0.0.1:4400/Portfolio/",
+  "errors": [],
+  "failed": [],
+  "desktop": {
+    "loadMs": 71,
+    "loaderMs": null,
+    "settledMs": 4891,
+    "vitals": {
+      "lcpMs": 1532,
+      "lcpElement": "i",
+      "cls": 0
+    },
+    "height": 10550,
+    "overflowX": false,
+    "offenders": [],
+    "h1": [
+      "Agents that\nget things done"
+    ],
+    "smallTargets": [],
+    "glHidden": [],
+    "title": "Aamaan Sharrma · Agentic AI engineer and forward deployed engineer",
+    "glOn": false,
+    "scrollFps": {
+      "fps": 60,
+      "worstFrameMs": 17
+    },
+    "nav": {
+      "href": "/Portfolio/work/order-notes-summarizer",
+      "scrollYAfter": 0,
+      "title": "Order notes summarizer · Aamaan Sharrma"
+    },
+    "idleMotion": false,
+    "idleAt": null
+  },
+  "mobile": {
+    "throttled": false,
+    "loadMs": 57,
+    "loaderMs": null,
+    "settledMs": 4506,
+    "vitals": {
+      "lcpMs": 176,
+      "lcpElement": "p.lead",
+      "cls": 0
+    },
+    "height": 10989,
+    "overflowX": false,
+    "offenders": [],
+    "h1": [
+      "Agents that\nget things done"
+    ],
+    "smallTargets": [],
+    "glHidden": [],
+    "title": "Aamaan Sharrma · Agentic AI engineer and forward deployed engineer",
+    "glOn": false,
+    "scrollFps": {
+      "fps": 60,
+      "worstFrameMs": 17
+    }
+  },
+  "files": [
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-00-firstpaint.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-01-hero.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-02-scroll.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-03-scroll.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-90-transition-a.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-90-transition-b.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-90-transition-c.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-91-after-nav.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\d-92-back.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\k-01-focus.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\k-02-focus.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\k-03-focus.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\k-04-focus.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\h-01-rest.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\h-01-hover.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\h-02-rest.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\h-02-hover.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\m-01-hero.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\m-02-scroll.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\m-03-scroll.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\r-01-hero.png",
+    "C:\\Users\\ASUS\\Desktop\\Personal\\projects\\Personal Portfolio\\Portfolio\\.shots\\journey-skill-final\\r-02-mid.png"
+  ],
+  "notes": [
+    "desktop FPS runs headless on a software GPU: treat it as a floor, not a measurement of real hardware",
+    "loadMs: ms from navigation to the load event, null if it had not fired after 30 s (desktop) or 60 s (phone); a heavy page takes long, while visitors see content at vitals.lcpMs. loaderMs: ms until the #loader ended, null when the page has none",
+    "settledMs: ms from navigation by which the first screen stopped changing, never before the fixed wait. null: still changing at the cap, either a long intro or continuous motion (a live shader, video); d-01-hero / m-01-hero tell which. reduced.moving: the screen was still changing 1.5 s after load with reduced motion on"
+  ],
+  "keyboard": {
+    "stops": [
+      "a \"Skip to content\"",
+      "a \"Aamaan Sharrma\"",
+      "a \"Work\"",
+      "a \"Method\""
+    ],
+    "skipLinkFirst": true,
+    "noVisibleFocus": [],
+    "invisibleFocus": [],
+    "stuck": false
+  },
+  "hover": {
+    "targets": [
+      {
+        "shot": "h-01",
+        "label": "button \"Copy email\"",
+        "interactive": true,
+        "primary": true,
+        "react": "none",
+        "changed": []
+      },
+      {
+        "shot": "h-02",
+        "label": "a \"View selected work\"",
+        "interactive": true,
+        "primary": true,
+        "react": "moves",
+        "changed": [
+          "textDecorationColor",
+          "transform"
+        ]
+      }
+    ],
+    "noHoverChange": [
+      "h-01 button \"Copy email\""
+    ],
+    "colorOnly": [],
+    "covered": [],
+    "cursorFollower": false
+  },
+  "reduced": {
+    "hiddenText": 0,
+    "moving": false
+  },
+  "a11y": {
+    "violations": [],
+    "serious": 0,
+    "contrastNeedsReview": 0
+  }
+}

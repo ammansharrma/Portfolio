@@ -1,0 +1,29 @@
+{
+  "route": "projects/retail-workflows",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Retail & Operations Workflows"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

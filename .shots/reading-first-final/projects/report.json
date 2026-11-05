@@ -1,0 +1,29 @@
+{
+  "route": "projects",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Things I’ve built."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Things I’ve built."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Things I’ve built."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

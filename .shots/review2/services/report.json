@@ -1,0 +1,29 @@
+{
+  "route": "services",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Your idea. Let’s build it."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Your idea. Let’s build it."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Your idea. Let’s build it."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

@@ -1,0 +1,29 @@
+{
+  "route": "",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "What would you like to build?"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "What would you like to build?"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "What would you like to build?"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

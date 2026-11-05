@@ -1,0 +1,225 @@
+[
+  {
+    "name": "d",
+    "errors": [],
+    "frames": [
+      {
+        "selector": "#hero",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": "#work",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(1)",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(3)",
+        "overflow": false,
+        "active": "2",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(5)",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#more-work",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": ".method-scene:nth-child(2)",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#about",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#contact",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      }
+    ],
+    "chapters": [
+      {
+        "expected": 4,
+        "actual": "4"
+      },
+      {
+        "expected": 3,
+        "actual": "3"
+      },
+      {
+        "expected": 2,
+        "actual": "2"
+      },
+      {
+        "expected": 1,
+        "actual": "1"
+      },
+      {
+        "expected": 0,
+        "actual": "0"
+      }
+    ],
+    "detailsKeyboard": true,
+    "axe": [],
+    "openOverflow": false,
+    "hiddenCopy": 0,
+    "caseHeading": "Order notes summarizer",
+    "experienceNav": {
+      "open": true,
+      "top": 89.75
+    },
+    "notFound": "Let’s head back"
+  },
+  {
+    "name": "m",
+    "errors": [],
+    "frames": [
+      {
+        "selector": "#hero",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": "#work",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(1)",
+        "overflow": false,
+        "active": "0",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(3)",
+        "overflow": false,
+        "active": "2",
+        "dot": "1"
+      },
+      {
+        "selector": ".agent-scene:nth-child(5)",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#more-work",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": ".method-scene:nth-child(2)",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#about",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      },
+      {
+        "selector": "#contact",
+        "overflow": false,
+        "active": "4",
+        "dot": "1"
+      }
+    ],
+    "chapters": [
+      {
+        "expected": 4,
+        "actual": "4"
+      },
+      {
+        "expected": 3,
+        "actual": "3"
+      },
+      {
+        "expected": 2,
+        "actual": "2"
+      },
+      {
+        "expected": 1,
+        "actual": "1"
+      },
+      {
+        "expected": 0,
+        "actual": "0"
+      }
+    ],
+    "detailsKeyboard": true,
+    "axe": [],
+    "openOverflow": false,
+    "hiddenCopy": 0,
+    "caseHeading": "Order notes summarizer",
+    "experienceNav": {
+      "open": true,
+      "top": 90.25
+    }
+  },
+  {
+    "name": "r",
+    "errors": [],
+    "frames": [
+      {
+        "selector": "#hero",
+        "overflow": false,
+        "active": "0",
+        "dot": "0"
+      },
+      {
+        "selector": "#ensemble",
+        "overflow": false,
+        "active": "0",
+        "dot": "0"
+      },
+      {
+        "selector": "#about",
+        "overflow": false,
+        "active": "0",
+        "dot": "0"
+      },
+      {
+        "selector": "#contact",
+        "overflow": false,
+        "active": "0",
+        "dot": "0"
+      }
+    ],
+    "chapters": [],
+    "detailsKeyboard": true,
+    "axe": [],
+    "openOverflow": false,
+    "hiddenCopy": 0,
+    "caseHeading": "Order notes summarizer",
+    "experienceNav": {
+      "open": true,
+      "top": 90.3125
+    }
+  }
+]

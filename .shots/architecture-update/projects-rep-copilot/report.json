@@ -1,0 +1,29 @@
+{
+  "route": "projects/rep-copilot",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "CSR Copilot & Claims Analysis"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "CSR Copilot & Claims Analysis"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "CSR Copilot & Claims Analysis"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

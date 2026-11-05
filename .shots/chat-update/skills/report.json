@@ -1,0 +1,29 @@
+{
+  "route": "skills",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "The tools behind the work."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "The tools behind the work."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "The tools behind the work."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

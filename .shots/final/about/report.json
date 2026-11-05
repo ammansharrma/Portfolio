@@ -1,0 +1,29 @@
+{
+  "route": "about",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Engineer. Builder. Curious by default."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Engineer. Builder. Curious by default."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Engineer. Builder. Curious by default."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

@@ -1,0 +1,4 @@
+
+13 pages crawled from http://127.0.0.1:4400/Portfolio/
+heaviest page /Portfolio/projects/vidhaan-ai: ~83 KB | html 3 | JS 45 (gz) | CSS 5 (gz) | fonts 0 | images 30
+0 FAIL, 0 WARN

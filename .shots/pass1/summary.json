@@ -1,0 +1,41 @@
+[
+  {
+    "page": "home",
+    "url": "http://127.0.0.1:4400/Portfolio/",
+    "errors": 0,
+    "overflow": false,
+    "smallTargets": 0,
+    "hiddenTextReduced": 0,
+    "movingReduced": false,
+    "heroSettledMs": 2438,
+    "mobileLcpMs": 932,
+    "mobileCls": 0,
+    "desktopFps": 60,
+    "mobileFps": 60,
+    "axeSerious": 1,
+    "axeViolations": [
+      "color-contrast x2"
+    ],
+    "skipLinkFirst": true,
+    "noVisibleFocus": 0,
+    "invisibleFocus": 0,
+    "noHoverChange": 0,
+    "colorOnly": 2,
+    "idleMotion": false
+  },
+  {
+    "page": "Portfolio",
+    "url": "http://127.0.0.1:4400/Portfolio",
+    "shootFailed": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4400/Portfolio"
+  },
+  {
+    "page": "Portfolio-item",
+    "url": "http://127.0.0.1:4400/Portfolio/projects",
+    "shootFailed": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4400/Portfolio/projects"
+  },
+  {
+    "page": "404",
+    "url": "http://127.0.0.1:4400/__shoot-missing-page-1792839709005",
+    "shootFailed": "page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:4400/__shoot-missing-page-1792839709005"
+  }
+]

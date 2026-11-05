@@ -1,0 +1,29 @@
+{
+  "route": "not-found",
+  "status": 404,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "That conversation isn’t here."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "That conversation isn’t here."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "That conversation isn’t here."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

@@ -1,0 +1,29 @@
+{
+  "route": "projects/vidhaan-ai",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "VidhaanAI"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "VidhaanAI"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "VidhaanAI"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

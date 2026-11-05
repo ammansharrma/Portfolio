@@ -1,0 +1,29 @@
+{
+  "route": "projects/multi-agent-rca",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "Multi-agent RCA System"
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "Multi-agent RCA System"
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "Multi-agent RCA System"
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

@@ -95,8 +95,8 @@ function TimeSaved({ t }) {
   const lowPct = pct([t.agentHigh, t.handLow]), highPct = pct([t.agentLow, t.handHigh]), midPct = pct([(t.agentLow + t.agentHigh) / 2, (t.handLow + t.handHigh) / 2]);
   return (
     <section className="ts" data-theme="ink" aria-labelledby="ts-h" ref={ref}>
-      <h2 id="ts-h" className="rise">Time to a client-ready deck</h2>
-      <p className="lead rise">The agent builds the deck in about {t.buildMin} minutes. The rest is the designer reviewing and adjusting it. Pick a scenario to see how the saving moves.</p>
+      <span className="section-stop" data-travel aria-hidden="true" /><h2 id="ts-h" className="rise">Time to a client-ready deck</h2>
+      <p className="lead rise">The reported workflow allocates about {t.buildMin} minutes to generating the deck. The rest is the designer reviewing and adjusting it. Pick a scenario to see how the saving moves.</p>
       <div className="ts-ctl" role="group" aria-label="Scenario">
         {modes.map(([k, label]) => <button key={k} type="button" aria-pressed={m === k} onClick={() => setM(k)}>{label}</button>)}
       </div>
@@ -110,7 +110,7 @@ function TimeSaved({ t }) {
         </div>
         <p className="ts-big" aria-live="polite"><span className="num">{pct([agent, hand])}</span>%<small>less time, {fmt(hand)} down to {fmt(agent)}</small></p>
       </div>
-      <p className="small ts-note">Across the range that is {lowPct}% to {highPct}% less time, and about {midPct}% overall at the midpoints.</p>
+      <p className="small ts-note">In development; the timing figures are not documented as a production benchmark. Across the reported range that is {lowPct}% to {highPct}% less time, and about {midPct}% overall at the midpoints.</p>
     </section>
   );
 }
@@ -128,11 +128,6 @@ function CaseBody({ c, nx }) {
     }
   }, [c]);
 
-  /* The next-case flood grows from wherever the pointer is. */
-  const onMove = e => {
-    const el = e.currentTarget, r = el.getBoundingClientRect();
-    el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  };
   const [svgs, setSvgs] = useState(null);
   useEffect(() => { if (c.diagrams) import('../data/diagrams').then(m => setSvgs(m.SVGS)); }, [c]);
   const figure = FIGURES[c.slug];
@@ -149,16 +144,16 @@ function CaseBody({ c, nx }) {
         </dl>
       </section>
 
-      <section className="case-fig" data-theme="amber" aria-label="The number that matters">
+      <section className="case-fig" data-theme="amber" aria-label="The number that matters"><span className="section-stop" data-travel aria-hidden="true" />
         <p className="fig" aria-label={c.fig.n + (c.fig.u === '%' ? ' percent' : '')}><span ref={figN}>{c.fig.n}</span>{c.fig.u ? <sup aria-hidden="true">{c.fig.u}</sup> : null}</p>
         <p className="cap rise">{c.fig.cap}</p>
       </section>
 
       <div data-theme="paper">
         <section className="case-body" aria-labelledby="c-h-problem">
-          <h2 id="c-h-problem" className="rise">The challenge</h2>
+          <span className="section-stop" data-travel aria-hidden="true" /><h2 id="c-h-problem" className="rise">The challenge</h2>
           <div className="txt rise"><p>{c.problem}</p></div>
-          <h2 className="rise">What I did</h2>
+          <h2 className="rise">What I owned</h2>
           <div className="txt rise">
             <ol>{c.approach.map(a => <li key={a}>{a}</li>)}</ol>
             <ul className="stackrow" aria-label="Stack">{c.stack.map(s => <li key={s}>{s}</li>)}</ul>
@@ -169,8 +164,9 @@ function CaseBody({ c, nx }) {
               <div className="txt rise"><ol>{c.decisions.map(a => <li key={a}>{a}</li>)}</ol></div>
             </>
           )}
-          <h2 className="rise">Why it works that way</h2>
+          <h2 className="rise">The trade-off</h2>
           <div className="txt rise"><p>{WHY[c.slug]}</p></div>
+          {c.evidence && <><h2 className="rise">Evidence & limitations</h2><div className="txt rise"><p>{c.evidence}</p></div></>}
         </section>
         <div className="outs rise">{c.out.map(o => <div key={o[1]}><b>{o[0]}</b><span>{o[1]}</span></div>)}</div>
         {hasMedia && (
@@ -184,14 +180,14 @@ function CaseBody({ c, nx }) {
 
       {c.diagrams && (
         <section className="arch-sec" data-theme="ink" aria-labelledby="arch-h">
-          <h2 id="arch-h" className="rise">{c.archTitle || 'Architecture'}</h2>
+          <span className="section-stop" data-travel aria-hidden="true" /><h2 id="arch-h" className="rise">{c.archTitle || 'Architecture'}</h2>
           <p className="lead rise">Hover or focus a component to trace everything it talks to.</p>
           {svgs && c.diagrams.map(d => <Arch key={d.key} d={d} svg={svgs[d.key]} />)}
         </section>
       )}
 
-      <TLink className="next" to={`/work/${nx.slug}`} label={nx.title} data-cursor="Next" data-theme="ink" onPointerMove={onMove}>
-        <small>Next case</small><h2>{nx.title}</h2>
+      <TLink className="next" to={`/work/${nx.slug}`} label={nx.title} data-theme="ink">
+        <span className="section-stop" data-travel aria-hidden="true" /><small>Next case</small><h2>{nx.title}</h2>
       </TLink>
 
       <Footer right={<TLink className="ulink" to="/" go="contact" label="Contact">Let’s talk</TLink>} />

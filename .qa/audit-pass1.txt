@@ -1,0 +1,54 @@
+FAIL  site                          a missing URL returned HTTP 403, not 404
+FAIL  site                          og:image https://ammansharrma.github.io/Portfolio/og.png does not load (create a 1200x630 image)
+WARN  /Portfolio/                   target=_blank without rel=noopener
+WARN  /Portfolio/                   target=_blank without rel=noopener
+WARN  /Portfolio/                   target=_blank without rel=noopener
+WARN  /Portfolio                    target=_blank without rel=noopener
+WARN  /Portfolio                    target=_blank without rel=noopener
+WARN  /Portfolio                    target=_blank without rel=noopener
+WARN  /Portfolio/projects           target=_blank without rel=noopener
+WARN  /Portfolio/projects           target=_blank without rel=noopener
+WARN  /Portfolio/projects           target=_blank without rel=noopener
+WARN  /Portfolio/experience         target=_blank without rel=noopener
+WARN  /Portfolio/experience         target=_blank without rel=noopener
+WARN  /Portfolio/experience         target=_blank without rel=noopener
+WARN  /Portfolio/experience         target=_blank without rel=noopener
+WARN  /Portfolio/experience         2 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /Portfolio/skills             target=_blank without rel=noopener
+WARN  /Portfolio/skills             target=_blank without rel=noopener
+WARN  /Portfolio/skills             target=_blank without rel=noopener
+WARN  /Portfolio/education          target=_blank without rel=noopener
+WARN  /Portfolio/education          target=_blank without rel=noopener
+WARN  /Portfolio/education          target=_blank without rel=noopener
+WARN  /Portfolio/education          1 em/en dash(es) in visible text (read as AI tell; rewrite)
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/services           target=_blank without rel=noopener
+WARN  /Portfolio/about              target=_blank without rel=noopener
+WARN  /Portfolio/about              target=_blank without rel=noopener
+WARN  /Portfolio/about              target=_blank without rel=noopener
+WARN  /Portfolio/projects/vidhaan-ai  target=_blank without rel=noopener
+WARN  /Portfolio/projects/vidhaan-ai  target=_blank without rel=noopener
+WARN  /Portfolio/projects/vidhaan-ai  target=_blank without rel=noopener
+WARN  /Portfolio/projects/order-notes-agent  target=_blank without rel=noopener
+WARN  /Portfolio/projects/order-notes-agent  target=_blank without rel=noopener
+WARN  /Portfolio/projects/order-notes-agent  target=_blank without rel=noopener
+WARN  /Portfolio/projects/rep-copilot  target=_blank without rel=noopener
+WARN  /Portfolio/projects/rep-copilot  target=_blank without rel=noopener
+WARN  /Portfolio/projects/rep-copilot  target=_blank without rel=noopener
+WARN  /Portfolio/projects/multi-agent-rca  target=_blank without rel=noopener
+WARN  /Portfolio/projects/multi-agent-rca  target=_blank without rel=noopener
+WARN  /Portfolio/projects/multi-agent-rca  target=_blank without rel=noopener
+WARN  /Portfolio/projects/retail-workflows  target=_blank without rel=noopener
+WARN  /Portfolio/projects/retail-workflows  target=_blank without rel=noopener
+WARN  /Portfolio/projects/retail-workflows  target=_blank without rel=noopener
+WARN  site                          no robots.txt
+WARN  site                          no sitemap
+WARN  /Portfolio/projects/vidhaan-ai  image 959 KB: /Portfolio/Mockups/vidhaanai/1.png (compress, AVIF/WebP, smaller variant)
+
+13 pages crawled from http://127.0.0.1:4400/Portfolio/
+heaviest page /Portfolio/projects/vidhaan-ai: ~1012 KB | html 3 | JS 45 (gz) | CSS 5 (gz) | fonts 0 | images 959
+2 FAIL, 48 WARN

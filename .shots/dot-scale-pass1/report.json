@@ -1,0 +1,110 @@
+[
+  {
+    "name": "d",
+    "errors": [],
+    "stops": [
+      {
+        "selector": ".project-stop",
+        "size": 24.001384735107422,
+        "visible": true,
+        "left": 39.43035125732422,
+        "right": 63.43173599243164,
+        "distance": 0.2469986213955243,
+        "overflow": false
+      },
+      {
+        "selector": "#about .journey-dock",
+        "size": 29.998306274414062,
+        "visible": true,
+        "left": 151.35679626464844,
+        "right": 181.3551025390625,
+        "distance": 0.030967268807861045,
+        "overflow": false
+      },
+      {
+        "selector": ".tool-row .journey-dock",
+        "size": 10.005020141601562,
+        "visible": true,
+        "left": 161.3724822998047,
+        "right": 171.37750244140625,
+        "distance": 0.00012230849870209807,
+        "overflow": false
+      },
+      {
+        "selector": ".contact-stop",
+        "size": 27.995975494384766,
+        "visible": true,
+        "left": 37.21523666381836,
+        "right": 65.21121215820312,
+        "distance": 0.02769274120114119,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "name": "m",
+    "errors": [],
+    "stops": [
+      {
+        "selector": ".project-stop",
+        "size": 9.999832153320312,
+        "visible": true,
+        "left": 3.086463451385498,
+        "right": 13.08629560470581,
+        "distance": 15.913691820338459,
+        "overflow": false
+      },
+      {
+        "selector": "#about .journey-dock",
+        "size": 19.99776840209961,
+        "visible": true,
+        "left": 13.997554779052734,
+        "right": 33.995323181152344,
+        "distance": 0.015475698950540464,
+        "overflow": false
+      },
+      {
+        "selector": ".tool-row .journey-dock",
+        "size": 7.502811431884766,
+        "visible": true,
+        "left": 20.248594284057617,
+        "right": 27.751405715942383,
+        "distance": 0.00006103515625,
+        "overflow": false
+      },
+      {
+        "selector": ".contact-stop",
+        "size": 19.996858596801758,
+        "visible": true,
+        "left": 14.001569747924805,
+        "right": 33.99842834472656,
+        "distance": 0.0016021731353941166,
+        "overflow": false
+      }
+    ]
+  },
+  {
+    "name": "r",
+    "errors": [],
+    "stops": [
+      {
+        "selector": "#about .journey-dock",
+        "size": 0,
+        "visible": false,
+        "left": 0,
+        "right": 0,
+        "distance": 506.9590368934068,
+        "overflow": false
+      },
+      {
+        "selector": ".contact-stop",
+        "size": 0,
+        "visible": false,
+        "left": 0,
+        "right": 0,
+        "distance": 500.37277729685263,
+        "overflow": false
+      }
+    ]
+  }
+]

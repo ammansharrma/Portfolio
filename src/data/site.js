@@ -3,6 +3,7 @@
 export const CASES = [
   {
     slug: 'order-notes-summarizer',
+    evidence: 'Average generation time fell from about 35 seconds to 20 seconds, with the agent running in two production regions. The diagrams explain the architecture rather than reproduce client screens. Sample size, measurement window and time-to-first-token data are not included in this case study.',
     title: 'Order notes summarizer',
     org: 'Mindstix · US luxury furniture brand',
     year: '2025',
@@ -26,18 +27,19 @@ export const CASES = [
   },
   {
     slug: 'presentation-agent',
+    evidence: 'This system is in development. The reported workflow timings are 14–16 hours manually and 1–2 hours with agent assistance, including designer review. Their validation context is not documented here, so the comparison should not be read as a verified production benchmark. The architecture diagrams illustrate the planned workflow.',
     title: 'Presentation agent',
     org: 'Mindstix · US luxury furniture brand',
     year: '2026',
     role: 'Engineer: technical design, architecture and build',
-    kind: 'Agentic workflow',
+    kind: 'Agentic workflow · In development',
     lede: 'A designer spends a long day building each client presentation by hand in InDesign. I designed an agent that turns a project ID into a finished, brand-compliant deck, and I am building it.',
     stack: ['Python', 'AWS Bedrock AgentCore', 'Strands Agents', 'Amazon Bedrock', 'Amazon S3', 'AWS Secrets Manager', 'Adobe InDesign (IDML)', 'Salesforce'],
     timeSaved: { handLow: 14, handHigh: 16, agentLow: 1, agentHigh: 2, buildMin: 10 },
     diagrams: [
       { key: 'presentation-agent', title: 'From a project ID to a deck', caption: 'The agent pipeline: fetch and prepare the project, validate it, plan the pages, assemble and fill them, validate the output and publish to S3.', hero: ['run_agent'] }
     ],
-    fig: { n: '90', u: '%', cap: 'Less time to a professional client presentation: about 14 to 16 hours by hand, 1 to 2 hours with the agent.' },
+    fig: { n: '90', u: '%', cap: 'Reduction implied by the reported workflow timings: 14–16 hours by hand and 1–2 hours with the agent. In development; not a documented production benchmark.' },
     problem: 'A designer needs about 14 to 16 hours to build one professional client presentation by hand in Adobe InDesign, from the brand’s templates. Every room gets its own section, with product images, labels and dimensions taken from Salesforce, and a large project runs to 100+ pages. It is detailed, repetitive work, and the brand rules call for precision.',
     approach: [
       'The entrypoint takes a project ID and loads its settings from an AgentCore Config Bundle. It waits until the configuration is ready, rather than guessing.',
@@ -85,6 +87,7 @@ export const CASES = [
   },
   {
     slug: 'rca-multi-agent-system',
+    evidence: 'The demonstrated output is a root-cause document assembled by five agents and saved to S3. The example on the homepage is illustrative. This case study does not claim a measured reduction in incident resolution time.',
     title: 'RCA multi-agent system',
     org: 'Mindstix',
     year: '2025',

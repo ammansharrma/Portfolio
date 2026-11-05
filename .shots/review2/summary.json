@@ -1,0 +1,390 @@
+{
+  "results": [
+    {
+      "route": "",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "What would you like to build?"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "What would you like to build?"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "What would you like to build?"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Things I’ve built."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Things I’ve built."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Things I’ve built."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "experience",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Experience, in practice."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Experience, in practice."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Experience, in practice."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "skills",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "The tools behind the work."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "The tools behind the work."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "The tools behind the work."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "education",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "A foundation in engineering."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "A foundation in engineering."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "A foundation in engineering."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "about",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Engineer. Builder. Curious by default."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Engineer. Builder. Curious by default."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Engineer. Builder. Curious by default."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "services",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Your idea. Let’s build it."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Your idea. Let’s build it."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Your idea. Let’s build it."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects/vidhaan-ai",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "VidhaanAI"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "VidhaanAI"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "VidhaanAI"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects/order-notes-agent",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "AI Order Notes Agent"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "AI Order Notes Agent"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "AI Order Notes Agent"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects/rep-copilot",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "CSR Copilot & Claims Analysis"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "CSR Copilot & Claims Analysis"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "CSR Copilot & Claims Analysis"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects/multi-agent-rca",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Multi-agent RCA System"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Multi-agent RCA System"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Multi-agent RCA System"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "projects/retail-workflows",
+      "status": 200,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "Retail & Operations Workflows"
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "Retail & Operations Workflows"
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "Retail & Operations Workflows"
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    },
+    {
+      "route": "not-found",
+      "status": 404,
+      "errors": [],
+      "views": {
+        "d": {
+          "overflow": false,
+          "h1": [
+            "That conversation isn’t here."
+          ],
+          "brokenImages": []
+        },
+        "m": {
+          "overflow": false,
+          "h1": [
+            "That conversation isn’t here."
+          ],
+          "brokenImages": []
+        },
+        "r": {
+          "overflow": false,
+          "h1": [
+            "That conversation isn’t here."
+          ],
+          "brokenImages": []
+        }
+      },
+      "a11y": []
+    }
+  ],
+  "checks": {
+    "mobileMenu": true,
+    "focusRestoration": true,
+    "guideKnown": true,
+    "guideFallback": true,
+    "projectFilters": true,
+    "sidebarToggle": true,
+    "resume": true
+  }
+}

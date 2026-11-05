@@ -1,0 +1,29 @@
+{
+  "route": "",
+  "status": 200,
+  "errors": [],
+  "views": {
+    "d": {
+      "overflow": false,
+      "h1": [
+        "I build production AI agents and full-stack systems."
+      ],
+      "brokenImages": []
+    },
+    "m": {
+      "overflow": false,
+      "h1": [
+        "I build production AI agents and full-stack systems."
+      ],
+      "brokenImages": []
+    },
+    "r": {
+      "overflow": false,
+      "h1": [
+        "I build production AI agents and full-stack systems."
+      ],
+      "brokenImages": []
+    }
+  },
+  "a11y": []
+}

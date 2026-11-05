@@ -1,0 +1,2 @@
+import { launch } from 'file:///C:/Users/ASUS/.codex/skills/awwwards/scripts/browser.mjs';
+const b=await launch();const p=await b.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});await p.goto('http://127.0.0.1:4400/Portfolio/projects/presentation-agent');await p.locator('.architecture-figure').screenshot({path:'.shots/architecture-update/presentation-diagram.png'});await b.close();

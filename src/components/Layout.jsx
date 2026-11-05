@@ -1,8 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import {
-  gsap, ScrollTrigger, S, root, reduce, fine, $$, initScroll, getLenis, scrollToY, startDot,
-  enter, measureAnchor, hidePreview, useGsap
+  gsap, ScrollTrigger, S, root, reduce, $$, initScroll, getLenis, scrollToY, startDot,
+  enter, measureAnchor, useGsap
 } from '../motion/engine';
 
 const NavCtx = createContext(null);
@@ -61,26 +61,6 @@ function ScrollReset() {
   return null;
 }
 
-function Cursor() {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!fine || reduce) return undefined;
-    const cur = ref.current;
-    const qx = gsap.quickTo(cur, 'x', { duration: .45, ease: 'power3.out' }), qy = gsap.quickTo(cur, 'y', { duration: .45, ease: 'power3.out' });
-    const move = e => { cur.style.opacity = 1; qx(e.clientX); qy(e.clientY); };
-    const over = e => {
-      const t = e.target.closest && e.target.closest('[data-cursor]');
-      cur.classList.toggle('big', !!t); cur.firstChild.textContent = t ? t.dataset.cursor : '';
-    };
-    const leave = () => { cur.style.opacity = 0; };
-    addEventListener('pointermove', move, { passive: true });
-    document.addEventListener('pointerover', over);
-    document.addEventListener('pointerleave', leave);
-    return () => { removeEventListener('pointermove', move); document.removeEventListener('pointerover', over); document.removeEventListener('pointerleave', leave); };
-  }, []);
-  return <div className="cur" ref={ref} aria-hidden="true"><span /></div>;
-}
-
 const NAV = [['work', 'Work'], ['method', 'Method'], ['experience', 'Experience'], ['about', 'About']];
 
 export default function Layout() {
@@ -121,10 +101,15 @@ export default function Layout() {
     }
     if (busy.current) return;
     busy.current = true;
-    closeMenu(); hidePreview(true);
-    if (reduce) { navigate(to); busy.current = false; return; }
+    closeMenu(); S.focusTarget = null;
+    if (reduce) {
+      navigate(to);
+      requestAnimationFrame(() => { if (o.scrollTo) scrollToY(document.getElementById(o.scrollTo) || 0, true); });
+      busy.current = false; return;
+    }
     const veil = veilRef.current, label = labelRef.current, dotEl = dotRef.current;
-    const cx = o.x ?? innerWidth / 2, cy = o.y ?? innerHeight / 2;
+    const origin = dotEl.getBoundingClientRect();
+    const cx = origin.left + origin.width / 2, cy = origin.top + origin.height / 2;
     const R = Math.hypot(Math.max(cx, innerWidth - cx), Math.max(cy, innerHeight - cy)) + 60;
     label.textContent = o.label || '';
     gsap.set(veil, { visibility: 'visible', clipPath: `circle(0px at ${cx}px ${cy}px)` });
@@ -203,7 +188,7 @@ export default function Layout() {
         </div>
       )}
       <header className="bar" id="bar" ref={barRef}>
-        <TLink className="mark" to="/" label="Home"><i aria-hidden="true" />Aamaan Sharrma</TLink>
+        <TLink className="mark" to="/" label="Home">Aamaan Sharrma</TLink>
         <nav className="nav" aria-label="Primary">
           {NAV.map(([id, t]) => (
             <TLink key={id} to="/" go={id} label={t} aria-current={kind === 'case' && id === 'work' ? 'page' : undefined}>{t}</TLink>
@@ -221,7 +206,6 @@ export default function Layout() {
       </div>
       <div className="veil" ref={veilRef} aria-hidden="true"><p ref={labelRef} /></div>
       <div className="dot" id="dot" ref={dotRef} aria-hidden="true"><i /></div>
-      <Cursor />
       <main id="main" tabIndex={-1}>
         <div id="page" data-page={kind} key={path}>
           <ScrollReset />

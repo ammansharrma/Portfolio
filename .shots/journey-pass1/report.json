@@ -1,0 +1,185 @@
+{
+  "pages": [
+    {
+      "name": "d",
+      "errors": [],
+      "stops": [
+        {
+          "selector": "#about .journey-item:first-child",
+          "dockDistance": 2.444493932198089,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": "#about .about-statement:last-child",
+          "dockDistance": 0.004022717191512742,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".topic-list li:first-child",
+          "dockDistance": 0.9205935530752808,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".tool-row:first-child",
+          "dockDistance": 0.9131012044487062,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".xs .xc:first-child",
+          "dockDistance": 1.6422119185994177,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".xs .xc:last-child",
+          "dockDistance": 0.0027021415553196604,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".contact-stop",
+          "dockDistance": 1.7510456506700585,
+          "overflow": false,
+          "active": false,
+          "dotVisible": true
+        }
+      ],
+      "overflow": false,
+      "axe": [],
+      "hiddenText": 0,
+      "caseHeading": "Order notes summarizer",
+      "returnToContact": false
+    },
+    {
+      "name": "m",
+      "errors": [],
+      "stops": [
+        {
+          "selector": "#about .journey-item:first-child",
+          "dockDistance": 1.004902631899278,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": "#about .about-statement:last-child",
+          "dockDistance": 0.0016857606459001397,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".topic-list li:first-child",
+          "dockDistance": 0.00015263556689256713,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".tool-row:first-child",
+          "dockDistance": 0.000213623046875,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".xs .xc:first-child",
+          "dockDistance": 0.000701904296875,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".xs .xc:last-child",
+          "dockDistance": 0.000152587890625,
+          "overflow": false,
+          "active": true,
+          "dotVisible": true
+        },
+        {
+          "selector": ".contact-stop",
+          "dockDistance": 0.046539306640625,
+          "overflow": false,
+          "active": false,
+          "dotVisible": true
+        }
+      ],
+      "overflow": false,
+      "axe": [],
+      "hiddenText": 0,
+      "caseHeading": "Order notes summarizer",
+      "returnToContact": false
+    },
+    {
+      "name": "r",
+      "errors": [],
+      "stops": [
+        {
+          "selector": "#about .journey-item:first-child",
+          "dockDistance": 481.9885204420232,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": "#about .about-statement:last-child",
+          "dockDistance": 481.72322512517496,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": ".topic-list li:first-child",
+          "dockDistance": 481.66080275049376,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": ".tool-row:first-child",
+          "dockDistance": 481.73883072199055,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": ".xs .xc:first-child",
+          "dockDistance": 482.0197316796436,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": ".xs .xc:last-child",
+          "dockDistance": 481.9573092094264,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        },
+        {
+          "selector": ".contact-stop",
+          "dockDistance": 500.37277729685263,
+          "overflow": false,
+          "active": false,
+          "dotVisible": false
+        }
+      ],
+      "overflow": false,
+      "axe": [],
+      "hiddenText": 0,
+      "caseHeading": "Order notes summarizer",
+      "returnToContact": true
+    }
+  ],
+  "scope": "Production review of method through contact; existing hero and case page navigation smoke checked."
+}
